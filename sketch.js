@@ -1,4 +1,3 @@
-const { text } = require("d3");
 
 function setup() {
     createCanvas(400, 400);
