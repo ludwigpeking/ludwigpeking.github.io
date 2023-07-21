@@ -1,0 +1,113 @@
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background-color: #444;
+    color: #fff;
+    font-family: Arial, sans-serif;
+    overflow: hidden; /* prevent scrollbars */
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+h1 {
+    font-size: 80px;
+    line-height: 80px;
+    margin: 0;
+    color: rgb(170, 154, 168);
+
+}
+
+.navbar {
+    position: fixed;
+    top: 60px;  /* set this to the height of .navbar__row so they don't overlap */
+    width: 100%;
+    height: 400px;
+    background: #444;
+    color: #fff;
+    line-height: 60px;
+    display: flex;
+    justify-content: space-between;
+    z-index: 1;
+}
+
+.navbar .nav-section {
+    width: 33%; /* make each section 1/3 of the navbar */
+    display: flex; /* prepare for flex layout */
+    align-items: center; /* center vertically */
+    justify-content: center; /* center horizontally */
+    flex-direction: column; /* stack flex items vertically */
+    text-align: center; /* center the text */
+}
+
+.navbar__row {
+    top: 0;
+    width: 100%;
+    height: 60px;
+    background: #444;
+    color: #fff;
+    line-height: 60px;
+    display: flex;
+    justify-content: center;
+    position: fixed;
+    z-index: 2;  /* higher than the .navbar so it stays on top */
+}
+
+.nav-links {
+    display: flex; /* spread the links */
+    justify-content: space-between; /* evenly distribute the space between links */
+    width: 80%; /* take up the full width */
+    padding: 0 1em; /* add some horizontal padding so the links aren't right against the edge */
+    text-align: center; /* center the text */
+}
+
+.nav-links a {
+    color: #fff; /* make the links white */
+    text-decoration: none; /* remove the underline */
+}
+
+
+
+.container {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 460px; /* same as navbar height */
+    padding: 1em;
+    height: 100vh; /* make the container take up the full height of the screen */
+}
+
+.column {
+    width: 33%; /* split the space evenly */
+    overflow-y: auto;
+    padding: 1em;
+    box-sizing: border-box;
+
+}
+
+.column img {
+    width: 100%;
+    height: auto;
+}
+
+/* width */
+::-webkit-scrollbar {
+    width: 10px;
+  }
+  
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background: #444;
+  }
+  
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: #696969;
+  }
+  
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: #c0c0c0;
+  }
