@@ -1,70 +1,151 @@
 <!DOCTYPE html>
 <html>
-<head>
-    <title>Three Column Layout</title>
-    <link rel="stylesheet" type="text/css" href="styles.css">
-</head>
-<body>
-    <div class="navbar__row" >
-        <div class="nav-links">
-            <a href="#">Home</a>
-            <a href="#">About</a>
-            <a href="#">Contact</a>
-            <a href="#">Login</a>
-            <a href="#">Sign up</a>
-        </div>
-    </div>
-    <nav class="navbar">
-        
-        <div class="nav-section">
-            <!-- Nav section 1 content goes here -->
-            <h1> Podcasts and Writings </h1>
-        </div>
-        <div class="nav-section">
-            <!-- Nav section 2 content goes here -->
-            <h1> Projects </h1>
-        </div>
-        <div class="nav-section">
-            <!-- Nav section 3 content goes here -->
-            <h1> Sketches </h1> <h2>of the Design of Places, 2011-2019 </h2>
-        </div>
-    </nav>
+    <head>
+        <title>Richard Qian Li</title>
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <link href="./styles.css" rel="stylesheet">
+        <script src="https://d3js.org/d3.v5.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.21/lodash.min.js"></script>
+
+        <style>
+           
+        </style>
+    </head>
     
-    <div class="container">
-        <div class="column">
-            <!-- put a long text, overflowing the page, place holder-->
-            <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec euismod, nisl eget tempor aliquam, nunc libero u
-                llamcorper dolor, quis aliquam diam sapien ut nisl. Donec euismod, nisl eget tempor aliquam, nunc libero ullamcorper Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec euismod, nisl eget tempor aliquam, nunc libero u
-                llamcorper dolor, quis aliquam diam sapien ut nisl. Donec euismod, nisl eget tempor aliquam, nunc libero ullamcorper dolor, quis aliquam diam sapien ut nisl.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec euismod, nisl eget tempor aliquam, nunc libero u
-                llamcorper dolor, quis aliquam diam sapien ut nisl. Donec euismod, nisl eget tempor aliquam, nunc libero ullamcorper dolor, quis aliquam diam sapien ut nisl.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec euismod, nisl eget tempor aliquam, nunc libero u
-                llamcorper dolor, quis aliquam diam sapien ut nisl. Donec euismod, nisl eget tempor aliquam, nunc libero ullamcorper dolor, quis aliquam diam sapien ut nisl.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec euismod, nisl eget tempor aliquam, nunc libero u
-                llamcorper dolor, quis aliquam diam sapien ut nisl. Donec euismod, nisl eget tempor aliquam, nunc libero ullamcorper dolor, quis aliquam diam sapien ut nisl.dolor, quis aliquam diam sapien ut nisl.
+    <body>
+        <div id="voronoi-container"></div>
 
+        <div class="home">
+            return<a href="index_.html" style="text-decoration: none;  ;">home</a> <br>
+            
+            <a href="mailto:ludwig.peking@gmail.com">
+                <i class="fas fa-cloud"></i>
+                <i class="material-icons" style="font-size:36px">email</i>
+              </a>
+              
+        </div>
+        <!-- four vertical columns equal -->
+        <div class="column">
+            <div >
+                <h1 style="font-family: Georgia, 'Times New Roman', Times, serif; top: 20px"> Ricardo Melon <p> architect, urban designer, land planner </p></h1>
+            </div>
+            <h2> CV </h2>
+            <p> About Ricardo, <br> der author <br> <br>
+                University of Michigan, Ann Arbor, MI <br> 
+                2007 - 2008, Master of Urban Design <br>
+                Tsinghua University, Beijing, China
+                1998 - 2003, <br> Bachelor of Architecture
+                <br>
+                2012
+                <br>Vanke Co.,Beijing, China — Director of Design, Senior Partner, Chief Architect
+                2011 - PRESENT (with interval of a year in 2014)
+                Urban design, architecture, landscape architecture, interior design of multiple large scale commercial, residential, resort, institutional  and mixed use projects
+                Firm lecturer/trainer on urban design, housing and retail planning
+                Managing Director of Hongmei Factory, Shenyang, China (43,000㎡ Mixed Used Redevelopment)  
+                EE&K Architects, Washington, DC — Architect
+                2008 - 2011
+                Obermeyer Planen+Beraten GmbH, Being, China — Architect, Project Architect
+                2003 -2006
+                
             </p>
         </div>
         <div class="column">
-            <!-- Column 2 content goes here -->
-            <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec euismod, nisl eget tempor aliquam, nunc libero u
-                llamcorper dolor, quis aliquam diam sapien ut nisl. Donec euismod, nisl eget tempor aliquam, nunc libero ullamcorper dolor, quis aliquam diam sapien ut nisl.
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec euismod, nisl eget tempor aliquam, nunc libero uLorem ipsum dolor sit amet, consectetur adipiscing elit. Donec euismod, nisl eget tempor aliquam, nunc libero u
-                llamcorper dolor, quis aliquam diam sapien ut nisl. Donec euismod, nisl eget tempor aliquam, nunc libero ullamcorper dolor, quis aliquam diam sapien ut nisl.
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec euismod, nisl eget tempor aliquam, nunc libero uLorem ipsum dolor sit amet, consectetur adipiscing elit. Donec euismod, nisl eget tempor aliquam, nunc libero u
-                llamcorper dolor, quis aliquam diam sapien ut nisl. Donec euismod, nisl eget tempor aliquam, nunc libero ullamcorper dolor, quis aliquam diam sapien ut nisl.
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec euismod, nisl eget tempor aliquam, nunc libero uLorem ipsum dolor sit amet, consectetur adipiscing elit. Donec euismod, nisl eget tempor aliquam, nunc libero u
-                llamcorper dolor, quis aliquam diam sapien ut nisl. Donec euismod, nisl eget tempor aliquam, nunc libero ullamcorper dolor, quis aliquam diam sapien ut nisl.
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec euismod, nisl eget tempor aliquam, nunc libero uLorem ipsum dolor sit amet, consectetur adipiscing elit. Donec euismod, nisl eget tempor aliquam, nunc libero u
-                llamcorper dolor, quis aliquam diam sapien ut nisl. Donec euismod, nisl eget tempor aliquam, nunc libero ullamcorper dolor, quis aliquam diam sapien ut nisl.
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec euismod, nisl eget tempor aliquam, nunc libero u
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec euismod, nisl eget tempor aliquam, nunc libero ullamcorper dolor, quis aliquam diam sapien ut nisl. Donec euismod, nisl eget tempor aliquam, nunc libero ullamcorper dolor, quis aliquam diam sapien ut nisl.
+            <div >
+                <h1> Writing and Podcasting </h1>
+            </div>
+            
+            <!-- <img src="https://ludwigpeking.files.wordpress.com/2022/12/b7a4cf3693fd81e8e722595e9b289a2.jpg?w=782" alt="00 Table of Contents" style="width:100%; "> -->
+            <h2  style="font-weight: bold;"> The Book: [ An Evolutionary History of the City ] </h2>
+            <p> <a href="https://ludwigpeking.wordpress.com/2022/12/14/an-evolutionary-history-of-the-city-table-of-contents/" style="font-weight: bold;">
+                00 Table of Contents </a></p>
+            <div style="max-height: 600px;  ">
+                <p>
+                
+                <a href="https://ludwigpeking.wordpress.com/2022/12/14/01-examples-the-three-tourist-attractions-with-the-same-morphism/">01 Examples: the Three Tourist Attractions with the Same Morphism </a> <br><br>
+                <a href="https://ludwigpeking.wordpress.com/2022/12/14/02-an-origin-of-the-city-a-sanctuary-for-community-making/">02 An Origin of the City, a Holy Site for Community Making </a> <br><br>
+                <a href="https://ludwigpeking.wordpress.com/2022/12/14/03-the-structure-of-the-holy-place/">03 An Origin of the City, the Pattern of a Sanctuary – a Temple, a Treasury and Granary, a Bank, a Philanthropy, a Market, a Center of Study, a Decision Making Body</a> <br><br>
+                <a href="https://ludwigpeking.wordpress.com/2022/12/14/04-an-origin-of-the-city-a-symbiont-of-the-hunters-and-the-farmers/">04 An Origin of the City, a Symbiont of Hunters and Farmers</a> <br><br>
+                <a href="https://ludwigpeking.wordpress.com/2022/12/14/05-a-symbiont-of-the-hunters-and-the-farmers-2/"> 
+                    05 An Origin of the City, the Symbiosis of Hunters and Farmers (2) – a bit Spenglerian Philosophy
+                     </a> <br><br>
 
+                <a href="https://ludwigpeking.wordpress.com/2022/12/14/06-a-game-of-casting-risks-the-calculation-on-castle-building/">
+
+                    06 A Game of Casting Risks, the Calculation on Castle Building
+                
+                </a> <br><br>
+                <a href="https://ludwigpeking.wordpress.com/2022/12/14/07-city-as-the-hardware-of-organization/"> 
+                    07 City as the Hardware of Organization – a summary of previous chapters 
+                 </a> <br><br>
+                <a href="https://ludwigpeking.wordpress.com/2022/12/14/08-over-the-plain-and-streams/"> 
+
+                    08 The Architectural Implications of the Three Tourist Attractions with the Same Morphism 
+
+                </a> <br><br>
+                <a href="https://ludwigpeking.wordpress.com/2022/12/14/09-flood-plains-honey-traps/">
+                    09 Flood Plains, Honey Traps 
+                </a>
+
+                <a href = "https://ludwigpeking.wordpress.com/2022/12/14/10-by-the-mules-roads-being-an-evolutionary-system/">
+                    10 By Men and their Mules, Routes being an Evolutionary System
+                </a>
+
+                </p>
+            </div>
+            <h2> Podcasts </h2>
+            <a href="https://www.ximalaya.com/album/3733966"> Banal Smasher Episodes </a>
+            <p> About Ricardo, der author <br> Architect, Urban Designer, Senior Real Estate Planner</p>
+        </div>
+        <div class="column">
+            <div >
+                <h1> Coding, Generative Arts </h1>
+            </div>
+            
+            <p> About Ricardo, der author <br> Architect, Urban Designer, Senior Real Estate Planner</p>
+            <p>
+                
             </p>
         </div>
         <div class="column">
-            <!-- Column 3 content goes here -->
+            <div >
+                <h1> Architcture, Urban Design, Sketches </h1> 
+                <h2>of the Design of Places, 2011-2019 </h2>
+            </div>
+            <p>
+            <pre> 
+About Ricardo, 
+Sample Projects,
+
+der author 
+
+Architect, 
+Urban Designer, 
+Senior Real Estate Planner
+        </pre>
+        </p>
         </div>
-    </div>
+       
+            <footer>
+                <a href="https://twitter.com/your_username">
+                    <i class="fab fa-twitter social-icon" style="font-size:36px"></i>
+                  </a>
+                  
+                <a href="https://github.com/yourusername" target="_blank">
+                  <i class="material-icons social-icon" style="font-size:36px">github_icon</i>
+                </a>
+                <a href="mailto:ludwig.peking@gmail.com">
+                  <i class="material-icons social-icon" style="font-size:36px">email</i>
+                </a>
+                <a href="https://www.linkedin.com/in/yourusername" target="_blank">
+                  <i class="material-icons social-icon" style="font-size:36px">linkedin_icon</i>
+                </a>
+              </footer>
+ 
+          
+<script src="./voronoiBack.js"></script>
 </body>
-<script src="script.js"></script>
+
+
+
+
 </html>
