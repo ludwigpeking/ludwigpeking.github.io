@@ -10,9 +10,8 @@
    
 }
 .social-icon {
-    font-size: 36px;
-    width: 36px; /* Set a fixed width */
-    text-align: center; /* Center the icon */
+    margin: 0;
+    padding: 0;
 }
 body {
     background-color: #333;
@@ -28,7 +27,7 @@ footer {
 }
 
 h1 {
-    height: 240px;
+    height: 230px;
     text-align: center;
     font-size: 250%;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
@@ -54,7 +53,7 @@ a {
     background:none;
     color: #fbe;
     text-indent: 0;
-    
+    z-index: 1;
 }
 
 
@@ -63,13 +62,16 @@ a:hover {
 }
 .home, .home a {
     color:magenta;
-    height: 50px;
+    height: 80px;
     font-size: 30px;
     padding: 10px 15px;
 }
+
+
+
 .column {
     float: left;
-    width: 24%;
+    width: 23%;
     overflow: hidden;
     padding-left: 10px;
 }
