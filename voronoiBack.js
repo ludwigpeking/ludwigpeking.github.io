@@ -5,16 +5,16 @@ let voronoi, svg, pathGroup, circleGroup;
 restart();
 
 function restart() {
-    for (let i = 0; i < 50; i++) {
-        points.push([Math.random() * 2540, Math.random() * 1600]);
+    for (let i = 0; i < 100; i++) {
+        points.push([Math.random() * 2540, Math.random() * 3200]);
         colors.push(randomColor());
     }
 
     svg = d3.select("#voronoi-container").append("svg")
         .attr("width", 2540)
-        .attr("height", 1600);
+        .attr("height", 3200);
 
-    voronoi = d3.voronoi().extent([[-1, -1], [2540 + 1, 1600 + 1]]);
+    voronoi = d3.voronoi().extent([[-1, -1], [2540 + 1, 3200 + 1]]);
     pathGroup = svg.append("g");
     circleGroup = svg.append("g"); // Added group for points
 }

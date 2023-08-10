@@ -1,15 +1,13 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Richard Qian Li</title>
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
         <link href="./styles.css" rel="stylesheet">
         <script src="https://d3js.org/d3.v5.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.21/lodash.min.js"></script>
-
-        <style>
-           
-        </style>
     </head>
     
     <body>
@@ -64,86 +62,93 @@
                 <h1> Writing and Podcasting </h1>
             </div>
             
-            <!-- <img src="https://ludwigpeking.files.wordpress.com/2022/12/b7a4cf3693fd81e8e722595e9b289a2.jpg?w=782" alt="00 Table of Contents" style="width:100%; "> -->
+                <!-- <img src="https://ludwigpeking.files.wordpress.com/2022/12/b7a4cf3693fd81e8e722595e9b289a2.jpg?w=782" alt="00 Table of Contents" style="width:100%; "> -->
             <h2  style="font-weight: bold;"> The Book: [ An Evolutionary History of the City ] </h2>
             <p> <a href="https://ludwigpeking.wordpress.com/2022/12/14/an-evolutionary-history-of-the-city-table-of-contents/" style="font-weight: bold;">
-                00 Table of Contents </a></p>
-            <div style="max-height: 400px;  ">
-                <p>
+            00. Table of Contents </a></p>
+
+            <div id="linksContainer" style="max-height: 400px;"></div>
+            <script>
+                document.addEventListener("DOMContentLoaded", function() {
+                fetch('links.html')
+                    .then(response => response.text())
+                    .then(html => {
+                    document.getElementById('linksContainer').innerHTML = html;
+                    })
+                    .catch(err => console.warn('Something went wrong.', err));
+                });
+            </script>
                 
-                <a href="https://ludwigpeking.wordpress.com/2022/12/14/01-examples-the-three-tourist-attractions-with-the-same-morphism/">01 Examples: the Three Tourist Attractions with the Same Morphism </a> <br><br>
-                <a href="https://ludwigpeking.wordpress.com/2022/12/14/02-an-origin-of-the-city-a-sanctuary-for-community-making/">02 An Origin of the City, a Holy Site for Community Making </a> <br><br>
-                <a href="https://ludwigpeking.wordpress.com/2022/12/14/03-the-structure-of-the-holy-place/">03 An Origin of the City, the Pattern of a Sanctuary – a Temple, a Treasury and Granary, a Bank, a Philanthropy, a Market, a Center of Study, a Decision Making Body</a> <br><br>
-                <a href="https://ludwigpeking.wordpress.com/2022/12/14/04-an-origin-of-the-city-a-symbiont-of-the-hunters-and-the-farmers/">04 An Origin of the City, a Symbiont of Hunters and Farmers</a> <br><br>
-                <a href="https://ludwigpeking.wordpress.com/2022/12/14/05-a-symbiont-of-the-hunters-and-the-farmers-2/"> 
-                    05 An Origin of the City, the Symbiosis of Hunters and Farmers (2) – a bit Spenglerian Philosophy
-                     </a> <br><br>
-
-                <a href="https://ludwigpeking.wordpress.com/2022/12/14/06-a-game-of-casting-risks-the-calculation-on-castle-building/">
-
-                    06 A Game of Casting Risks, the Calculation on Castle Building
-                
-                </a> <br><br>
-                <a href="https://ludwigpeking.wordpress.com/2022/12/14/07-city-as-the-hardware-of-organization/"> 
-                    07 City as the Hardware of Organization – a summary of previous chapters 
-                 </a> <br><br>
-                <a href="https://ludwigpeking.wordpress.com/2022/12/14/08-over-the-plain-and-streams/"> 
-
-                    08 The Architectural Implications of the Three Tourist Attractions with the Same Morphism 
-
-                </a> <br><br>
-                <a href="https://ludwigpeking.wordpress.com/2022/12/14/09-flood-plains-honey-traps/">
-                    09 Flood Plains, Honey Traps 
-                </a>
-                <br><br>
-                <a href = "https://ludwigpeking.wordpress.com/2022/12/14/10-by-the-mules-roads-being-an-evolutionary-system/">
-                    10 By Men and their Mules, Routes being an Evolutionary System
-                </a><br><br>
-                <a href = "https://ludwigpeking.wordpress.com/2022/12/14/10-by-the-mules-roads-being-an-evolutionary-system/">
-                    10 By Men and their Mules, Routes being an Evolutionary System
-                </a><br><br>
-                <a href = "https://ludwigpeking.wordpress.com/2022/12/14/10-by-the-mules-roads-being-an-evolutionary-system/">
-                    10 By Men and their Mules, Routes being an Evolutionary System
-                </a><br>
-
-                </p>
-            </div>
-            <h2> Podcasts </h2>
-            <a href="https://www.ximalaya.com/album/3733966"> Banal Smasher Episodes </a>
+            <h2><br>
+                Podcasts <a href="https://www.ximalaya.com/album/3733966" style="background-color: hotpink;"> <br>
+                Banal Smasher Episodes </a></h2>
+            <img href = "" >
             <p> About Ricardo, der author <br> Architect, Urban Designer, Senior Real Estate Planner</p>
+            </div>
         </div>
         <div class="column">
             <div >
-                <h1> Coding, Generative Arts </h1>
+                <h1> Coding <br>
+                    and Generative Arts </h1>
             </div>
-            
-            <p> About Ricardo, der author <br> Architect, Urban Designer, Senior Real Estate Planner</p>
-            <p>
-                
-            </p>
+            <div style="overflow-y:scroll; max-height: 800px;" >
+                <p> About Ricardo, der author <br> Architect, Urban Designer, Senior Real Estate Planner</p>
+                <p>
+                    A simulation: becomingCity, Value Based Location and Roadway Pattern  <a>&#9963</a>
+                </p>
+                <p>
+                    The Infinite Generator of Shoin-zukuri
+                    <a>&#9963</a>
+                </p>
+                <p>
+                    Floor Plan Generator Using Wave Function Collapse Algorithm
+                    <a>&#9963</a>
+                </p>
+                <p>
+                    A simulation: Rectangular Parcels & Voronoi Pattern
+                                    <a>&#9963</a>
+                </p>
+                <p>
+                    Floor Plan Generator Using Wave Function Collapse Algorithm
+                    <a>&#9963</a>
+                </p>
+                <p>
+                    Floor Plan Generator Using Wave Function Collapse Algorithm
+                    <a>&#9963</a>
+                </p>
+                <p>
+                    Floor Plan Generator Using Wave Function Collapse Algorithm
+                    <a>&#9963</a>
+                </p>
+                <p>
+                    Floor Plan Generator Using Wave Function Collapse Algorithm
+                    <a>&#9963</a>
+                </p>
+                <p>
+                    Floor Plan Generator Using Wave Function Collapse Algorithm
+                    <a>&#9963</a>
+                </p>
+                <p>
+                    Floor Plan Generator Using Wave Function Collapse Algorithm
+                    <a>&#9963</a>
+                </p>
+            </div>
         </div>
         <div class="column">
             <div >
                 <h1> Architcture, Urban Design, Sketches </h1> 
                 <h2>of the Design of Places, 2011-2019 </h2>
+                
+                <div id="image-container"></div>
+                <script src="script.js"></script>
             </div>
-            <p>
-            <pre> 
-About Ricardo, 
-Sample Projects,
-
-der author 
-
-Architect, 
-Urban Designer, 
-Senior Real Estate Planner
-        </pre>
-        </p>
+        </div>
+            
         
  
           
-<script src="./voronoiBack.js"></script>
-</body>
+    <script src="./voronoiBack.js"></script>
+    </body>
 
 
 

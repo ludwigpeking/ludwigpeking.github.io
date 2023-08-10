@@ -1,9 +1,32 @@
-window.onload = function() {
-    const column = document.querySelector('.container .column:nth-child(3)');
-    for(let i = 1; i <= 6; i++) {
-        const img = document.createElement('img');
-        let imgNumber = i.toString().padStart(3, '0'); // pad the number with leading zeros
-        img.src = `/img/img${imgNumber}.jpg`;
-        column.appendChild(img);
-    }
-};
+
+
+const imageContainer = document.getElementById('image-container');
+
+// Array of image file paths (modify as needed)
+const imageFiles = [
+  './img/Places_resized/11_Tsingtao_01.jpg',
+  './img/Places_resized/11_Tsingtao_02.jpg',
+      './img/Places_resized/11_Tsingtao_03.jpg',
+    './img/Places_resized/11_Tsingtao_10.jpg',
+    './img/Places_resized/11_Tsingtao_20.jpg',
+    './img/Places_resized/11_Tsingtao_21.jpg',
+    './img/Places_resized/11_Tsingtao_22.jpg',
+    './img/Places_resized/12_Jilin_01.jpg',
+    './img/Places_resized/12_Jilin_02.jpg',
+    './img/Places_resized/12_Jilin_03.jpg',
+    './img/Places_resized/12_Tianjin_01.jpg',
+    './img/Places_resized/12_Tianjin_10.jpg',
+    './img/Places_resized/12_Tsingtao_01.jpg',
+  // ... more file paths ...
+];
+
+imageFiles.forEach(imageSrc => {
+  const previewDiv = document.createElement('div');
+  previewDiv.className = 'image-preview';
+
+  const img = document.createElement('img');
+  img.src = imageSrc;
+
+  previewDiv.appendChild(img);
+  imageContainer.appendChild(previewDiv);
+});

@@ -7,7 +7,6 @@
     font-size: 18px;    
     font-family: Georgia, 'Times New Roman', Times, serif;
     text-indent: 0%;
-   
 }
 .social-icon {
     margin: 0;
@@ -27,9 +26,9 @@ footer {
 }
 
 h1 {
-    height: 230px;
+    height: 220px;
     text-align: center;
-    font-size: 250%;
+    font-size: 230%;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     font-weight: bold;
     padding: 30px 5px;
@@ -38,7 +37,7 @@ h1 {
     max-width: 300px;
 }
 
-h2, p, pre {
+a, h2, p, pre {
     padding: 10px 25px ;
     background:none;
     line-height: 24px;
@@ -48,14 +47,14 @@ h2, p, pre {
 }
 
 a {
-    /* margin: 0 0 0 10px; */
+    margin: 0 0 0 0px;
+    padding: 0;
     text-decoration: none;
     background:none;
     color: #fbe;
     text-indent: 0;
     z-index: 1;
 }
-
 
 a:hover {
     color: magenta;
@@ -67,11 +66,9 @@ a:hover {
     padding: 10px 15px;
 }
 
-
-
 .column {
     float: left;
-    width: 23%;
+    width: 22.5%;
     overflow: hidden;
     padding-left: 10px;
 }
@@ -104,3 +101,39 @@ background: #9ff;
     background-color: transparent;
 }
 
+#image-container {
+    width: 100%;
+  }
+  
+  .image-preview {
+    width: 300px; /* Width of the previews */
+    height: 20px; /* Height of the slice */
+    overflow: hidden; /* Hide the parts of the image that are outside the container */
+    transition: all 0.3s ease; /* Transition for size change */
+  }
+  
+  .image-preview img {
+    width: 100%; /* Stretch image to fill the container */
+    height: auto; /* Maintain the original aspect ratio */
+    transition: all 0.3s ease; /* Transition for size change */
+    padding: 10px 0;
+    /* use a color cover */
+    background: linear-gradient(rgba(166, 71, 255, 0.5), rgba(0,0,0,0.5));
+  }
+  
+  .image-preview:hover {
+    top: 0;
+    left: 0;
+    z-index: 3; /* Raise the container above the other one */
+    width: 100%; /* Enlarge the container on hover */
+    height: 200px; /* Enlarge the container on hover */
+    overflow: visible;
+
+  }
+  
+  .image-preview:hover img {
+    transform: scale(1); /* Zoom the image on hover */
+
+
+  }
+  
