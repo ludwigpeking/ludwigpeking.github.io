@@ -12,6 +12,7 @@
 }
 body {
     background-color: #333;
+    overflow: hidden;
 
 }
 footer {
@@ -127,7 +128,7 @@ background: #9ff;
 }
 
 .column-wide img {
-     padding: 0px 25px ;
+    padding: 0px 25px ;
     background:none;
 }
 
@@ -135,35 +136,44 @@ background: #9ff;
     width: 100%;
   }
   
-  .image-preview {
-    width: 300px; /* Width of the previews */
-    height: 20px; /* Height of the slice */
+.image-preview {
+    margin-left: 20px;
+    width: 80%; /* Width of the previews */
+    height: 10px; /* Height of the slice */
     overflow: hidden; /* Hide the parts of the image that are outside the container */
-    transition: all 0.3s ease; /* Transition for size change */
-  }
-  
-  .image-preview img {
+    transition: all 0.6s ease; /* Transition for size change */
+    background-color: white;
+    margin-bottom: 10px;
+    position: relative;
+}
+
+.image-preview:hover {
+    height: auto;
+}
+
+.image-preview img {
     width: 100%; /* Stretch image to fill the container */
     height: auto; /* Maintain the original aspect ratio */
-    transition: all 0.3s ease; /* Transition for size change */
-    padding: 10px 0;
-    /* use a color cover */
-    background: linear-gradient(rgba(166, 71, 255, 0.5), rgba(0,0,0,0.5));
-  }
-  
-  .image-preview:hover {
+    transition: all 0.6s ease; /* Transition for size change */
+    display: block;
+    opacity: 0.5;
+    position: absolute;
+    padding: -10px;
+
+ 
+}
+
+.image-preview img:hover{
+    width: 100%;
+    height: auto;
+    opacity: 1;
+    position: relative;
     top: 0;
     left: 0;
-    z-index: 3; /* Raise the container above the other one */
-    width: 100%; /* Enlarge the container on hover */
-    height: 200px; /* Enlarge the container on hover */
     overflow: visible;
-
-  }
-  
-  .image-preview:hover img {
-    transform: scale(1); /* Zoom the image on hover */
+}
 
 
-  }
+
+
   

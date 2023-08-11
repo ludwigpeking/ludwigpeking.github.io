@@ -30,3 +30,4 @@ imageFiles.forEach(imageSrc => {
   previewDiv.appendChild(img);
   imageContainer.appendChild(previewDiv);
 });
+

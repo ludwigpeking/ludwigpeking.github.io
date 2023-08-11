@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    .column {
+      width: 300px;
+    }
+
+    .box {
+      height: 10px;
+      background-color: aqua;
+      overflow: hidden;
+      transition: all 0.6s ease;
+      position: relative;
+      margin-bottom: 10px;
+    }
+
+    .box:hover {
+      height: auto;
+    }
+
+    .image-preview img {
+      width: 100%;
+      height: auto;
+      display: block;
+      opacity: 0.5;
+      position: absolute;
+      /* bottom: 0; */
+      transition: all 0.6s ease;
+    }
+
+    .image-preview img:hover{
+      width: 100%;
+      height: auto;
+      opacity: 1;
+      position: relative;
+      top: 0;
+      left: 0;
+      overflow: visible;
+    }
+
+
+  </style>
+  <title>Hover Image Boxes</title>
+</head>
+<body>
+  <div class="column">
+    <div class="box" onmouseover="expandImage(this)" onmouseout="collapseImage(this)">
+      <div class="image-preview">
+        <img src="./img/Arch/sino-japanese/01.jpg" alt="Image 1">
+      </div>
+    </div>
+    <div class="box" onmouseover="expandImage(this)" onmouseout="collapseImage(this)">
+      <div class="image-preview">
+        <img src="./img/Arch/sino-japanese/02.jpg" alt="Image 2">
+      </div>
+    </div>
+    <div class="box" onmouseover="expandImage(this)" onmouseout="collapseImage(this)">
+        <div class="image-preview">
+          <img src="./img/Arch/sino-japanese/03.jpg" alt="Image 3">
+        </div>
+    </div>
+    <!-- Add more boxes as needed -->
+  </div>
+  <!-- <script>
+    function expandImage(box) {
+      const imagePreview = box.querySelector('.image-preview');
+      const image = box.querySelector('img');
+      box.style.height = image.offsetHeight + 'px';
+      box.style.backgroundColor = 'transparent';
+      image.style.opacity = '1';
+      image.style.bottom = '0';
+    }
+
+    function collapseImage(box) {
+      box.style.height = '10px';
+      box.style.backgroundColor = 'aqua';
+      const image = box.querySelector('img');
+      image.style.bottom = '-' + image.offsetHeight + 'px';
+      image.style.opacity = '0';
+
+    }
+  </script> -->
+</body>
+</html>
