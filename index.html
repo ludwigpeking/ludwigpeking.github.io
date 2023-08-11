@@ -12,9 +12,9 @@
     
     <body>
         <div id="voronoi-container"></div>
-
+        
         <div class="home">
-            <a href="index_.html" style="text-decoration: none;  ;"> return home</a> <br>
+            <a href="index.html" style="text-decoration: none;  ;"> return home</a> <br>
             
             <a class="social-icon" href="mailto:ludwig.peking@gmail.com">
                 <img src="./img/svg/email.svg" alt="Email" />
@@ -29,125 +29,126 @@
                 <img src="./img/svg/twitter.svg" alt="twitter" />
             </a>
 
-              
+            
         </div>
         <!-- four vertical columns equal -->
-        <div class="column">
-            <div >
-                <h1 style="font-family: Georgia, 'Times New Roman', Times, serif; color:aqua;"> Ricardo Melon Ludwig <p style="color:aqua"> architect, urban designer, land planner</p> </h1>
-            </div>
+        <div class="column-container">
+            <div class="column">
+                <div >
+                    <h1 style="font-family: Georgia, 'Times New Roman', Times, serif; color:aqua;"> Ricardo Melon Ludwig <p style="color:aqua"> architect, urban designer, land planner</p> </h1>
+                </div>
 
-            <h2> CV </h2>
-            <p> About Ricardo, <br> der author <br> <br>
-                University of Michigan, Ann Arbor, MI <br> 
-                2007 - 2008, Master of Urban Design <br>
-                Tsinghua University, Beijing, China
-                1998 - 2003, <br> Bachelor of Architecture
-                <br>
-                2012
-                <br>Vanke Co.,Beijing, China — Director of Design, Senior Partner, Chief Architect
-                2011 - PRESENT (with interval of a year in 2014)
-                Urban design, architecture, landscape architecture, interior design of multiple large scale commercial, residential, resort, institutional  and mixed use projects
-                Firm lecturer/trainer on urban design, housing and retail planning
-                Managing Director of Hongmei Factory, Shenyang, China (43,000㎡ Mixed Used Redevelopment)  
-                EE&K Architects, Washington, DC — Architect
-                2008 - 2011
-                Obermeyer Planen+Beraten GmbH, Being, China — Architect, Project Architect
-                2003 -2006
-                
-            </p>
-        </div>
-        <div class="column">
-            <div >
-                <h1> Writing and Podcasting </h1>
+                <h2> CV </h2>
+                <p> About Ricardo, <br> der author <br> <br>
+                    University of Michigan, Ann Arbor, MI <br> 
+                    2007 - 2008, Master of Urban Design <br>
+                    Tsinghua University, Beijing, China
+                    1998 - 2003, <br> Bachelor of Architecture
+                    <br>
+                    2012
+                    <br>Vanke Co.,Beijing, China — Director of Design, Senior Partner, Chief Architect
+                    2011 - PRESENT (with interval of a year in 2014)
+                    Urban design, architecture, landscape architecture, interior design of multiple large scale commercial, residential, resort, institutional  and mixed use projects
+                    Firm lecturer/trainer on urban design, housing and retail planning
+                    Managing Director of Hongmei Factory, Shenyang, China (43,000㎡ Mixed Used Redevelopment)  
+                    EE&K Architects, Washington, DC — Architect
+                    2008 - 2011
+                    Obermeyer Planen+Beraten GmbH, Being, China — Architect, Project Architect
+                    2003 -2006
+                    
+                </p>
             </div>
-            
-                <!-- <img src="https://ludwigpeking.files.wordpress.com/2022/12/b7a4cf3693fd81e8e722595e9b289a2.jpg?w=782" alt="00 Table of Contents" style="width:100%; "> -->
-            <h2  style="font-weight: bold;"> The Book: [ An Evolutionary History of the City ] </h2>
-            <p> <a href="https://ludwigpeking.wordpress.com/2022/12/14/an-evolutionary-history-of-the-city-table-of-contents/" style="font-weight: bold;">
-            00. Table of Contents </a></p>
+            <div class="column">
+                <div >
+                    <h1> Writing and Podcasting </h1>
+                </div>
+                
+                    <!-- <img src="https://ludwigpeking.files.wordpress.com/2022/12/b7a4cf3693fd81e8e722595e9b289a2.jpg?w=782" alt="00 Table of Contents" style="width:100%; "> -->
+                <h2  style="font-weight: bold;"> The Book: [ An Evolutionary History of the City ] </h2>
+                <p> <a href="https://ludwigpeking.wordpress.com/2022/12/14/an-evolutionary-history-of-the-city-table-of-contents/" style="font-weight: bold;">
+                00. Table of Contents </a></p>
 
-            <div id="linksContainer" style="max-height: 400px;"></div>
-            <script>
-                document.addEventListener("DOMContentLoaded", function() {
-                fetch('links.html')
-                    .then(response => response.text())
-                    .then(html => {
-                    document.getElementById('linksContainer').innerHTML = html;
-                    })
-                    .catch(err => console.warn('Something went wrong.', err));
-                });
-            </script>
-                
-            <h2><br>
-                Podcasts <a href="https://www.ximalaya.com/album/3733966" style="background-color: hotpink;"> <br>
-                Banal Smasher Episodes </a></h2>
-            <img href = "" >
-            <p> About Ricardo, der author <br> Architect, Urban Designer, Senior Real Estate Planner</p>
-            </div>
-        </div>
-        <div class="column">
-            <div >
-                <h1> Coding <br>
-                    and Generative Arts </h1>
-            </div>
-            <div style="overflow-y:scroll; max-height: 800px;" >
+                <div id="linksContainer" style="max-height: 400px; overflow-y: auto;"></div>
+                <script>
+                    document.addEventListener("DOMContentLoaded", function() {
+                    fetch('links.html')
+                        .then(response => response.text())
+                        .then(html => {
+                        document.getElementById('linksContainer').innerHTML = html;
+                        })
+                        .catch(err => console.warn('Something went wrong.', err));
+                    });
+                </script>
+                    
+                <h2><br>
+                    Podcasts <a href="https://www.ximalaya.com/album/3733966" style="background-color: hotpink;"> <br>
+                    Banal Smasher Episodes </a></h2>
+                <img href = "" >
                 <p> About Ricardo, der author <br> Architect, Urban Designer, Senior Real Estate Planner</p>
-                <p>
-                    A simulation: becomingCity, Value Based Location and Roadway Pattern  <a>&#9963</a>
-                </p>
-                <p>
-                    The Infinite Generator of Shoin-zukuri
-                    <a>&#9963</a>
-                </p>
-                <p>
-                    Floor Plan Generator Using Wave Function Collapse Algorithm
-                    <a>&#9963</a>
-                </p>
-                <p>
-                    A simulation: Rectangular Parcels & Voronoi Pattern
-                                    <a>&#9963</a>
-                </p>
-                <p>
-                    Floor Plan Generator Using Wave Function Collapse Algorithm
-                    <a>&#9963</a>
-                </p>
-                <p>
-                    Floor Plan Generator Using Wave Function Collapse Algorithm
-                    <a>&#9963</a>
-                </p>
-                <p>
-                    Floor Plan Generator Using Wave Function Collapse Algorithm
-                    <a>&#9963</a>
-                </p>
-                <p>
-                    Floor Plan Generator Using Wave Function Collapse Algorithm
-                    <a>&#9963</a>
-                </p>
-                <p>
-                    Floor Plan Generator Using Wave Function Collapse Algorithm
-                    <a>&#9963</a>
-                </p>
-                <p>
-                    Floor Plan Generator Using Wave Function Collapse Algorithm
-                    <a>&#9963</a>
-                </p>
             </div>
-        </div>
-        <div class="column">
-            <div >
-                <h1> Architcture, Urban Design, Sketches </h1> 
-                <h2>of the Design of Places, 2011-2019 </h2>
-                
-                <div id="image-container"></div>
-                <script src="script.js"></script>
+            <div class="column">
+                <div >
+                    <h1> Coding <br>
+                        and Generative Arts </h1>
+                </div>
+                <div style="overflow-y:scroll; max-height: 800px;" >
+                    <p> About Ricardo, der author <br> Architect, Urban Designer, Senior Real Estate Planner</p>
+                    <p>
+                        A simulation: becomingCity, Value Based Location and Roadway Pattern  <a>&#9963</a>
+                    </p>
+                    <p>
+                        The Infinite Generator of Shoin-zukuri
+                        <a>&#9963</a>
+                    </p>
+                    <p>
+                        Floor Plan Generator Using Wave Function Collapse Algorithm
+                        <a>&#9963</a>
+                    </p>
+                    <p>
+                        A simulation: Rectangular Parcels & Voronoi Pattern
+                                        <a>&#9963</a>
+                    </p>
+                    <p>
+                        Floor Plan Generator Using Wave Function Collapse Algorithm
+                        <a>&#9963</a>
+                    </p>
+                    <p>
+                        Floor Plan Generator Using Wave Function Collapse Algorithm
+                        <a>&#9963</a>
+                    </p>
+                    <p>
+                        Floor Plan Generator Using Wave Function Collapse Algorithm
+                        <a>&#9963</a>
+                    </p>
+                    <p>
+                        Floor Plan Generator Using Wave Function Collapse Algorithm
+                        <a>&#9963</a>
+                    </p>
+                    <p>
+                        Floor Plan Generator Using Wave Function Collapse Algorithm
+                        <a>&#9963</a>
+                    </p>
+                    <p>
+                        Floor Plan Generator Using Wave Function Collapse Algorithm
+                        <a>&#9963</a>
+                    </p>
+                </div>
             </div>
-        </div>
+            <div class="column">
+                <div >
+                    <h1> Architcture, Urban Design, Sketches </h1> 
+                    <h2><a href="./arch.html"> Projects of Architecture and Urban Design</a></h2>
+                    <h2>of the Design of Places, 2011-2019 </h2>
+                    
+                    <div id="image-container"></div>
+                    <script src="script.js"></script>
+                </div>
+            </div>
             
-        
- 
-          
-    <script src="./voronoiBack.js"></script>
+        </div>
+    
+            
+        <script src="./voronoiBack.js"></script>
     </body>
 
 

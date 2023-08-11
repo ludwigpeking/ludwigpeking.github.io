@@ -1,8 +1,6 @@
 * {
     color: white;
     margin: 0px;
-    overflow-y: auto ;
-    overflow-x: hidden;
     text-align: left;
     font-size: 18px;    
     font-family: Georgia, 'Times New Roman', Times, serif;
@@ -66,15 +64,40 @@ a:hover {
     padding: 10px 15px;
 }
 
+.column-container {
+    display: flex;
+    flex-wrap: wrap;
+}
+
 .column {
+    flex: 1 0 22%; /* Adjust as needed */
+    padding-left: 10px;
+    box-sizing: border-box; /* Include padding and border in element's total width */
+}
+
+/* Add a media query for small devices */
+@media (max-width: 768px) {
+    .column {
+        flex: 1 0 50%; /* You can adjust this to make the columns stack differently on smaller screens */
+    }
+}
+
+
+.column-wide {
     float: left;
-    width: 22.5%;
-    overflow: hidden;
+    width: 60%;
     padding-left: 10px;
 }
+
+.projects {
+    height:80vh;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
 /* width */
 ::-webkit-scrollbar {
-width: 8px;
+width: 6px;
 }
 
 /* Track */
@@ -92,13 +115,20 @@ background: #cff;
 background: #9ff; 
 }
 #voronoi-container {
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
     z-index: -1; /* So that it stays behind the content */
     background-color: transparent;
+    pointer-events: none; /* So that you can click 'through' the holes */
+    overflow: hidden; /* Hide the parts of the circles that are outside the container */
+}
+
+.column-wide img {
+     padding: 0px 25px ;
+    background:none;
 }
 
 #image-container {
