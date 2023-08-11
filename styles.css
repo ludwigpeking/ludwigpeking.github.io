@@ -173,7 +173,18 @@ background: #9ff;
     overflow: visible;
 }
 
+.gallery {
+    display:grid;
+    flex-wrap: wrap;
+    justify-content: left;
+    overflow: auto;
+    max-height: 900px;
+  }
 
-
+  .gallery img {
+    width: 100%;
+    height: auto;
+    margin: 10px;
+  }
 
   

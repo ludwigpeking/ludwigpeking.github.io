@@ -31,3 +31,17 @@ imageFiles.forEach(imageSrc => {
   imageContainer.appendChild(previewDiv);
 });
 
+function addImages(id) {
+  const galleryDiv = document.getElementById(id);
+  const numberOfImages = 20; // Update this to match the number of images you have
+  const folderName = `./img/2019-2023 Auswahl/Places`; // Update this to your specific folder
+
+  for (let i = 1; i <= numberOfImages; i++) {
+  const imageName = String(i).padStart(3, '0') + '.jpg';
+  const imagePath = `${folderName}/${imageName}`;
+  const imgElement = document.createElement('img');
+  imgElement.src = imagePath;
+  imgElement.alt = `${imageName}`;
+  galleryDiv.appendChild(imgElement);
+  }
+}
