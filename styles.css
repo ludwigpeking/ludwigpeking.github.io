@@ -27,7 +27,7 @@ footer {
 h1 {
     height: 220px;
     text-align: center;
-    font-size: 230%;
+    font-size: 240%;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     font-weight: bold;
     padding: 30px 5px;
@@ -58,6 +58,18 @@ a {
 a:hover {
     color: magenta;
 }
+
+h1 a {
+    color: inherit;
+    font-size: inherit;
+    font-family: inherit;
+    text-decoration: none; /* Remove underline from links */
+}
+
+h1 a:hover {
+    color: rgb(180,255,255); /* Keep the color same on hover, or choose a different color if you prefer */
+}
+
 .home, .home a {
     color:magenta;
     height: 80px;
@@ -98,7 +110,7 @@ a:hover {
 
 /* width */
 ::-webkit-scrollbar {
-width: 6px;
+width: 3px;
 }
 
 /* Track */
@@ -187,4 +199,18 @@ background: #9ff;
     margin: 10px;
   }
 
-  
+  .linkedin-tooltip {
+    display: none;
+    position: absolute;
+    bottom: 50%;
+    background-color: aqua;
+    color: black;
+    padding: 5px;
+    border-radius: 5px;
+    font-size: 12px;
+    margin-top: 5px;
+}
+
+.name-link:hover .linkedin-tooltip {
+    display: inline-block;
+}
