@@ -8,14 +8,13 @@
         <link href="./styles.css" rel="stylesheet">
         <script src="https://d3js.org/d3.v5.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.21/lodash.min.js"></script>
+        <script src="script.js"></script>  
     </head>
     
     <body>
-        <div id="voronoi-container"></div>
-        
+              
         <div class="home">
-            <a href="index.html" style="text-decoration: none;  ;"> return home</a> <br>
-            
+            <a href="index.html" style="text-decoration: none;  ;"> return home</a> <br>            
             <a class="social-icon" href="mailto:ludwig.peking@gmail.com">
                 <img src="./img/svg/email.svg" alt="Email" />
             </a>
@@ -27,63 +26,75 @@
             </a>
             <a class="social-icon" href="https://twitter.com/urban_banal">
                 <img src="./img/svg/twitter.svg" alt="twitter" />
-            </a>
-
-              
+            </a>            
         </div>
+
         <div class="column-container">
         <!-- four vertical columns equal -->
-        <div class="column">
+        <div class="column" style="max-width: 400px;">
             <div >
                 <h1 style="font-family: Georgia, 'Times New Roman', Times, serif; color:aqua;"> Ricardo Melon Ludwig <p style="color:aqua"> architect, urban designer, land planner</p> </h1>
             </div>
-
-            <h2> CV </h2>
-            <p> About Ricardo, <br> der author <br> <br>
-                University of Michigan, Ann Arbor, MI <br> 
-                2007 - 2008, Master of Urban Design <br>
-                Tsinghua University, Beijing, China
-                1998 - 2003, <br> Bachelor of Architecture
-                <br>
-                2012
-                <br>Vanke Co.,Beijing, China — Director of Design, Senior Partner, Chief Architect
-                2011 - PRESENT (with interval of a year in 2014)
-                Urban design, architecture, landscape architecture, interior design of multiple large scale commercial, residential, resort, institutional  and mixed use projects
-                Firm lecturer/trainer on urban design, housing and retail planning
-                Managing Director of Hongmei Factory, Shenyang, China (43,000㎡ Mixed Used Redevelopment)  
-                EE&K Architects, Washington, DC — Architect
-                2008 - 2011
-                Obermeyer Planen+Beraten GmbH, Being, China — Architect, Project Architect
-                2003 -2006
-                
-            </p>
-        </div>
-       
-        <div class="column-wide" id="dynamic-content">
-        </div>
-        <div class="projects">
-            <h1> Architcture, Urban Design, Sketches </h1> 
-            <h2>Sino-japanese Industrial Park, Shenyang </h2>
-            <p>Mixed use <br>
-                As Director of Design, development team, 2021-2022, with Vanke Co.<br>
-                Collaborators: Shiro Sugane Architects, Topscape landscape architects, Ueyoshi Landscape Co.<br>
-                </p>
-            
-            <img src="./img/Arch/sino-japanese/01.jpg" alt="sino-japanese" width="100%">
-            <p> Overall view<br>
-                Sina-japanese Industrial Park is a PPP(public private partnership) project that is meant to be a Venue to attract investment from Japan<br>
-                </p>
-            <img src="./img/Arch/sino-japanese/02.jpg" alt="sino-japanese" width="100%">
-            <img src="./img/Arch/sino-japanese/03.jpg" alt="sino-japanese" width="100%">
-            <img src="./img/Arch/sino-japanese/04.jpg" alt="sino-japanese" width="100%">
+        
+        <div class="project-links">
+            <h2>Selected Recent Projects, 2011-2022 </h2>
+                    <div style="overflow-y:scroll; max-height: 500px;" >
+                        <p><a onclick = "loadProject('architecture/tsingtao-harborfront.html')"> Tsingtao Harborfront, Tsingtao, 2010</a></p>
+                        <p><a onclick = "loadProject('architecture/light-of-the-north.html')"> Sino-japanese Industrial Park, Shenyang, 2020-2022</a></p>
+                        <p><a onclick = "loadProject('architecture/mansion-oriental.html')"> The Mansion Oriental, Shenyang, 2020-2022</a></p>
+                        <p><a onclick = "loadProject('architecture/prince-hotel.html')"> Prince Hotel, Jilin,  2020-2022</a></p>
+                        <p><a onclick = "loadProject('architecture/light-of-the-north.html')"> The Light of the North Star, Shenyang, 2019-2021</a></p>
+                        <p><a onclick = "loadProject('architecture/light-of-the-west.html')"> The Light of the West Stars, Shenyang, 2020-2022</a></p>
+                        <p><a onclick = "loadProject('architecture/sino-german.html')"> Sino-german Community, Shenyang, 2020-2022</a></p>
+                        <p><a onclick = "loadProject('architecture/four-seasons.html')"> The Polis of the Four Seasons, Shenyang, 2020-2022</a></p>
+                        
+                 
         
 
+                        
+                       
+
+                    </div>
+                    
+                    <h2><br>Design of Places - Sketches of Qian</h2>
+                    <div style="overflow-y:scroll; max-height: 400px;" >
+                        <h2><a href="./arch.html"> master plans, 2011-2022</a></h2>
+                        <div class="image-preview">
+                            <img src="./img/2011-2019/Places_resized/13_Tsingtao_01.jpg" alt="Image 1">
+                        </div>
+                        <div class="image-preview">
+                            <img src="./img/2011-2019/Places_resized/11_Tsingtao_20.jpg" alt="Image 1">
+                        </div>
+                        <div class="image-preview">
+                            <img src="./img/2011-2019/Places_resized/11_Tsingtao_10.jpg" alt="Image 1">
+                        </div>
+                        <h2><a href="./arch.html"> floor plans, 2011-2022</a></h2>
+                        <div class="image-preview">
+                            <img src="./img/2011-2019/FloorPlan_resized/002.jpg" alt="Image 1">
+                        </div>
+                        <div class="image-preview">
+                            <img src="./img/2011-2019/FloorPlan_resized/004.jpg" alt="Image 1">
+                        </div>
+                        <h2><a href="./arch.html"> details and notes, 2011-2022</a></h2>
+                        <div class="image-preview">
+                            <img src="./img/2011-2019/Places_resized/15_Tsingdao_19.jpg" alt="Image 1">
+                        </div>
+                    </div>
         </div>
-        
+    </div>
+
+           
+         
+    
+    <div class="column-wide" >
+        <h1>Architcture, Urban Design, Sketches</h1> 
+        <div id="dynamic-content" style="overflow-y: auto; max-height: 1000px;">
+            <p>Click the links on the left to browse the projects.</p>
+        </div>
     </div>
         
- 
-          
+        </div>
+      
     <script src="./voronoiBack.js"></script>
     </body>
 

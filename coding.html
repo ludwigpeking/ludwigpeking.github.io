@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Richard Qian Li</title>
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <link href="./styles.css" rel="stylesheet">
+        <script src="https://d3js.org/d3.v5.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.21/lodash.min.js"></script>
+    </head>
+    
+    <body>
+        <div id="voronoi-container"></div>        
+        <div class="home">
+            <a href="index.html" style="text-decoration: none;  ;"> return home</a> <br>            
+            <a class="social-icon" href="mailto:ludwig.peking@gmail.com">
+                <img src="./img/svg/email.svg" alt="Email" />
+            </a>
+            <a class="social-icon" href="https://www.youtube.com/channel/UC70EKdkg918fqyimJ5-fNMA">
+                <img src="./img/svg/youtube.svg" alt="youtube" />
+            </a>
+            <a class="social-icon" href="https://github.com/ludwigpeking?tab=repositories">
+                <img src="./img/svg/github.svg" alt="github" />
+            </a>
+            <a class="social-icon" href="https://twitter.com/urban_banal">
+                <img src="./img/svg/twitter.svg" alt="twitter" />
+            </a>            
+        </div>
+
+        <div class="column-container">
+        <!-- four vertical columns equal -->
+        <div class="column">
+            <div >
+                <h1 style="font-family: Georgia, 'Times New Roman', Times, serif; color:aqua;"> Ricardo Melon Ludwig <p style="color:aqua"> architect, urban designer, land planner</p> </h1>
+            </div>
+            <h2>Selected Recent Projects, 2011-2022 </h2>
+                    <div style="overflow-y:scroll; max-height: 500px;" >
+                        <p><a href="architecture\light-of-the-north.html"> Sino-japanese Industrial Park, Shenyang, 2020-2022</a></p>
+
+                        <div class="image-preview">
+                            <img src="./img/Arch/sino-japanese/01.jpg" alt="Image 1">
+                        </div>
+
+                        <div class="image-preview">
+                            <img src="./img/Arch/sino-japanese/02.jpg" alt="Image 2">
+                        </div>
+        
+
+                        <p><a href="./arch.html"> The Light of the West Stars, Shenyang, 2021-2022</a></p>
+
+                        <div class="image-preview">
+                            <img src="./img/Arch/light of the west/01.jpg" alt="Image 1">
+                        </div>
+                        <h2><a href="./arch.html"> The Mansion Oriental, Shenyang, 2020-2022</a></h2>
+
+                        <div class="image-preview">
+                            <img src="./img/Arch/maison oriental/01.png" alt="Image 1">
+                        </div>
+                        <div class="image-preview">
+                            <img src="./img/Arch/maison oriental/02.png" alt="Image 1">
+                        </div>
+                        <div class="image-preview">
+                            <img src="./img/Arch/maison oriental/03.png" alt="Image 1">
+                        </div>
+                        <h2><a href="./arch.html"> The City of Four Seasons, Shenyang, 2021-2022</a></h2>
+
+                        <div class="image-preview">
+                            <img src="./img/Arch/polis of four seasons/01.jpg" alt="Image 1">
+                        </div>
+                        <div class="image-preview">
+                            <img src="./img/Arch/polis of four seasons/02.jpg" alt="Image 1">
+                        </div>
+                        <h2><a href="./arch.html"> Sino-German Community, Shenyang, 2020-2022</a></h2>
+
+                        <div class="image-preview">
+                            <img src="./img/Arch/sino-german/01.jpg" alt="Image 1">
+                        </div>
+                        <h2><a href="./arch.html"> Sino-German Community, Shenyang, 2020-2022</a></h2>
+
+                        <div class="image-preview">
+                            <img src="./img/Arch/sino-german/01.jpg" alt="Image 1">
+                        </div>
+
+                    </div>
+                    
+                    <h2><br>Design of Places - Sketches of Qian</h2>
+                    <div style="overflow-y:scroll; max-height: 400px;" >
+                        <h2><a href="./arch.html"> master plans, 2011-2022</a></h2>
+                        <div class="image-preview">
+                            <img src="./img/2011-2019/Places_resized/13_Tsingtao_01.jpg" alt="Image 1">
+                        </div>
+                        <div class="image-preview">
+                            <img src="./img/2011-2019/Places_resized/11_Tsingtao_20.jpg" alt="Image 1">
+                        </div>
+                        <div class="image-preview">
+                            <img src="./img/2011-2019/Places_resized/11_Tsingtao_10.jpg" alt="Image 1">
+                        </div>
+                        <h2><a href="./arch.html"> floor plans, 2011-2022</a></h2>
+                        <div class="image-preview">
+                            <img src="./img/2011-2019/FloorPlan_resized/002.jpg" alt="Image 1">
+                        </div>
+                        <div class="image-preview">
+                            <img src="./img/2011-2019/FloorPlan_resized/004.jpg" alt="Image 1">
+                        </div>
+                        <h2><a href="./arch.html"> details and notes, 2011-2022</a></h2>
+                        <div class="image-preview">
+                            <img src="./img/2011-2019/Places_resized/15_Tsingdao_19.jpg" alt="Image 1">
+                        </div>
+                    </div>
+        </div>
+        
+
+           
+                    
+        </div>
+       
+        <div class="column-wide" id="dynamic-content">
+            <h1> Coding and Generative Arts </h1> 
+        <div class="projects">
+            
+            <h2>Sino-japanese Industrial Park, Shenyang </h2>
+            <p>Mixed use <br>
+                As Director of Design, development team, 2021-2022, with Vanke Co.<br>
+                Collaborators: Shiro Sugane Architects, Topscape landscape architects, Ueyoshi Landscape Co.<br>
+                </p>
+            
+            <img src="./img/Arch/sino-japanese/01.jpg" alt="sino-japanese" width="100%">
+            <p> Overall view<br>
+                Sina-japanese Industrial Park is a PPP(public private partnership) project that is meant to be a Venue to attract investment from Japan<br>
+                </p>
+            <img src="./img/Arch/sino-japanese/02.jpg" alt="sino-japanese" width="100%">
+            <img src="./img/Arch/sino-japanese/03.jpg" alt="sino-japanese" width="100%">
+            <img src="./img/Arch/sino-japanese/04.jpg" alt="sino-japanese" width="100%">
+        
+
+        </div>
+    </div>
+    </div>
+        
+ 
+          
+    <script src="./voronoiBack.js"></script>
+    </body>
+
+
+
+
+</html>

@@ -12,8 +12,9 @@
 }
 body {
     background-color: #333;
-    overflow: hidden;
-
+    overflow: auto; /* Changed from hidden to auto */
+    margin: 0;
+    padding-top: 50px; /* Added to push content below the fixed navbar */
 }
 footer {
     position: fixed;
@@ -34,6 +35,7 @@ h1 {
     position: relative;
     background:none;
     max-width: 300px;
+    
 }
 
 a, h2, p, pre {
@@ -70,22 +72,33 @@ h1 a:hover {
     color: rgb(180,255,255); /* Keep the color same on hover, or choose a different color if you prefer */
 }
 
+.home {
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 1000; /* Ensure the navbar stays on top */
+}
+
 .home, .home a {
     color:magenta;
-    height: 80px;
+    height: 30px;
     font-size: 30px;
     padding: 10px 15px;
+    margin-top: 5px;
 }
 
 .column-container {
     display: flex;
     flex-wrap: wrap;
+    justify-content: center; /* Center the columns */
+    padding: 0 20px; /* Added padding to the sides */
 }
 
 .column {
-    flex: 1 0 22%; /* Adjust as needed */
-    padding-left: 10px;
-    box-sizing: border-box; /* Include padding and border in element's total width */
+    flex: 1;
+    max-width: 400px; /* Adjust as needed */
+    margin: 10px; /* Added margin for spacing between columns */
+    box-sizing: border-box;
 }
 
 /* Add a media query for small devices */
@@ -95,11 +108,27 @@ h1 a:hover {
     }
 }
 
+div.container {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 220px; /* Adjust as per your requirement */
+}
+
 
 .column-wide {
     float: left;
-    width: 60%;
+    width: 70%;
+    max-width: 900px;
+
     padding-left: 10px;
+}
+
+.column-wide img {
+    padding: 0px 25px ;
+    background:none;
+    max-width: 800px;
 }
 
 .projects {
@@ -110,7 +139,7 @@ h1 a:hover {
 
 /* width */
 ::-webkit-scrollbar {
-width: 3px;
+width: 8px;
 }
 
 /* Track */
@@ -120,12 +149,12 @@ background: #666;
 
 /* Handle */
 ::-webkit-scrollbar-thumb {
-background: #cff; 
+background: rgb(255, 252, 204); 
 }
 
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
-background: #9ff; 
+background: rgb(245, 255, 153); 
 }
 #voronoi-container {
     position: fixed;
@@ -139,10 +168,7 @@ background: #9ff;
     overflow: hidden; /* Hide the parts of the circles that are outside the container */
 }
 
-.column-wide img {
-    padding: 0px 25px ;
-    background:none;
-}
+
 
 #image-container {
     width: 100%;
@@ -151,6 +177,7 @@ background: #9ff;
 .image-preview {
     margin-left: 20px;
     width: 80%; /* Width of the previews */
+    max-width: 400px;
     height: 10px; /* Height of the slice */
     overflow: hidden; /* Hide the parts of the image that are outside the container */
     transition: all 0.6s ease; /* Transition for size change */
