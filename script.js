@@ -30,7 +30,6 @@ imageFiles.forEach(imageSrc => {
 });
 
 function loadProject(file) {
-  console.log('Loading project:', file);
   const contentContainer = document.getElementById('dynamic-content');
 
   fetch(file)

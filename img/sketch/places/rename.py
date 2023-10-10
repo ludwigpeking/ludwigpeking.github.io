@@ -1,6 +1,7 @@
 import os
 
-folder_path = 'C:\\Users\\liq32\\Desktop\\IT\\2308_website\\ludwigpeking.github.io\\img\\2019-2023 Auswahl\\Places'  # Update this to your specific folder
+folder_path = "C:\\Users\\liq32\\Desktop\\IT\\2308_website\\ludwigpeking.github.io\\img\\sketch\\places"
+
 
 
 # List all files in the directory

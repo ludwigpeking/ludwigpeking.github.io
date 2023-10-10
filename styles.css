@@ -36,9 +36,22 @@ h1 {
     background:none;
     max-width: 300px;
     
+    
+}
+h2 {
+    font-size: 120%;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    /* font-weight: bold; */
+    padding: 10px 25px ;
+    position: relative;
+    background:none;
+    text-align: left;
+    margin: 0 auto;
+    margin-bottom: 10px;
+    margin-top: 10px;
 }
 
-a, h2, p, pre {
+a, h3, p, pre {
     padding: 10px 25px ;
     background:none;
     line-height: 24px;
@@ -55,6 +68,7 @@ a {
     color: #fbe;
     text-indent: 0;
     z-index: 1;
+    cursor: pointer;
 }
 
 a:hover {
@@ -75,7 +89,7 @@ h1 a:hover {
 .home {
     position: fixed;
     
-    left: 0;
+    left: 30px;
     top: 0;
     z-index: 1000; /* Ensure the navbar stays on top */
 }
@@ -99,6 +113,7 @@ h1 a:hover {
 .column {
     flex: 1;
     max-width: 400px; /* Adjust as needed */
+    max-height: 700px;
     margin: 10px; /* Added margin for spacing between columns */
     box-sizing: border-box;
 }
@@ -224,6 +239,7 @@ background: rgb(245, 255, 153);
 
   .gallery img {
     width: 100%;
+    max-width: 360px;
     height: auto;
     margin: 10px;
   }

@@ -9,18 +9,22 @@
         <script src="https://d3js.org/d3.v5.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.21/lodash.min.js"></script>
         <script >
-            function addImages(id) {
-                const galleryDiv = document.getElementById(id);
-                const numberOfImages = 20; // Update this to match the number of images you have
-                const folderName = `./img/2019-2023 Auswahl/Places`; // Update this to your specific folder
-    
-                for (let i = 1; i <= numberOfImages; i++) {
+            function addImages(id, imageNumber, folderName) {
+            const galleryDiv = document.getElementById(id);
+            for (let i = 1; i <= imageNumber; i++) {
                 const imageName = String(i).padStart(3, '0') + '.jpg';
                 const imagePath = `${folderName}/${imageName}`;
+
+                const linkElement = document.createElement('a');
+                linkElement.href = imagePath;
+                linkElement.target = '_blank'; // Optional: to open in a new tab
+
                 const imgElement = document.createElement('img');
                 imgElement.src = imagePath;
-                imgElement.alt = `${imageName}`;
-                galleryDiv.appendChild(imgElement);
+                imgElement.alt = imageName;
+
+                linkElement.appendChild(imgElement);
+                galleryDiv.appendChild(linkElement);
                 }
             }
         </script>
@@ -30,7 +34,7 @@
         <div id="voronoi-container"></div>
         
         <div class="home">
-            <a href="index.html" style="text-decoration: none;  ;"> return home</a> <br>
+            <a href="index.html" style="text-decoration: none;  ;"> return home</a> 
             
             <a class="social-icon" href="mailto:ludwig.peking@gmail.com">
                 <img src="./img/svg/email.svg" alt="Email" />
@@ -44,71 +48,62 @@
             <a class="social-icon" href="https://twitter.com/urban_banal">
                 <img src="./img/svg/twitter.svg" alt="twitter" />
             </a>
-
-              
         </div>
-        <div class="column-container">
+
         <!-- four vertical columns equal -->
-        <div class="column" >
-            <div >
-                <h1 style="font-family: Georgia, 'Times New Roman', Times, serif; color:aqua;"> Ricardo Melon Ludwig <p style="color:aqua"> architect, urban designer, land planner</p> </h1>
-            </div>
-
-            <h2> CV </h2>
-            <p> About Ricardo, <br> der author <br> <br>
-                University of Michigan, Ann Arbor, MI <br> 
-                2007 - 2008, Master of Urban Design <br>
-                Tsinghua University, Beijing, China
-                1998 - 2003, <br> Bachelor of Architecture
-                <br>
-                2012
-                <br>Vanke Co.,Beijing, China — Director of Design, Senior Partner, Chief Architect
-                2011 - PRESENT (with interval of a year in 2014)
-                Urban design, architecture, landscape architecture, interior design of multiple large scale commercial, residential, resort, institutional  and mixed use projects
-                Firm lecturer/trainer on urban design, housing and retail planning
-                Managing Director of Hongmei Factory, Shenyang, China (43,000㎡ Mixed Used Redevelopment)  
-                EE&K Architects, Washington, DC — Architect
-                2008 - 2011
-                Obermeyer Planen+Beraten GmbH, Being, China — Architect, Project Architect
-                2003 -2006
+        <div class="column-container">
+            <div class="column" >
+                <div class="container">
+                    <h1 style="font-family: Georgia, 'Times New Roman', Times, serif; color:aqua;"> 
+                        <a href="https://www.linkedin.com/in/qian-li-944a0510/" class="name-link">
+                            Richard <br>Qian Li
+                            <span class="linkedin-tooltip">LinkedIn</span>
+                        </a> 
+                        <p style="color:aqua">architect, urban designer, land planner</p> 
+                    </h1>
+                </div>
                 
-            </p>
-        </div>
+
+                <h3> CV: </h3>
+                <p style="max-height: 800px; overflow-y: auto;"> <b>Education </b><br> <br>
+                    <b>University of Michigan</b>, Ann Arbor, MI <br> 
+                    2007 - 2008, Master of Urban Design <br><br>
+                    <b>Tsinghua University</b>, Beijing, China
+                    1998 - 2003, <br> Bachelor of Architecture
+                    <br><br>
+                    <b>Career </b><br><br>
+                    2011 - present 
+                    <br><b>Vanke Co.</b>, Beijing/Shenyang/Taiyuan, China <br> Director of Design, Senior Partner, Chief Architect,<br>
+                    Lecturer/trainer, <br>
+                    Managing Director of Hongmei Cultural Park, Shenyang <br><br>
+
+                    2008 - 2010 <br>
+                    <b>EE&K Architects</b>, Washington, DC — Architect<br><br>
+
+                    2003 - 2007<br>
+                    <b>Obermeyer Planen+Beraten GmbH,</b> Being, China — Architect, Project Architect
+                    
+                </p>
+            </div>
        
         <div class="column">
-            <h1> Architcture, Urban Design, Sketches </h1> 
-            <h2>Sino-japanese Industrial Park, Shenyang </h2>
+            <h1> Sketches of Places </h1> 
+            <h3>2011-2019 </h3>
             <div class="gallery" id="gallery"></div>
                 <script>
-                    addImages('gallery');
-                    
+                    addImages('gallery', 100, `img/sketch/places`);
                 </script>
             </div>
         <div class="column">
-            <h1> Architcture, Urban Design, Sketches </h1> 
-            <h2>Sino-japanese Industrial Park, Shenyang </h2>
+            <h1> Sketches of Floor Plans and Details</h1> 
+            <h3>2011-2019 </h3>
             <div class="gallery" id="gallery2"></div>
-              <script>
-                    addImages('gallery2');
-                   
+                <script>
+                    addImages('gallery2', 67,  `img/sketch/floor-plan-others`);
                 </script>
         </div>
-        <div class="column">
-            <h1> <a>Architcture, Urban Design, Sketches </a></h1> 
-            <h2>Sino-japanese Industrial Park, Shenyang </h2>
-            <div class="gallery" id="gallery3"></div>
-              <script>
-                    addImages('gallery3');
-                   
-                </script>
-        </div>
-
     </div>
-        
- 
-          
     <script src="./voronoiBack.js"></script>
-    
     </body>
 
 
