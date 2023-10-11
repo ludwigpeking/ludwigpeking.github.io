@@ -198,7 +198,7 @@ background: rgb(245, 255, 153);
     height: 10px; /* Height of the slice */
     overflow: hidden; /* Hide the parts of the image that are outside the container */
     transition: all 0.6s ease; /* Transition for size change */
-    background-color: white;
+    background-color: transparent;
     margin-bottom: 10px;
     position: relative;
 }
@@ -212,7 +212,7 @@ background: rgb(245, 255, 153);
     height: auto; /* Maintain the original aspect ratio */
     transition: all 0.6s ease; /* Transition for size change */
     display: block;
-    opacity: 0.5;
+    opacity: 0.7;
     position: absolute;
     padding: -10px;
 
@@ -222,7 +222,8 @@ background: rgb(245, 255, 153);
 .image-preview img:hover{
     width: 100%;
     height: auto;
-    opacity: 1;
+    opacity: 0.9;
+    background-color: transparent;
     position: relative;
     top: 0;
     left: 0;

@@ -8,12 +8,33 @@
         <link href="./styles.css" rel="stylesheet">
         <script src="https://d3js.org/d3.v5.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.21/lodash.min.js"></script>
+        <script src="script.js"></script>  
+        <script>
+            document.addEventListener('DOMContentLoaded', function() {
+                const urlParams = new URLSearchParams(window.location.search);
+                const project = urlParams.get('project');
+        
+                if (project) {
+                    loadProject(project);
+                }
+            });
+        
+            // function loadProject(projectPath) {
+            //     fetch(projectPath)
+            //         .then(response => response.text())
+            //         .then(html => {
+            //             document.getElementById('dynamic-content').innerHTML = html;
+            //         })
+            //         .catch(err => console.warn('Something went wrong.', err));
+            // }
+        </script>
+        
     </head>
     
     <body>
-        <div id="voronoi-container"></div>        
+        <div id="voronoi-container"></div>      
         <div class="home">
-            <a href="index.html" style="text-decoration: none;  ;"> return home</a> <br>            
+            <a href="index.html" style="text-decoration: none;  ;"> return home</a>       
             <a class="social-icon" href="mailto:ludwig.peking@gmail.com">
                 <img src="./img/svg/email.svg" alt="Email" />
             </a>
@@ -30,120 +51,84 @@
 
         <div class="column-container">
         <!-- four vertical columns equal -->
-        <div class="column">
+        <div class="column" style="max-width: 400px;">
             <div >
-                <h1 style="font-family: Georgia, 'Times New Roman', Times, serif; color:aqua;"> Ricardo Melon Ludwig <p style="color:aqua"> architect, urban designer, land planner</p> </h1>
+                <h1 style="font-family: Georgia, 'Times New Roman', Times, serif; color:aqua;"> 
+                    <a href="https://www.linkedin.com/in/qian-li-944a0510/" class="name-link">
+                        Richard <br>Qian Li
+                        <span class="linkedin-tooltip">LinkedIn</span>
+                    </a> 
+                    <p style="color:aqua">architect, urban designer, land planner</p> 
+                </h1>
             </div>
-            <h2>Selected Recent Projects, 2011-2022 </h2>
-                    <div style="overflow-y:scroll; max-height: 500px;" >
-                        <p><a href="architecture\light-of-the-north.html"> Sino-japanese Industrial Park, Shenyang, 2020-2022</a></p>
-
-                        <div class="image-preview">
-                            <img src="./img/Arch/sino-japanese/01.jpg" alt="Image 1">
-                        </div>
-
-                        <div class="image-preview">
-                            <img src="./img/Arch/sino-japanese/02.jpg" alt="Image 2">
-                        </div>
         
-
-                        <p><a href="./arch.html"> The Light of the West Stars, Shenyang, 2021-2022</a></p>
-
-                        <div class="image-preview">
-                            <img src="./img/Arch/light of the west/01.jpg" alt="Image 1">
-                        </div>
-                        <h2><a href="./arch.html"> The Mansion Oriental, Shenyang, 2020-2022</a></h2>
-
-                        <div class="image-preview">
-                            <img src="./img/Arch/maison oriental/01.png" alt="Image 1">
-                        </div>
-                        <div class="image-preview">
-                            <img src="./img/Arch/maison oriental/02.png" alt="Image 1">
-                        </div>
-                        <div class="image-preview">
-                            <img src="./img/Arch/maison oriental/03.png" alt="Image 1">
-                        </div>
-                        <h2><a href="./arch.html"> The City of Four Seasons, Shenyang, 2021-2022</a></h2>
-
-                        <div class="image-preview">
-                            <img src="./img/Arch/polis of four seasons/01.jpg" alt="Image 1">
-                        </div>
-                        <div class="image-preview">
-                            <img src="./img/Arch/polis of four seasons/02.jpg" alt="Image 1">
-                        </div>
-                        <h2><a href="./arch.html"> Sino-German Community, Shenyang, 2020-2022</a></h2>
-
-                        <div class="image-preview">
-                            <img src="./img/Arch/sino-german/01.jpg" alt="Image 1">
-                        </div>
-                        <h2><a href="./arch.html"> Sino-German Community, Shenyang, 2020-2022</a></h2>
-
-                        <div class="image-preview">
-                            <img src="./img/Arch/sino-german/01.jpg" alt="Image 1">
-                        </div>
-
-                    </div>
+            <div class="project-links">
+                <h3>Selected Projects, 2008-2022 </h3>
+                <div style="overflow-y:scroll; max-height: 500px;" >
+                    <p><a onclick = "loadProject('architecture/tsingtao-harborfront.html')"> Tsingtao Harborfront, Tsingtao, 2010</a></p>
+                    <p><a onclick = "loadProject('architecture/sino-japanese.html')"> Sino-japanese Industrial Park, Shenyang, 2020-2022</a></p>
+                    <p><a onclick = "loadProject('architecture/mansion-oriental.html')"> The Mansion Oriental, Shenyang, 2020-2022</a></p>
+                    <p><a onclick = "loadProject('architecture/prince-hotel.html')"> Prince Hotel, Jilin,  2020-2022</a></p>
+                    <p><a onclick = "loadProject('architecture/light-of-the-north.html')"> The Light of the North Star, Shenyang, 2019-2021</a></p>
+                    <p><a onclick = "loadProject('architecture/light-of-the-west.html')"> The Light of the West Stars, Shenyang, 2020-2022</a></p>
+                    <p><a onclick = "loadProject('architecture/sino-german.html')"> Sino-german Community, Shenyang, 2020-2022</a></p>
+                    <p><a onclick = "loadProject('architecture/four-seasons.html')"> The City of the Four Seasons, Shenyang, 2020-2022</a></p>     
+                </div>
                     
-                    <h2><br>Design of Places - Sketches of Qian</h2>
-                    <div style="overflow-y:scroll; max-height: 400px;" >
-                        <h2><a href="./arch.html"> master plans, 2011-2022</a></h2>
+                <a href="./gallery.html">
+                    <h3><br>Design of Places - Sketches of Qian</h3></a>
+
+                    <div style="overflow-y:scroll; max-height: 350px;" >
+                        <h3><a href="./gallery.html"> master plans, 2011-2022</a></h3>
                         <div class="image-preview">
-                            <img src="./img/2011-2019/Places_resized/13_Tsingtao_01.jpg" alt="Image 1">
+                            <a href="./gallery.html">
+                            <img src="img\sketch\places-resize\068.jpg" alt="Image 1"></a>
                         </div>
                         <div class="image-preview">
-                            <img src="./img/2011-2019/Places_resized/11_Tsingtao_20.jpg" alt="Image 1">
+                            <a href="./gallery.html">
+                            <img src="img\sketch\places-resize\005.jpg" alt="Image 1"></a>
                         </div>
                         <div class="image-preview">
-                            <img src="./img/2011-2019/Places_resized/11_Tsingtao_10.jpg" alt="Image 1">
+                            <a href="./gallery.html">
+                            <img src="img\sketch\places-resize\001.jpg" alt="Image 1"></a>
                         </div>
-                        <h2><a href="./arch.html"> floor plans, 2011-2022</a></h2>
+                        <h3><a href="./gallery.html"> floor plans, 2011-2022</a></h3>
                         <div class="image-preview">
-                            <img src="./img/2011-2019/FloorPlan_resized/002.jpg" alt="Image 1">
+                            <a href="./gallery.html">
+                            <img src="img\sketch\floor-plan-others-resize\016.jpg" alt="Image 1">
+                            </a>
                         </div>
                         <div class="image-preview">
-                            <img src="./img/2011-2019/FloorPlan_resized/004.jpg" alt="Image 1">
+                            <a href="./gallery.html">
+                            <img src="img\sketch\floor-plan-others-resize\036.jpg" alt="Image 1">
+                            </a>
                         </div>
-                        <h2><a href="./arch.html"> details and notes, 2011-2022</a></h2>
+                        <h3><a href="./gallery.html"> details and notes, 2011-2022</a></h3>
                         <div class="image-preview">
-                            <img src="./img/2011-2019/Places_resized/15_Tsingdao_19.jpg" alt="Image 1">
+                            <a href="./gallery.html">
+                            <img src="img\sketch\places-resize\059.jpg" alt="Image 1">
+                            </a>
                         </div>
                     </div>
+            </div>
         </div>
-        
-
-           
-                    
+    
+        <div class="column-wide" >
+            <h1>Projects, Sketches</h1> 
+            <p style="color:gray"> &larr; Click the links on the left for browsing more projects.</p>
+            <div id="dynamic-content" style="overflow-y: auto; max-height: 1000px;">
+                
+                <h2>Tsingtao Harborfront, 2009-2010, AIA Awarding Winning (NY 2011) Project</h2>
+                <h3>As designer, production leader, with EE&K Architects. Client: Franshion Properties<br> </h3> 
+                <p> <br> \The Tsingdao Harborfront Project is a large-scale, multi-modal waterfront redevelopment plan. The departure of the shipbuilding and other industries has freed up a substantial waterfront site in the heart of Tsingdao. This initiative seeks to transform the vacant site into a dense, mixed-use district, layered with various spaces anchored by a robust infrastructure basement supported by trains, ferries, and an existing highway.<br>        The project aims to foster an open and continuous waterfront, hosting a variety of spaces and featuring an alternative arterial route to accommodate traffic amidst the urban bustle. The redevelopment is envisioned as a harmonious blend of utility and aesthetics, aiming to breathe new life into the core of Tsingdao while preserving the city's dynamic flow.<br></p>
+                <img src="img\Arch\tsingtao-harborfront\RackMultipart20130309-10395-1aw12zr.jpg" alt="sino-japanese" width="100%">
+                <p> Overall view<br></p>
+                <img src="img\Arch\tsingtao-harborfront\RackMultipart20130309-10395-10vh2st.jpg" alt="sino-japanese" width="100%" style="clip-path: inset(2px 30px 2px 30px);">
+                <p> View to the shipyard wharf<br></p>
+                <img src="img\Arch\tsingtao-harborfront\RackMultipart20130309-10395-1a7fmcf.jpg" alt="sino-japanese" width="100%" style="clip-path: inset(2px 30px 2px 30px);">
+                <p> Site Plan<br></p>
+            </div>
         </div>
-       
-        <div class="column-wide" id="dynamic-content">
-            <h1> Coding and Generative Arts </h1> 
-        <div class="projects">
-            
-            <h2>Sino-japanese Industrial Park, Shenyang </h2>
-            <p>Mixed use <br>
-                As Director of Design, development team, 2021-2022, with Vanke Co.<br>
-                Collaborators: Shiro Sugane Architects, Topscape landscape architects, Ueyoshi Landscape Co.<br>
-                </p>
-            
-            <img src="./img/Arch/sino-japanese/01.jpg" alt="sino-japanese" width="100%">
-            <p> Overall view<br>
-                Sina-japanese Industrial Park is a PPP(public private partnership) project that is meant to be a Venue to attract investment from Japan<br>
-                </p>
-            <img src="./img/Arch/sino-japanese/02.jpg" alt="sino-japanese" width="100%">
-            <img src="./img/Arch/sino-japanese/03.jpg" alt="sino-japanese" width="100%">
-            <img src="./img/Arch/sino-japanese/04.jpg" alt="sino-japanese" width="100%">
-        
-
-        </div>
-    </div>
-    </div>
-        
- 
-          
-    <script src="./voronoiBack.js"></script>
+        <script src="./voronoiBack.js"></script>
     </body>
-
-
-
-
 </html>
