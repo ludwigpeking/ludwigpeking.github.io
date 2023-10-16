@@ -29,16 +29,23 @@ imageFiles.forEach(imageSrc => {
   imageContainer.appendChild(previewDiv);
 });
 
-function loadProject(file) {
-  const contentContainer = document.getElementById('dynamic-content');
-
-  fetch(file)
+function loadProject(projectPath) {
+  fetch(projectPath)
       .then(response => response.text())
-      .then(data => {
-          contentContainer.innerHTML = data;
+      .then(html => {
+          const contentContainer = document.getElementById('dynamic-content');
+          contentContainer.innerHTML = html;
+
+          const scripts = contentContainer.getElementsByTagName('script');
+          for (let script of scripts) {
+              const newScript = document.createElement('script');
+              if (script.src) {
+                  newScript.src = script.src;
+              } else {
+                  newScript.textContent = script.textContent;
+              }
+              document.body.appendChild(newScript);
+          }
       })
-      .catch(error => {
-          console.error('Error:', error);
-          contentContainer.innerHTML = 'Failed to load content.';
-      });
+      .catch(err => console.warn('Something went wrong.', err));
 }

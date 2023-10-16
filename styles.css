@@ -51,7 +51,7 @@ h2 {
     margin-top: 10px;
 }
 
-a, h3, p, pre {
+a, h3, p, pre, li {
     padding: 10px 25px ;
     background:none;
     line-height: 24px;
@@ -85,6 +85,7 @@ h1 a {
 h1 a:hover {
     color: rgb(180,255,255); /* Keep the color same on hover, or choose a different color if you prefer */
 }
+
 
 .home {
     position: fixed;
@@ -142,11 +143,22 @@ div.container {
     padding-left: 10px;
 }
 
-.column-wide img {
-    padding: 0px 25px ;
-    background:none;
+img {
+    padding: 0px 0px;
+    background: none;
     max-width: 800px;
+    display: block; /* Makes the image a block-level element */
+    margin-left: 20 ; /* Centers the image horizontally */
 }
+
+.column-wide img {
+    padding: 0px 0px;
+    background: none;
+    max-width: 800px;
+    display: block; /* Makes the image a block-level element */
+    margin-left: 20 ; /* Centers the image horizontally */
+}
+
 
 .projects {
     height:80vh;
@@ -259,4 +271,31 @@ background: rgb(245, 255, 153);
 
 .name-link:hover .linkedin-tooltip {
     display: inline-block;
+}
+
+.slideshow-container {
+    position: relative;
+    padding:0 20px;
+}
+
+.slideshow-img {
+    position: absolute;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+    
+}
+
+.slideshow-img.show {
+    opacity: 1;
+}
+
+.crop-container {
+    width: 800px;  /* Width of the displayed portion of the image */
+    overflow: hidden; /* Hide the cropped parts */
+    margin-left: 20px;
+}
+
+.crop-container img {
+    position: relative;
+    left: -300px; /* Shift the image to the left to crop it */
 }
