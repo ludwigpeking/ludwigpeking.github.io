@@ -1,16 +1,92 @@
 <html>
 <h2>
-The Infinite Generator of Shoin-zukuri</h2>
-<h3>
-Independent Study, 2022, (blender3D, bpyscripting) </h3>
-<p>
-Shoin-zukuri (書院造) is a style of Japanese residential architecture. 
-This project tests a technique called Wave Function Collapse algorithm, originated by Maxim Gumin @ExUtumno @OskSta , to generate building complexes of Shoin-zukuri style.
-This project is able to create infinite and surprising architectural composition and interior space with limited building blocks. The connection of the building blocks are locally, tectonically bounded, but not constrained by experience or existing precedents.
+        Malthusian World Simulation</h2>
 
-<a href="https://github.com/ludwigpeking/Shoin_zukuri_WFC"> github repository</a>
+<p>
+    Author: Richard Qian Li, 2022. Javascript, p5 library. This code is a simulation of a world governed by Malthusian principles. 
+    A Malthusian world refers to a scenario where the growth of a population is checked by limited resources.
+</p>
+<p>
+    In this simulation, the world consists of a grid where each cell can be occupied by a "band" of people. These bands can grow 
+    in size, move around, divide themselves into dispatches when the local resources are not enough to supply.
+</p>
+<div style="margin-left: 20px; margin-bottom: 10px;">
+<img src="img\Coding\malthusian-world\save01.png" alt="Project Screenshot">
+<img src="img\Coding\malthusian-world\save02.png" alt="Project Screenshot">
+<img src="img\Coding\malthusian-world\save03.png" alt="Project Screenshot">
+<img src="img\Coding\malthusian-world\save04.png" alt="Project Screenshot">
+</div>
+<h3>Malthusian Concepts in the Code:</h3>
+
+<ol>
+    <li>
+        <strong>Resource and Population Dynamics:</strong>
+        <p>
+            The code simulates the growth of resources and population on a grid. The carrying capacity of each cell in the grid 
+            is limited, akin to the Malthusian idea that resources (like food) grow at a linear rate, while the population can 
+            grow exponentially until checked by the lack of resources.
+        </p>
+    </li>
+    <li>
+        <strong>Ages or States of the World:</strong>
+        <p>
+            Different "ages" or states of the world (like "Age of Eden," "Age of Collapse") are determined based on the 
+            population and resource dynamics. This is analogous to the cycles of growth and decline in a Malthusian world. 
+            There are chances that the system run into some <strong>Metastable State</strong>, when there's a certain amount of 
+            population and resources, the consumption and the recovery of the environment are balanced, and the system can stay 
+            in this state for a long time. However, it is likely to break out of this state and enter a new state, which could 
+            be a state of prosperity or a state of collapse.
+        </p>
+    </li>
+    <li>
+        <strong>Population Movement and Utilization of Resources:</strong>
+        <p>
+            Bands can move and exploit resources, similar to how human populations historically migrated and exploited new lands. 
+            However, in a closed, technologically stagnant society, these resources are finite and can be depleted.
+        </p>
+    </li>
+</ol>
+
+<h3>A Metaphor to a Closed, Technologically Stagnant Society:</h3>
+
+<ol>
+    <li>
+        <strong>Limited Technological Progress:</strong>
+        <p>
+            The code does not account for technological innovation that could increase the carrying capacity of the land. This 
+            mirrors a society where technological progress is slow or nonexistent, leading to a constant struggle for resources.
+        </p>
+    </li>
+    <li>
+        <strong>Population Checks:</strong>
+        <p>
+            Population growth is checked by the availability of resources. In a real-world Malthusian scenario, this would be 
+            analogous to famines, diseases, and other disasters that reduce the population when it exceeds the carrying capacity 
+            of the environment.
+        </p>
+    </li>
+    <li>
+        <strong>Cyclical Nature:</strong>
+        <p>
+            The simulation’s different “ages” reflect the cyclical nature of a Malthusian world. There are periods of prosperity 
+            when resources are abundant, followed by periods of decline as resources are depleted, and the population is checked. 
+            The signature is a long and slow period of early growth, followed by a rapid collapse, and then a slow recovery or 
+            complete extinction.
+        </p>
+    </li>
+</ol>
+
+<h3>Reflection on Modern Society:</h3>
+<p>
+    While modern society has largely escaped the Malthusian trap due to technological innovation, the simulation underscores 
+    the importance of sustainable practices and innovations that increase our planet’s carrying capacity in a balanced manner, 
+    warning the dangers of some involutionary parts of the world that might drag us back into the Malthusian trap.
+</p>
+<p>
+<a href="https://github.com/ludwigpeking/MalthusianWorld"> <u style="color:pink">Github Repository Link</u></a></p><p>
+<a href="https://malthusian-world.vercel.app/"> <u style="color:pink">Vercel App Link</u></a>
 </p>
 
 
-        <iframe src="https://shoin-zukuri-wfc.vercel.app/" style="border: none; padding: 20px" width="800" height="800"></iframe>
+        <iframe src="https://malthusian-world.vercel.app/" style="border: none; padding: 20px; overflow:auto" width="1600" height="800"></iframe>
 </html>
