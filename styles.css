@@ -47,6 +47,7 @@ footer {
 
 h1 {
     height: 220px;
+    top: 10px;
     text-align: center;
     font-size: 240%;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
@@ -109,22 +110,26 @@ h1 a:hover {
 
 .home {
     position: fixed;
-    width: auto;
+    background-color: rgba(0, 0, 0, 0.4);
+    display: flex;
+    width: 100%;
     white-space: nowrap;
-    left: 30px;
-    top: 0;
+    left: 0;
+    top: -10px;
     z-index: 1000; /* Ensure the navbar stays on top */
+    margin-bottom: 10px; /* Add padding below the lower border */
 }
 
 .home, .home a {
-    color:magenta;
-    height: 30px;
+    color: magenta;
+    height: 40px;
     font-size: 30px;
     padding: 10px 15px;
     margin-top: 5px;
-    
-   
 }
+
+/* Rest of your CSS remains unchanged */
+
 
 .column-container {
     display: flex;
@@ -230,44 +235,54 @@ background: rgb(245, 255, 153);
 #image-container {
     width: 100%;
   }
-  
+/* Base styles for image preview */
 .image-preview {
     margin-left: 20px;
-    width: 80%; /* Width of the previews */
-    max-width: 400px;
-    height: 10px; /* Height of the slice */
-    overflow: hidden; /* Hide the parts of the image that are outside the container */
-    transition: all 0.6s ease; /* Transition for size change */
+    width: 80%; /* Full width */
+    height: 10px; /* Initial height to show just the top part as a bar */
+    overflow: hidden; /* Hide the rest of the image */
     background-color: transparent;
     margin-bottom: 10px;
     position: relative;
+    transition: height 0.6s ease; /* Smooth transition for height */
+    transition-delay: 0s; /* No delay when hovering over */
+
 }
 
-.image-preview:hover {
-    height: auto;
-}
-
+/* Image inside the preview */
 .image-preview img {
-    width: 100%; /* Stretch image to fill the container */
-    height: auto; /* Maintain the original aspect ratio */
-    transition: all 0.6s ease; /* Transition for size change */
+    width: 100%; /* Full width of the image */
+    height: auto; /* Maintain aspect ratio */
     display: block;
-    opacity: 0.7;
-    position: absolute;
-    padding: -10px;
+    transition: transform 0.6s ease; /* Smooth transition for the transform */
+    transition-delay: 0s; /* No delay when hovering over */
 
- 
 }
 
-.image-preview img:hover{
-    width: 100%;
-    height: auto;
-    opacity: 0.9;
-    background-color: transparent;
-    position: relative;
-    top: 0;
-    left: 0;
-    overflow: visible;
+/* Hover effect to expand image */
+.image-preview:hover {
+    height: 140px; /* Example fixed height - adjust as needed */
+    transition-delay: 0s; /* No delay when hovering over */
+    transition-delay: 0s; /* No delay when hovering over */
+
+}
+
+/* Optional: Scale the image slightly on hover */
+.image-preview:hover img {
+    transform: scale(1.0); /* Slightly increase the size */
+}
+
+/* Apply delay on mouse-out */
+.image-preview:not(:hover) {
+    transition-delay: 0.3s; /* Delay when mouse leaves */
+}
+
+@media (hover: none), (pointer: coarse) {
+    .image-preview {
+        height: auto; /* Show full image on devices that don't support hover */
+        transition-delay: 0s; /* No delay needed for touch devices */
+
+    }
 }
 
 .gallery {
@@ -316,6 +331,28 @@ background: rgb(245, 255, 153);
 .slideshow-img.show {
     opacity: 1;
 }
+
+.slideshow-container {
+    position: relative;
+    width: 500px; /* Set this to the width of your images */
+    height: 500px; /* Set this to the height of your images */
+    margin-left: 20px; /* Adjust as needed */
+    overflow: hidden; /* Ensures that anything outside this container is not shown */
+  }
+  
+  .slideshow-img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%; /* Images will take up the full width of the container */
+    height: 100%; /* Images will take up the full height of the container */
+    display: none; /* Hide images by default */
+  }
+  
+  .show {
+    display: block; /* Only the image with this class will be displayed */
+  }
+  
 
 .crop-container {
     width: 800px;  /* Width of the displayed portion of the image */

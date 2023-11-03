@@ -14,40 +14,42 @@
     <p>
         It might be obvious that the parcelization in the city has an origin from the informal occupation made by individuals in a Voronoi diagram-like pattern. This study discovers and proves that rectangular parcelization can be generated too by the claiming on a Voronoi pattern, where nuclei are aligned on the street.
     </p>
-
-    <h3>2) Street Pattern: Pathfinding on borders:</h3>
-    <p>This study demonstrates that street patterns can be a result of the left-over of claiming on the property edges due to efficiency driven spontaneous choice.
-    </p>
-    <h3><a href="https://editor.p5js.org/ludwig.peking/sketches/PCsBXbjDi"> Link To p5*js Editor </a></h3>
-    <div class="slideshow-container">
+    <div class="slideshow-container" height="500px">
         <img id="slideshow1" class="slideshow-img" src="img/Coding/BecomingCity_Voronoi Claimation/1.jpg" alt="Slideshow Image" width="500">
         <img id="slideshow2" class="slideshow-img" src="img/Coding/BecomingCity_Voronoi Claimation/1.jpg" alt="Slideshow Image" width="500">
     </div>
+    <h3>2) Street Pattern: Pathfinding on borders:</h3>
+    <p>This study demonstrates that street patterns can be a result of the left-over of claiming on the property edges due to efficiency driven spontaneous choice.
+    </p>
+    <h3><a href="https://editor.p5js.org/ludwig.peking/sketches/PCsBXbjDi" target="_blank"> Link To p5*js Editor </a></h3>
+    <iframe src="https://editor.p5js.org/ludwig.peking/sketches/PCsBXbjDi"
+    width="900px"  height="400"></iframe>
+ 
     
     
     <script>
-        const images = [
-    'img/Coding/BecomingCity_Voronoi Claimation/1.jpg',
-    'img/Coding/BecomingCity_Voronoi Claimation/2.jpg',
-    'img/Coding/BecomingCity_Voronoi Claimation/3.jpg',
-    'img/Coding/BecomingCity_Voronoi Claimation/4.jpg'
-];
+            const images = [
+        'img/Coding/BecomingCity_Voronoi Claimation/1.jpg',
+        'img/Coding/BecomingCity_Voronoi Claimation/2.jpg',
+        'img/Coding/BecomingCity_Voronoi Claimation/3.jpg',
+        'img/Coding/BecomingCity_Voronoi Claimation/4.jpg'
+    ];
 
-let currentIndex = 0;
-const imgElement1 = document.getElementById('slideshow1');
-const imgElement2 = document.getElementById('slideshow2');
-let currentImgElement = imgElement1;
-let nextImgElement = imgElement2;
+    let currentIndex = 0;
+    const imgElement1 = document.getElementById('slideshow1');
+    const imgElement2 = document.getElementById('slideshow2');
+    let currentImgElement = imgElement1;
+    let nextImgElement = imgElement2;
 
-setInterval(() => {
-    currentIndex = (currentIndex + 1) % images.length;
-    nextImgElement.src = images[currentIndex];
-    nextImgElement.classList.add('show');
-    currentImgElement.classList.remove('show');
+    setInterval(() => {
+        currentIndex = (currentIndex + 1) % images.length;
+        nextImgElement.src = images[currentIndex];
+        nextImgElement.classList.add('show');
+        currentImgElement.classList.remove('show');
 
-    // Swap the current and next image elements for the next iteration
-    [currentImgElement, nextImgElement] = [nextImgElement, currentImgElement];
-}, 1500);
+        // Swap the current and next image elements for the next iteration
+        [currentImgElement, nextImgElement] = [nextImgElement, currentImgElement];
+    }, 1500);
 
 
     </script>

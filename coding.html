@@ -13,7 +13,8 @@
             document.addEventListener('DOMContentLoaded', function() {
                 const urlParams = new URLSearchParams(window.location.search);
                 const project = urlParams.get('project');
-        
+                const defaultProject = 'coding/grid-erosion.html';
+                loadProject(defaultProject);
                 if (project) {
                     loadProject(project);
                 }
@@ -35,16 +36,16 @@
         <div id="voronoi-container"></div>      
         <div class="home">
             <a href="index.html" style="text-decoration: none;  ;"> return home</a>       
-            <a class="social-icon" href="mailto:ludwig.peking@gmail.com">
+            <a class="social-icon" href="mailto:ludwig.peking@gmail.com" target="_blank">
                 <img src="./img/svg/email.svg" alt="Email" />
             </a>
-            <a class="social-icon" href="https://www.youtube.com/channel/UC70EKdkg918fqyimJ5-fNMA">
+            <a class="social-icon" href="https://www.youtube.com/channel/UC70EKdkg918fqyimJ5-fNMA" target="_blank">
                 <img src="./img/svg/youtube.svg" alt="youtube" />
             </a>
-            <a class="social-icon" href="https://github.com/ludwigpeking?tab=repositories">
+            <a class="social-icon" href="https://github.com/ludwigpeking?tab=repositories" target="_blank">
                 <img src="./img/svg/github.svg" alt="github" />
             </a>
-            <a class="social-icon" href="https://twitter.com/urban_banal">
+            <a class="social-icon" href="https://twitter.com/urban_banal" target="_blank">
                 <img src="./img/svg/twitter.svg" alt="twitter" />
             </a>            
         </div>
@@ -54,40 +55,83 @@
         <div class="column" style="max-width: 400px;">
             <div >
                 <h1 style="font-family: Georgia, 'Times New Roman', Times, serif; color:aqua;"> 
-                    <a href="https://www.linkedin.com/in/qian-li-944a0510/" class="name-link">
+                    <a href="https://www.linkedin.com/in/qian-li-944a0510/" class="name-link" target="_blank">
                         Richard <br>Qian Li
                         <span class="linkedin-tooltip">LinkedIn</span>
                     </a> 
                     <p style="color:aqua">architect, urban designer, land planner</p> 
                 </h1>
             </div>
+        <!-- coding projects starts here -->
         
             <div class="project-links">
-                <h3>Selected Projects, 2008-2022 </h3>
-                <div style="overflow-y:scroll; max-height: 500px;" >
-                    <p><a onclick = "loadProject('coding/city-values.html')"> Value Based City Generator </a></p>
-                    <p><a onclick = "loadProject('coding/city-voronoi.html')"> City Voronoi Parcelization </a></p>
-                    <p><a onclick = "loadProject('coding/grid-erosion.html')"> Erosion of City Grid </a></p>
-                    <p><a onclick = "loadProject('coding/shoin-zukuri.html')"> Shoin-zoku - An Architecture Generator </a></p>
-                    <p><a onclick = "loadProject('coding/wfc-floorplan.html')"> WFC Floor Plan Generator </a></p>  
-                    <p><a onclick = "loadProject('coding/fractal-forest.html')"> Fractal Forect Generator</a></p>
-                    <p><a onclick = "loadProject('coding/malthusian.html')"> Three.js Fractal Tree Class </a></p>
+                <h3> Coding Projects, 2021-2023 </h3>
+                <div style="overflow-y:scroll; max-height: 800px;" >
+                    <!-- becomingCity -->
+                    <p><a onclick = "loadProject('coding/city-values.html')"> becomingCity - Value Based City Generator, 2022 </a></p>
+                    <div class="image-preview">
+                        <a onclick = "loadProject('coding/city-values.html')">
+                        <img src="./img/Coding/BecomingCity/005.jpg" alt="Image 1"></a>
+                    </div>
+                    <!-- voronoi city -->
+                    <p><a onclick = "loadProject('coding/city-voronoi.html')"> City Voronoi Parcelization - an approach to its crystalization, 2022</a></p>
+                    <div class="image-preview">
+                        <a onclick = "loadProject('coding/city-voronoi.html')">
+                        <img src="img\Coding\BecomingCity_Voronoi Claimation\4.jpg" alt="Image 1"></a>
+                    </div> 
+
+                    <!-- grid erosion -->
+                    <p><a onclick = "loadProject('coding/grid-erosion.html')"> The Erosion of City Grids, 2023 </a></p>
+                    <div class="image-preview">
+                        <a onclick = "loadProject('coding/grid-erosion.html')">
+                        <img src="coding\grid-erosion\img\10.png" alt="Image 1"></a>
+                    </div> 
+                    <!-- shoin-rokuri -->
+                    <p><a onclick = "loadProject('coding/shoin-zukuri.html')"> Shoin-zokuri - An Architecture Generator by Wave Function Collapse Algorithm, 2022-2023 </a></p>
+                    <div class="image-preview">
+                        <a onclick = "loadProject('coding/shoin-zukuri.html')">
+                        <img src="img\Coding\shoin-zukuri\1.png" alt="Image 1"></a>
+                    </div> 
                     
-                      
-                    <p><a onclick = "loadProject('coding/wfc-floorplan.html')"> WFC Floor Plan Generator </a></p>    
-                    <p><a onclick = "loadProject('coding/malthusian.html')"> Malthusian World </a></p>    
+                    <!-- wfc floor plan -->
+                    <p><a onclick = "loadProject('coding/wfc-floorplan.html')"> WFC Algorithm Floor Plan Generator, 2022 </a></p> 
+                    <div class="image-preview">
+                        <a onclick = "loadProject('coding/wfc-floorplan.html')">
+                        <img src="img\Coding\WFC_floorplan\12.png" alt="Image 1"></a>
+                    </div>  
+                    <!-- Forest -->
+                    <fractal-forest>
+                    <p><a onclick = "loadProject('coding/fractal-forest.html')"> Fractal Forect Generator,
+                    2022 </a></p> 
+                    <div class="image-preview">
+                        <a onclick = "loadProject('coding/fractal-forest.html')">
+                        <img src="img\Coding\fractal-forest\01.jpg" alt="Image 1"></a>
+                    </div>  
+
+                    <!-- three.js tree class -->
+                    <p><a onclick = "loadProject('coding/three-js-tree.html')"> Three.js Fractal Tree Class,
+                    2023 </a></p> 
+                    <div class="image-preview">
+                        <a onclick = "loadProject('coding/three-js-tree.html')">
+                        <img src="img\Coding\fractal-tree-three-js\02.png" alt="Image 1"></a>
+                    </div> 
+
+
+     
+                    <!-- Malthusian -->
+                    <p><a onclick = "loadProject('coding/malthusian.html')"> Malthusian World, 2022-2023 </a></p>    
+                    <div class="image-preview">
+                        <a onclick = "loadProject('coding/malthusian.html')">
+                        <img src="img\Coding\malthusian-world\save01.png" alt="Image 1"></a>
+                    </div> 
                     
                     <p><a onclick = "loadProject('coding/urban-forest.html')"> Urban Forest </a></p>
-                </div>
-                    
-                
-
-                    
+                </div>     
             </div>
         </div>
     
         <div class="column-wide" >
-            <h1>Coding, Generative Art</h1> 
+            <h1>Coding <br>and Generative Art</h1> 
             <p style="color:gray"> &larr; Click the links on the left for browsing more projects.</p>
             <div id="dynamic-content" style="overflow-y: auto; max-height: 1000px;">
                 

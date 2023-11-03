@@ -1,0 +1,70 @@
+<html>
+<h2>Floor Plan Generator Using Wave Function Collapse Algorithm </h2>
+<h3>Independent Study, 2022, (python)<br>
+
+
+        <a href="https://github.com/ludwigpeking/Shoin_zukuri_WFC"> github repository</a>
+</h3>
+<ol type="A"><li>The algorithm: WFC algorithm (originated by Maxim Gumin)  is based on randomness and locally bounded spatial interconnection; therefore it is not experience dependent and has foll openness to innovative designs; It is a bottom up approach, which is rooted from the fundamental elements and tectonic logics. </li>
+<li>The library of valid connections: the possibility of interconnection is vast and easily buggy. Some techniques are applied to streamline the making of the library:</li>
+<ol>
+        <li>
+            The technique of pixelating the interconnections: (images below: a random floor plan of a bedroom and its pixelation). Therefore a case of interconnection is abstracted as a quadrant with a color value at each corner.
+        </li>
+        <div style="height:250px; display: flex;">
+        <img src="img\Coding\WFC_floorplan\10.png" >
+        <img src="img\Coding\WFC_floorplan\11.png" ></div>
+        <li>
+            Library automatically generated from samples. It can be considered as a machine learning process. There is the risk of not being able to exhaust all possibilities. But it avoids mistakes by manual operation.
+        </li></ol>
+        <img src="img\Coding\WFC_floorplan\12.png" style="width: 600px;" >
+        <p>(image above) valid connections in a bedroom, manually defined.
+        </p>
+        <img src="img\Coding\WFC_floorplan\13.png" style="width: 600px;" >
+        <p>( image above) samples of a kitchen, from which a library of valid connections and their frequency in kitchens is extracted.
+        </p>
+        <li>
+            A selection of size of grid: the size of the grid greatly affects the expensiveness of the generation. Efficiency and details are not to be achieved at the same time. Instead of using a conventional grid of 20cm or 30cm, I use a grid of 55cm. Despite being quick, the dimension of 55cm is the width between two arms of a person that has to do with the depth of wardrobe, the narrow passage in the room and the depth of counters.
+        </li>
+        <li>
+            ‘Collapse’: (image below) in each step, the entropies of all cells are calcolated, and the one with lowest entropy collapses to a valid connected tile.
+        </li>
+        <img src="img\Coding\WFC_floorplan\14.png" style="width: 600px;" >
+
+        <li>
+            Fitness Calcolation: there shoold be different evaluations for different purposes. But in general, there are three values taken into consideration:
+            <ol>
+                <li>
+                    Perimeter to area ratio, a decreasing function;
+                </li>
+                <li>
+                    Area is an increasing function below a certain value, but becomes a decreasing function after a suitable area; In luxury housing, the marginal declination of fitness value on area is smaller than that in compact housing.
+                </li>
+                <li>
+                    Storage capacity is an increasing function with declining margin.
+                </li>
+            </ol>
+            <img src="img\Coding\WFC_floorplan\15.png" style="width: 500px;" >
+            <img src="img\Coding\WFC_floorplan\16.png" style="width: 500px;" >
+            <p>(Images above: fitness curves on area and storage capacity, compact and luxury types requiring different parameters in fitness functions)
+        </p>
+
+        </li>
+        <li>
+            From parts to the whole: Each room (bedroom, bathroom, kitchen, livingroom) has its own fitness value. Those generated with higher value are kept as components for the generation of the whole apartment floor plan.
+        </li>
+        <div style="height:300px; display: flex;">
+                <img src="img\Coding\WFC_floorplan\01.png" >
+                <img src="img\Coding\WFC_floorplan\02.png" ><img src="img\Coding\WFC_floorplan\03.png" ></div>
+      
+        <p>(images above: generation results with high fitness values)
+        </p>
+        <li>
+            The living rooms have more intricate silhouettes. They are generated as the connecting parts for the other rooms. And the whole apartment has its overall fitness value.
+        </li>
+    </ol>
+    
+
+
+
+
