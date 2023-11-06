@@ -1,0 +1,50 @@
+html, body {
+  margin: 3px;
+  padding: 0;
+  width: 80%;
+
+}
+canvas {
+  display: block;
+}
+
+button {
+  position: absolute;
+  width: 90px;
+  top: 10px;
+  left: 10px;
+  z-index: 100;
+}
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: inner-spin-button;
+    appearance: inner-spin-button;
+    margin: 0;
+}
+
+a {
+  color: #f4b;
+  /* text-decoration: none; */
+}
+
+h1, h2, h3, h4{
+
+  font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+#saveCanvasBtn {
+  padding: 10px 15px;
+  left: 200px;
+  top: 40px;
+  width: 200px;
+  border: none;
+  background-color: #f4f4f4;
+  cursor: pointer;
+  margin-left: 10px;
+  transition: background-color 0.3s ease;
+}
+
+#saveCanvasBtn:hover {
+  background-color: #e0e0e0;
+}
