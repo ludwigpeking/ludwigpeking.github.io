@@ -6,11 +6,14 @@
     font-family: Georgia, 'Times New Roman', Times, serif;
     text-indent: 0%;
 }
+@media only screen and (min-device-pixel-ratio: 1), only screen and (min-resolution: 192dpi) {
+    /* High-density screen (e.g., Retina) styles */
+}
+
 .social-icon {
-    display: inline-block;
-    margin: 0;
-    margin-right: 10px;
-    padding: 0;
+    margin: 5px 10px; /* Adjust margin to match your design */
+    padding: 0; /* Keep original padding */
+    font-size: 30px; /* Set the font size for the social icons */
 }
 
 /* Styles for larger screens */
@@ -33,7 +36,6 @@
 body {
     background-color: #333;
     overflow: auto; /* Changed from hidden to auto */
-    margin: 0;
     padding-top: 50px; /* Added to push content below the fixed navbar */
 }
 footer {
@@ -96,6 +98,9 @@ a:hover {
     color: magenta;
 }
 
+
+
+
 h1 a {
     color: inherit;
     font-size: inherit;
@@ -112,20 +117,50 @@ h1 a:hover {
     position: fixed;
     background-color: rgba(0, 0, 0, 0.4);
     display: flex;
+    flex-wrap: wrap; /* Allow items to wrap to the next line */
+    align-items: center; /* Align items vertically */
     width: 100%;
-    white-space: nowrap;
     left: 0;
     top: -10px;
-    z-index: 1000; /* Ensure the navbar stays on top */
-    margin-bottom: 10px; /* Add padding below the lower border */
+    z-index: 1000;
+    padding: 10px 15px;
 }
 
-.home, .home a {
+.home > a:first-child {
+    flex: 0 0 auto; /* Do not grow, do not shrink, initial size */
+    margin-right: auto; /* Push all other items to the right */
+    font-size: 30px; /* Set the font size for the return home link */
     color: magenta;
     height: 40px;
     font-size: 30px;
     padding: 10px 15px;
     margin-top: 5px;
+}
+
+@media (min-width: 600px) {
+    .home {
+        flex-wrap: nowrap; /* Do not wrap items */
+    }
+
+    .home > a:first-child {
+        margin-right: 10px; /* Space after the return home link */
+    }
+
+    .social-icon {
+        display: inline-block; /* Display inline on larger screens */
+    }
+}
+
+/* Media query for smaller screens */
+@media (max-width: 599px) {
+    .home > a:first-child {
+        margin-bottom: 10px; /* Space below the return home link */
+    }
+
+    .social-icon {
+        display: block; /* Stack icons vertically */
+        margin-bottom: 10px; /* Space below each icon */
+    }
 }
 
 /* Rest of your CSS remains unchanged */
@@ -272,9 +307,8 @@ background: rgb(245, 255, 153);
     transform: scale(1.0); /* Slightly increase the size */
 }
 
-/* Apply delay on mouse-out */
-.image-preview:not(:hover) {
-    transition-delay: 0.3s; /* Delay when mouse leaves */
+.image-preview.expanded {
+    height: 140px; /* Example fixed height - adjust as needed */
 }
 
 @media (hover: none), (pointer: coarse) {

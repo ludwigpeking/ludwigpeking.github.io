@@ -1,33 +1,7 @@
 
+var currentSelectedLink = null;
 
 const imageContainer = document.getElementById('image-container');
-
-// Array of image file paths (modify as needed)
-// const imageFiles = [
-//   './img/2011-2019/Places_resized/11_Tsingtao_01.jpg',
-//   './img/2011-2019/Places_resized/11_Tsingtao_02.jpg',
-//     './img/2011-2019/Places_resized/11_Tsingtao_03.jpg',
-//     './img/2011-2019/Places_resized/11_Tsingtao_10.jpg',
-//     './img/2011-2019/Places_resized/11_Tsingtao_20.jpg',
-//     './img/2011-2019/Places_resized/11_Tsingtao_21.jpg',
-//     './img/2011-2019/Places_resized/11_Tsingtao_22.jpg',
-//     './img/2011-2019/Places_resized/12_Jilin_01.jpg',
-//     './img/2011-2019/Places_resized/12_Jilin_02.jpg',
-//     './img/2011-2019/Places_resized/12_Jilin_03.jpg',
-//     './img/2011-2019/Places_resized/12_Tianjin_01.jpg',
-//     './img/2011-2019/Places_resized/12_Tianjin_10.jpg',
-//     './img/2011-2019/Places_resized/12_Tsingtao_01.jpg',
-//   // ... more file paths ...
-// ];
-
-// imageFiles.forEach(imageSrc => {
-//   const previewDiv = document.createElement('div');
-//   previewDiv.className = 'image-preview';
-//   const img = document.createElement('img');
-//   img.src = imageSrc;
-//   previewDiv.appendChild(img);
-//   imageContainer.appendChild(previewDiv);
-// });
 
 document.addEventListener('DOMContentLoaded', function () {
     const urlParams = new URLSearchParams(window.location.search);
@@ -50,10 +24,22 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 });
 
-function loadProject(projectPath) {
+function loadProject(projectPath, clickedElement) {
+
+    // if (currentSelectedLink) {
+    //     currentSelectedLink.style.color = ''; // Set this to your default link color
+    // }
+
+    // Set the new link as the selected one and change its color
+    currentSelectedLink = clickedElement;
+    currentSelectedLink.style.color = 'magenta'; // Or any color you prefer
+
+
     fetch(projectPath)
         .then(response => response.text())
         .then(html => {
+            document.getElementById('dynamic-content').innerHTML = html;
+
             const contentContainer = document.getElementById('dynamic-content');
             contentContainer.innerHTML = html;
 
@@ -63,7 +49,7 @@ function loadProject(projectPath) {
                 window.slideshowInterval = null;
             }
 
-            // Remove any previously declared 'images' variable to prevent 'Identifier "images" has already been declared' error
+            // Remove any previously declared 'images' variable to prevent errors
             window.images = undefined;
 
             // Execute any script tags found in the loaded content
@@ -71,19 +57,27 @@ function loadProject(projectPath) {
             for (const oldScript of scripts) {
                 const newScript = document.createElement('script');
                 Array.from(oldScript.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value));
-                // Execute the script in a new function to give it a fresh scope
                 new Function(oldScript.textContent)();
                 oldScript.parentNode.removeChild(oldScript);
             }
 
-            // Update the browser's history state when loading a new project.
+            // Update the browser's history state when loading a new project
             history.pushState({ project: projectPath }, '', `?project=${projectPath}`);
 
             // Initialize the slideshow after the new content is loaded
-            initializeSlideshow();
+            if (typeof initializeSlideshow === 'function') {
+                initializeSlideshow();
+            }
+
+            // Update the 'visited' state of links
+            if (clickedElement) {
+                // Change the color of the clicked link to indicate it's visited
+                clickedElement.style.color = 'magenta'; // Or any color you prefer
+            }
         })
         .catch(err => console.warn('Something went wrong.', err));
 }
+
 
 function initializeSlideshow() {
     // Check if the slideshow elements exist before initializing
@@ -120,3 +114,33 @@ function initializeSlideshow() {
         }, 1500);
     }
 }
+
+// Get all the .image-preview elements
+const previews = document.querySelectorAll('.image-preview');
+
+// Add event listeners to each preview
+previews.forEach(preview => {
+    preview.addEventListener('mouseenter', () => {
+        // Add the 'expanded' class when mouse enters
+        preview.classList.add('expanded');
+    });
+    // If you want to allow the user to collapse the image back by clicking, uncomment below
+    /*
+    preview.addEventListener('click', () => {
+        // Toggle the 'expanded' class when image is clicked
+        preview.classList.toggle('expanded');
+    });
+    */
+});
+
+
+// Get all the <a> elements
+const links = document.querySelectorAll('a');
+
+// Add event listeners to each link
+links.forEach(link => {
+    link.addEventListener('click', () => {
+        // Add a 'clicked' class to the link
+        link.classList.add('clicked');
+    });
+});
