@@ -1,400 +1,393 @@
 * {
-    color: white;
-    margin: 0px;
-    text-align: left;
-    font-size: 18px;    
-    font-family: Georgia, 'Times New Roman', Times, serif;
-    text-indent: 0%;
+  color: white;
+  margin: 0px;
+  text-align: left;
+  font-size: 18px;
+  font-family: Georgia, "Times New Roman", Times, serif;
+  text-indent: 0%;
 }
-@media only screen and (min-device-pixel-ratio: 1), only screen and (min-resolution: 192dpi) {
-    /* High-density screen (e.g., Retina) styles */
+@media only screen and (min-device-pixel-ratio: 1),
+  only screen and (min-resolution: 192dpi) {
+  /* High-density screen (e.g., Retina) styles */
 }
 
 .social-icon {
-    margin: 5px 10px; /* Adjust margin to match your design */
-    padding: 0; /* Keep original padding */
-    font-size: 30px; /* Set the font size for the social icons */
+  margin: 5px 10px; /* Adjust margin to match your design */
+  padding: 0; /* Keep original padding */
+  font-size: 30px; /* Set the font size for the social icons */
 }
 
 /* Styles for larger screens */
 @media (min-width: 600px) {
-    .social-icon {
-        display: inline-block;
-        margin-right: 10px;
-    }
+  .social-icon {
+    display: inline-block;
+    margin-right: 10px;
+  }
 }
 
 /* Styles for smaller screens */
 @media (max-width: 599px) {
-    .social-icon {
-        display: block;
-        margin-bottom: 10px;
-    }
+  .social-icon {
+    display: block;
+    margin-bottom: 10px;
+  }
 }
-
 
 body {
-    background-color: #333;
-    overflow: auto; /* Changed from hidden to auto */
-    padding-top: 50px; /* Added to push content below the fixed navbar */
+  background-color: #333;
+  overflow: auto; /* Changed from hidden to auto */
+  padding-top: 50px; /* Added to push content below the fixed navbar */
 }
 footer {
-    position: fixed;
-    left: 0;
-    bottom: 0;
-    width: 100%;
-    color: white;
-    text-align: center;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  color: white;
+  text-align: center;
 }
 
 h1 {
-    height: 220px;
-    top: 10px;
-    text-align: center;
-    font-size: 240%;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-    font-weight: bold;
-    padding: 30px 5px;
-    position: relative;
-    background:none;
-    max-width: 300px;
-    
-    
+  height: 220px;
+  top: 10px;
+  text-align: center;
+  font-size: 240%;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-weight: bold;
+  padding: 30px 5px;
+  position: relative;
+  background: none;
+  max-width: 300px;
 }
 h2 {
-    font-size: 120%;
-    font-family: Georgia, 'Times New Roman', Times, serif;
-    /* font-weight: bold; */
-    padding: 10px 25px ;
-    position: relative;
-    background:none;
-    text-align: left;
-    margin: 0 auto;
-    margin-bottom: 10px;
-    margin-top: 10px;
+  font-size: 120%;
+  font-family: Georgia, "Times New Roman", Times, serif;
+  /* font-weight: bold; */
+  padding: 10px 25px;
+  position: relative;
+  background: none;
+  text-align: left;
+  margin: 0 auto;
+  margin-bottom: 10px;
+  margin-top: 10px;
 }
 
-a, h3, p, pre, li {
-    padding: 10px 25px ;
-    background:none;
-    line-height: 24px;
+a,
+h3,
+p,
+pre,
+li {
+  padding: 10px 25px;
+  background: none;
+  line-height: 24px;
 }
-.column, .home, footer {
-    background-color: transparent;
+.column,
+.home,
+footer {
+  background-color: transparent;
 }
 
 a {
-    margin: 0 0 0 0px;
-    padding: 0;
-    text-decoration: none;
-    background:none;
-    color: #fbe;
-    text-indent: 0;
-    z-index: 1;
-    cursor: pointer;
+  margin: 10px 25px;
+  padding: 0;
+  text-decoration: none;
+  background: none;
+  color: #fbe;
+  text-indent: 0;
+  z-index: 1;
+  cursor: pointer;
 }
 
 a:hover {
-    color: magenta;
+  color: magenta;
 }
 
-
-
-
 h1 a {
-    color: inherit;
-    font-size: inherit;
-    font-family: inherit;
-    text-decoration: none; /* Remove underline from links */
+  color: inherit;
+  font-size: inherit;
+  font-family: inherit;
+  text-decoration: none; /* Remove underline from links */
 }
 
 h1 a:hover {
-    color: rgb(180,255,255); /* Keep the color same on hover, or choose a different color if you prefer */
+  color: rgb(
+    180,
+    255,
+    255
+  ); /* Keep the color same on hover, or choose a different color if you prefer */
 }
 
-
 .home {
-    position: fixed;
-    background-color: rgba(0, 0, 0, 0.4);
-    display: flex;
-    flex-wrap: wrap; /* Allow items to wrap to the next line */
-    align-items: center; /* Align items vertically */
-    width: 100%;
-    left: 0;
-    top: -10px;
-    z-index: 1000;
-    padding: 10px 15px;
+  position: fixed;
+  background-color: rgba(0, 0, 0, 0.4);
+  display: flex;
+  flex-wrap: wrap; /* Allow items to wrap to the next line */
+  align-items: center; /* Align items vertically */
+  width: 100%;
+  left: 0;
+  top: -10px;
+  z-index: 1000;
+  padding: 10px 15px;
 }
 
 .home > a:first-child {
-    flex: 0 0 auto; /* Do not grow, do not shrink, initial size */
-    margin-right: auto; /* Push all other items to the right */
-    font-size: 30px; /* Set the font size for the return home link */
-    color: magenta;
-    height: 40px;
-    font-size: 30px;
-    padding: 10px 15px;
-    margin-top: 5px;
+  flex: 0 0 auto; /* Do not grow, do not shrink, initial size */
+  margin-right: auto; /* Push all other items to the right */
+  font-size: 30px; /* Set the font size for the return home link */
+  color: magenta;
+  height: 40px;
+  font-size: 30px;
+  padding: 10px 15px;
+  margin-top: 5px;
 }
 
 @media (min-width: 600px) {
-    .home {
-        flex-wrap: nowrap; /* Do not wrap items */
-    }
+  .home {
+    flex-wrap: nowrap; /* Do not wrap items */
+  }
 
-    .home > a:first-child {
-        margin-right: 10px; /* Space after the return home link */
-    }
+  .home > a:first-child {
+    margin-right: 10px; /* Space after the return home link */
+  }
 
-    .social-icon {
-        display: inline-block; /* Display inline on larger screens */
-    }
+  .social-icon {
+    display: inline-block; /* Display inline on larger screens */
+  }
 }
 
 /* Media query for smaller screens */
 @media (max-width: 599px) {
-    .home > a:first-child {
-        margin-bottom: 10px; /* Space below the return home link */
-    }
+  .home > a:first-child {
+    margin-bottom: 10px; /* Space below the return home link */
+  }
 
-    .social-icon {
-        display: block; /* Stack icons vertically */
-        margin-bottom: 10px; /* Space below each icon */
-    }
+  .social-icon {
+    display: block; /* Stack icons vertically */
+    margin-bottom: 10px; /* Space below each icon */
+  }
 }
 
 /* Rest of your CSS remains unchanged */
 
-
 .column-container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center; /* Center the columns */
-    padding: 0 20px; /* Added padding to the sides */
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center; /* Center the columns */
+  padding: 0 20px; /* Added padding to the sides */
 }
 
 .column {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: flex-start;
-    max-width: 400px; /* Adjust as needed */
-    min-width:200px;
-    max-height: 1200px;
-    margin: 10px; /* Added margin for spacing between columns */
-    box-sizing: border-box;
-    overflow: hide;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  max-width: 400px; /* Adjust as needed */
+  min-width: 200px;
+  max-height: 1200px;
+  margin: 10px; /* Added margin for spacing between columns */
+  box-sizing: border-box;
+  overflow: hide;
 }
 
 /* Add a media query for small devices */
 @media (max-width: 768px) {
-    .column {
-        flex: 1 0 100%; /* You can adjust this to make the columns stack differently on smaller screens */
-    }
+  .column {
+    flex: 1 0 100%; /* You can adjust this to make the columns stack differently on smaller screens */
+  }
 }
 
 div.container {
-    margin-top: 20px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    height: 220px; /* Adjust as per your requirement */
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 220px; /* Adjust as per your requirement */
 }
 
-
 .column-wide {
-    float: left;
-    width: 70%;
-    max-width: 900px;
+  float: left;
+  width: 70%;
+  max-width: 900px;
 
-    padding-left: 10px;
+  padding-left: 10px;
 }
 
 img {
-    padding: 0px 0px;
-    background: none;
-    max-width: 800px;
-    display: block; /* Makes the image a block-level element */
-    margin-left: 20 ; /* Centers the image horizontally */
+  padding: 0px 0px;
+  background: none;
+  max-width: 800px;
+  display: block; /* Makes the image a block-level element */
+  margin-left: 20; /* Centers the image horizontally */
 }
 
 .column-wide img {
-    padding: 0px 0px;
-    background: none;
-    max-width: 800px;
-    display: block; /* Makes the image a block-level element */
-    margin-left: 20 ; /* Centers the image horizontally */
+  padding: 0px 0px;
+  background: none;
+  max-width: 800px;
+  display: block; /* Makes the image a block-level element */
+  margin-left: 20; /* Centers the image horizontally */
 }
 
-
 .projects {
-    height:80vh;
-    overflow-y: auto;
-    overflow-x: hidden;
+  height: 80vh;
+  overflow-y: auto;
+  overflow-x: hidden;
 }
 
 /* width */
 ::-webkit-scrollbar {
-width: 8px;
+  width: 8px;
 }
 
 /* Track */
 ::-webkit-scrollbar-track {
-background: #666; 
+  background: #666;
 }
 
 /* Handle */
 ::-webkit-scrollbar-thumb {
-background: rgb(255, 252, 204); 
+  background: rgb(255, 252, 204);
 }
 
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
-background: rgb(245, 255, 153); 
+  background: rgb(245, 255, 153);
 }
 #voronoi-container {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: -1; /* So that it stays behind the content */
-    background-color: transparent;
-    pointer-events: none; /* So that you can click 'through' the holes */
-    overflow: hidden; /* Hide the parts of the circles that are outside the container */
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1; /* So that it stays behind the content */
+  background-color: transparent;
+  pointer-events: none; /* So that you can click 'through' the holes */
+  overflow: hidden; /* Hide the parts of the circles that are outside the container */
 }
 
-
-
 #image-container {
-    width: 100%;
-  }
+  width: 100%;
+}
 /* Base styles for image preview */
 .image-preview {
-    margin-left: 20px;
-    width: 80%; /* Full width */
-    height: 10px; /* Initial height to show just the top part as a bar */
-    overflow: hidden; /* Hide the rest of the image */
-    background-color: transparent;
-    margin-bottom: 10px;
-    position: relative;
-    transition: height 0.6s ease; /* Smooth transition for height */
-    transition-delay: 0s; /* No delay when hovering over */
-
+  margin-left: 20px;
+  width: 80%; /* Full width */
+  height: 10px; /* Initial height to show just the top part as a bar */
+  overflow: hidden; /* Hide the rest of the image */
+  background-color: transparent;
+  margin-bottom: 10px;
+  position: relative;
+  transition: height 0.6s ease; /* Smooth transition for height */
+  transition-delay: 0s; /* No delay when hovering over */
 }
 
 /* Image inside the preview */
 .image-preview img {
-    width: 100%; /* Full width of the image */
-    height: auto; /* Maintain aspect ratio */
-    display: block;
-    transition: transform 0.6s ease; /* Smooth transition for the transform */
-    transition-delay: 0s; /* No delay when hovering over */
-
+  width: 100%; /* Full width of the image */
+  height: auto; /* Maintain aspect ratio */
+  display: block;
+  transition: transform 0.6s ease; /* Smooth transition for the transform */
+  transition-delay: 0s; /* No delay when hovering over */
 }
 
 /* Hover effect to expand image */
 .image-preview:hover {
-    height: 140px; /* Example fixed height - adjust as needed */
-    transition-delay: 0s; /* No delay when hovering over */
-    transition-delay: 0s; /* No delay when hovering over */
-
+  height: 140px; /* Example fixed height - adjust as needed */
+  transition-delay: 0s; /* No delay when hovering over */
+  transition-delay: 0s; /* No delay when hovering over */
 }
 
 /* Optional: Scale the image slightly on hover */
 .image-preview:hover img {
-    transform: scale(1.0); /* Slightly increase the size */
+  transform: scale(1); /* Slightly increase the size */
 }
 
 .image-preview.expanded {
-    height: 140px; /* Example fixed height - adjust as needed */
+  height: 140px; /* Example fixed height - adjust as needed */
 }
 
 @media (hover: none), (pointer: coarse) {
-    .image-preview {
-        height: auto; /* Show full image on devices that don't support hover */
-        transition-delay: 0s; /* No delay needed for touch devices */
-
-    }
+  .image-preview {
+    height: auto; /* Show full image on devices that don't support hover */
+    transition-delay: 0s; /* No delay needed for touch devices */
+  }
 }
 
 .gallery {
-    display:grid;
-    flex-wrap: wrap;
-    justify-content: left;
-    overflow: auto;
-    max-height: 900px;
-  }
+  display: grid;
+  flex-wrap: wrap;
+  justify-content: left;
+  overflow: auto;
+  max-height: 900px;
+}
 
-  .gallery img {
-    width: 100%;
-    max-width: 360px;
-    height: auto;
-    margin: 10px;
-  }
+.gallery img {
+  width: 100%;
+  max-width: 360px;
+  height: auto;
+  margin: 10px;
+}
 
-  .linkedin-tooltip {
-    display: none;
-    position: absolute;
-    bottom: 50%;
-    background-color: aqua;
-    color: black;
-    padding: 5px;
-    border-radius: 5px;
-    font-size: 12px;
-    margin-top: 5px;
+.linkedin-tooltip {
+  display: none;
+  position: absolute;
+  bottom: 50%;
+  background-color: aqua;
+  color: black;
+  padding: 5px;
+  border-radius: 5px;
+  font-size: 12px;
+  margin-top: 5px;
 }
 
 .name-link:hover .linkedin-tooltip {
-    display: inline-block;
+  display: inline-block;
 }
 
 .slideshow-container {
-    position: relative;
-    padding:0 20px;
+  position: relative;
+  padding: 0 20px;
 }
 
 .slideshow-img {
-    position: absolute;
-    opacity: 0;
-    transition: opacity 1s ease-in-out;
-    
+  position: absolute;
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
 }
 
 .slideshow-img.show {
-    opacity: 1;
+  opacity: 1;
 }
 
 .slideshow-container {
-    position: relative;
-    width: 500px; /* Set this to the width of your images */
-    height: 500px; /* Set this to the height of your images */
-    margin-left: 20px; /* Adjust as needed */
-    overflow: hidden; /* Ensures that anything outside this container is not shown */
-  }
-  
-  .slideshow-img {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%; /* Images will take up the full width of the container */
-    height: 100%; /* Images will take up the full height of the container */
-    display: none; /* Hide images by default */
-  }
-  
-  .show {
-    display: block; /* Only the image with this class will be displayed */
-  }
-  
+  position: relative;
+  width: 500px; /* Set this to the width of your images */
+  height: 500px; /* Set this to the height of your images */
+  margin-left: 20px; /* Adjust as needed */
+  overflow: hidden; /* Ensures that anything outside this container is not shown */
+}
+
+.slideshow-img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%; /* Images will take up the full width of the container */
+  height: 100%; /* Images will take up the full height of the container */
+  display: none; /* Hide images by default */
+}
+
+.show {
+  display: block; /* Only the image with this class will be displayed */
+}
 
 .crop-container {
-    width: 800px;  /* Width of the displayed portion of the image */
-    overflow: hidden; /* Hide the cropped parts */
-    margin-left: 20px;
+  width: 800px; /* Width of the displayed portion of the image */
+  overflow: hidden; /* Hide the cropped parts */
+  margin-left: 20px;
 }
 
 .crop-container img {
-    position: relative;
-    left: -300px; /* Shift the image to the left to crop it */
+  position: relative;
+  left: -300px; /* Shift the image to the left to crop it */
 }
