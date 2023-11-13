@@ -1,109 +1,143 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Richard Qian Li</title>
-        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-        <link href="./styles.css" rel="stylesheet">
-        <script src="https://d3js.org/d3.v5.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.21/lodash.min.js"></script>
-        <script >
-            function addImages(id, imageNumber, folderName, reizedFolderName) {
-            const galleryDiv = document.getElementById(id);
-            for (let i = 1; i <= imageNumber; i++) {
-                const imageName = String(i).padStart(3, '0') + '.jpg';
-                const imagePath = `${folderName}/${imageName}`;
-                const resizedImagePath = `${reizedFolderName}/${imageName}`;
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Richard Qian Li</title>
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+    <link href="./styles.css" rel="stylesheet" />
+    <script src="https://d3js.org/d3.v5.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.21/lodash.min.js"></script>
+    <script>
+      function addImages(id, imageNumber, folderName, reizedFolderName) {
+        const galleryDiv = document.getElementById(id);
+        for (let i = 1; i <= imageNumber; i++) {
+          const imageName = String(i).padStart(3, "0") + ".jpg";
+          const imagePath = `${folderName}/${imageName}`;
+          const resizedImagePath = `${reizedFolderName}/${imageName}`;
 
-                const linkElement = document.createElement('a');
-                linkElement.href = imagePath;
-                linkElement.target = '_blank'; // Optional: to open in a new tab
+          const linkElement = document.createElement("a");
+          linkElement.href = imagePath;
+          linkElement.target = "_blank"; // Optional: to open in a new tab
 
-                const imgElement = document.createElement('img');
-                imgElement.src = resizedImagePath;
-                imgElement.alt = imageName;
+          const imgElement = document.createElement("img");
+          imgElement.src = resizedImagePath;
+          imgElement.alt = imageName;
 
-                linkElement.appendChild(imgElement);
-                galleryDiv.appendChild(linkElement);
-                }
-            }
+          linkElement.appendChild(imgElement);
+          galleryDiv.appendChild(linkElement);
+        }
+      }
+    </script>
+  </head>
+
+  <body>
+    <div id="voronoi-container"></div>
+
+    <div class="home">
+      <a href="index.html" style="text-decoration: none"> return home</a>
+
+      <a class="social-icon" href="mailto:ludwig.peking@gmail.com">
+        <img src="./img/svg/email.svg" alt="Email" />
+      </a>
+      <a
+        class="social-icon"
+        href="https://www.youtube.com/channel/UC70EKdkg918fqyimJ5-fNMA"
+      >
+        <img src="./img/svg/youtube.svg" alt="youtube" />
+      </a>
+      <a
+        class="social-icon"
+        href="https://github.com/ludwigpeking?tab=repositories"
+      >
+        <img src="./img/svg/github.svg" alt="github" />
+      </a>
+      <a class="social-icon" href="https://twitter.com/urban_banal">
+        <img src="./img/svg/twitter.svg" alt="twitter" />
+      </a>
+    </div>
+
+    <!-- four vertical columns equal -->
+    <div class="column-container">
+      <div class="column">
+        <div class="container">
+          <h1
+            style="
+              font-family: Georgia, 'Times New Roman', Times, serif;
+              color: aqua;
+            "
+          >
+            <a
+              href="https://www.linkedin.com/in/qian-li-944a0510/"
+              class="name-link"
+              target="_blank"
+            >
+              Richard <br />Qian Li
+              <span class="linkedin-tooltip">LinkedIn</span>
+            </a>
+            <p style="color: aqua">architect, urban designer, land planner</p>
+          </h1>
+        </div>
+
+        <h3>CV:</h3>
+        <p style="max-height: 800px; overflow-y: auto">
+          <b>Education </b><br />
+          <br />
+          <b>University of Michigan</b>, Ann Arbor, MI <br />
+          Master of Urban Design <br /><br />
+          <b>Tsinghua University</b>, Beijing <br />
+          Bachelor of Architecture <br /><br />
+          <b>Career </b><br /><br />
+          2011 - present
+          <br /><b>Vanke Co.</b>, Beijing/Shenyang/Taiyuan <br />
+          Director of Design, Senior Partner, Chief Architect,<br />
+          Lecturer/trainer, <br />
+          Project Managing Director <br /><br />
+
+          2014 - 2015 <br />
+          <b>CFLD</b>, Beijing <br />
+          Director of Products<br /><br />
+
+          2008 - 2010 <br />
+          <b>EE&K Architects</b>, Washington, DC <br />
+          Architectural Designer, Project Architect<br /><br />
+
+          2003 - 2006<br />
+          <b>Obermeyer Planen+Beraten GmbH</b>, Being, China — Architect,
+          Project Architect
+        </p>
+      </div>
+
+      <div class="column">
+        <h1>Sketches of Places</h1>
+        <h3>2011-2019</h3>
+        <div class="gallery" id="gallery"></div>
+        <script>
+          addImages(
+            "gallery",
+            100,
+            `img/sketch/places`,
+            `img/sketch/places-resize`
+          );
         </script>
-    </head>
-    
-    <body>
-        <div id="voronoi-container"></div>
-        
-        <div class="home">
-            <a href="index.html" style="text-decoration: none;  ;"> return home</a> 
-            
-            <a class="social-icon" href="mailto:ludwig.peking@gmail.com">
-                <img src="./img/svg/email.svg" alt="Email" />
-            </a>
-            <a class="social-icon" href="https://www.youtube.com/channel/UC70EKdkg918fqyimJ5-fNMA">
-                <img src="./img/svg/youtube.svg" alt="youtube" />
-            </a>
-            <a class="social-icon" href="https://github.com/ludwigpeking?tab=repositories">
-                <img src="./img/svg/github.svg" alt="github" />
-            </a>
-            <a class="social-icon" href="https://twitter.com/urban_banal">
-                <img src="./img/svg/twitter.svg" alt="twitter" />
-            </a>
-        </div>
-
-        <!-- four vertical columns equal -->
-        <div class="column-container">
-            <div class="column" >
-                <div class="container">
-                    <h1 style="font-family: Georgia, 'Times New Roman', Times, serif; color:aqua;"> 
-                        <a href="https://www.linkedin.com/in/qian-li-944a0510/" class="name-link">
-                            Richard <br>Qian Li
-                            <span class="linkedin-tooltip">LinkedIn</span>
-                        </a> 
-                        <p style="color:aqua">architect, urban designer, land planner</p> 
-                    </h1>
-                </div>
-                
-
-                <h2> CV: </h2>
-                <p style="max-height: 800px; overflow-y: auto;"> <b>Education </b><br> <br>
-                    <b>University of Michigan</b>, Ann Arbor, MI <br> 
-                    2007 - 2008, Master of Urban Design <br><br>
-                    <b>Tsinghua University</b>, Beijing, China
-                    1998 - 2003, <br> Bachelor of Architecture
-                    <br><br>
-                    <b>Career </b><br><br>
-                    2011 - present 
-                    <br><b>Vanke Co.</b>, Beijing/Shenyang/Taiyuan, China <br> Director of Design, Senior Partner, Chief Architect,<br>
-                    Lecturer/trainer, <br>
-                    Managing Director of Hongmei Cultural Park, Shenyang <br><br>
-
-                    2008 - 2010 <br>
-                    <b>EE&K Architects</b>, Washington, DC — Architect<br><br>
-
-                    2003 - 2007<br>
-                    <b>Obermeyer Planen+Beraten GmbH,</b> Being, China — Architect, Project Architect
-                    
-                </p>
-            </div>
-       
-        <div class="column">
-            <h1> Sketches of Places </h1> 
-            <h3>2011-2019 </h3>
-            <div class="gallery" id="gallery"></div>
-                <script>
-                    addImages('gallery', 100, `img/sketch/places`, `img/sketch/places-resize`);
-                </script>
-            </div>
-        <div class="column">
-            <h1> Sketches of Floor Plans and Details</h1> 
-            <h3>2011-2019 </h3>
-            <div class="gallery" id="gallery2"></div>
-                <script>
-                    addImages('gallery2', 67,  `img/sketch/floor-plan-others`, `img/sketch/floor-plan-others-resize`);
-                </script>
-        </div>
+      </div>
+      <div class="column">
+        <h1>Sketches of Floor Plans and Details</h1>
+        <h3>2011-2019</h3>
+        <div class="gallery" id="gallery2"></div>
+        <script>
+          addImages(
+            "gallery2",
+            67,
+            `img/sketch/floor-plan-others`,
+            `img/sketch/floor-plan-others-resize`
+          );
+        </script>
+      </div>
     </div>
     <script src="./voronoiBack.js"></script>
-    </body>
+  </body>
 </html>

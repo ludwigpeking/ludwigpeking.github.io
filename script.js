@@ -1,146 +1,146 @@
-
 var currentSelectedLink = null;
 
-const imageContainer = document.getElementById('image-container');
+const imageContainer = document.getElementById("image-container");
 
-document.addEventListener('DOMContentLoaded', function () {
-    const urlParams = new URLSearchParams(window.location.search);
-    const project = urlParams.get('project');
+document.addEventListener("DOMContentLoaded", function () {
+  const urlParams = new URLSearchParams(window.location.search);
+  const project = urlParams.get("project");
+  const clicked = urlParams.get("clicked");
 
-    if (project) {
-        loadProject(project);
-    } else {
-        // Handle initial load here, e.g., load a default project.
-    }
-
-    // Listen for the popstate event, which occurs when the user navigates backward or forward.
-    window.addEventListener('popstate', function (event) {
-        const project = event.state ? event.state.project : null;
-        if (project) {
-            loadProject(project);
-        } else {
-            // Handle the case where there's no project (e.g., load a default project).
-        }
-    });
+  if (project) {
+    loadProject(project, clicked);
+  } else {
+    // Load default project
+    loadProject("coding/grid-erosion.html");
+  }
 });
 
-function loadProject(projectPath, clickedElement) {
+function loadProject(projectPath, clickedLinkIdentifier) {
+  fetch(projectPath)
+    .then((response) => response.text())
+    .then((html) => {
+      const contentContainer = document.getElementById("dynamic-content");
+      if (!contentContainer) {
+        console.error("Element with ID 'dynamic-content' not found.");
+        return;
+      }
+      contentContainer.innerHTML = html;
 
-    // if (currentSelectedLink) {
-    //     currentSelectedLink.style.color = ''; // Set this to your default link color
-    // }
+      // Clear any existing intervals to prevent multiple slideshows from running
+      if (window.slideshowInterval) {
+        clearInterval(window.slideshowInterval);
+        window.slideshowInterval = null;
+      }
 
-    // Set the new link as the selected one and change its color
-    currentSelectedLink = clickedElement;
-    currentSelectedLink.style.color = 'magenta'; // Or any color you prefer
+      // Remove any previously declared 'images' variable to prevent errors
+      window.images = undefined;
 
+      // Execute any script tags found in the loaded content
+      const scripts = Array.from(contentContainer.querySelectorAll("script"));
+      for (const oldScript of scripts) {
+        const newScript = document.createElement("script");
+        Array.from(oldScript.attributes).forEach((attr) =>
+          newScript.setAttribute(attr.name, attr.value)
+        );
+        new Function(oldScript.textContent)();
+        oldScript.parentNode.removeChild(oldScript);
+      }
 
-    fetch(projectPath)
-        .then(response => response.text())
-        .then(html => {
-            document.getElementById('dynamic-content').innerHTML = html;
+      // Update the browser's history state when loading a new project
+      history.pushState(
+        { project: projectPath },
+        "",
+        `?project=${projectPath}`
+      );
 
-            const contentContainer = document.getElementById('dynamic-content');
-            contentContainer.innerHTML = html;
+      // Initialize the slideshow after the new content is loaded
+      if (typeof initializeSlideshow === "function") {
+        initializeSlideshow();
+      }
 
-            // Clear any existing intervals to prevent multiple slideshows from running
-            if (window.slideshowInterval) {
-                clearInterval(window.slideshowInterval);
-                window.slideshowInterval = null;
-            }
-
-            // Remove any previously declared 'images' variable to prevent errors
-            window.images = undefined;
-
-            // Execute any script tags found in the loaded content
-            const scripts = Array.from(contentContainer.querySelectorAll('script'));
-            for (const oldScript of scripts) {
-                const newScript = document.createElement('script');
-                Array.from(oldScript.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value));
-                new Function(oldScript.textContent)();
-                oldScript.parentNode.removeChild(oldScript);
-            }
-
-            // Update the browser's history state when loading a new project
-            history.pushState({ project: projectPath }, '', `?project=${projectPath}`);
-
-            // Initialize the slideshow after the new content is loaded
-            if (typeof initializeSlideshow === 'function') {
-                initializeSlideshow();
-            }
-
-            // Update the 'visited' state of links
-            if (clickedElement) {
-                // Change the color of the clicked link to indicate it's visited
-                clickedElement.style.color = 'magenta'; // Or any color you prefer
-            }
-        })
-        .catch(err => console.warn('Something went wrong.', err));
+      // Update the 'visited' state of links
+      if (clickedLinkIdentifier) {
+        highlightClickedLink(clickedLinkIdentifier);
+      }
+    })
+    .catch((err) => console.warn("Something went wrong.", err));
 }
 
-
 function initializeSlideshow() {
-    // Check if the slideshow elements exist before initializing
-    const imgElement1 = document.getElementById('slideshow1');
-    const imgElement2 = document.getElementById('slideshow2');
-    
-    if (imgElement1 && imgElement2) {
-        // Use a unique name for the images array to avoid conflicts
-        const slideImages = [
-            'img/Coding/BecomingCity_Voronoi Claimation/1.jpg',
-            'img/Coding/BecomingCity_Voronoi Claimation/2.jpg',
-            'img/Coding/BecomingCity_Voronoi Claimation/3.jpg',
-            'img/Coding/BecomingCity_Voronoi Claimation/4.jpg'
-        ];
+  // Check if the slideshow elements exist before initializing
+  const imgElement1 = document.getElementById("slideshow1");
+  const imgElement2 = document.getElementById("slideshow2");
 
-        let currentIndex = 0;
-        let currentImgElement = imgElement1;
-        let nextImgElement = imgElement2;
+  if (imgElement1 && imgElement2) {
+    // Use a unique name for the images array to avoid conflicts
+    const slideImages = [
+      "img/Coding/BecomingCity_Voronoi Claimation/1.jpg",
+      "img/Coding/BecomingCity_Voronoi Claimation/2.jpg",
+      "img/Coding/BecomingCity_Voronoi Claimation/3.jpg",
+      "img/Coding/BecomingCity_Voronoi Claimation/4.jpg",
+    ];
 
-        // Clear any existing intervals
-        if (window.slideshowInterval) {
-            clearInterval(window.slideshowInterval);
-        }
+    let currentIndex = 0;
+    let currentImgElement = imgElement1;
+    let nextImgElement = imgElement2;
 
-        // Set a new interval
-        window.slideshowInterval = setInterval(() => {
-            currentIndex = (currentIndex + 1) % slideImages.length;
-            nextImgElement.src = slideImages[currentIndex];
-            nextImgElement.classList.add('show');
-            currentImgElement.classList.remove('show');
-
-            // Swap the current and next image elements for the next iteration
-            [currentImgElement, nextImgElement] = [nextImgElement, currentImgElement];
-        }, 1500);
+    // Clear any existing intervals
+    if (window.slideshowInterval) {
+      clearInterval(window.slideshowInterval);
     }
+
+    // Set a new interval
+    window.slideshowInterval = setInterval(() => {
+      currentIndex = (currentIndex + 1) % slideImages.length;
+      nextImgElement.src = slideImages[currentIndex];
+      nextImgElement.classList.add("show");
+      currentImgElement.classList.remove("show");
+
+      // Swap the current and next image elements for the next iteration
+      [currentImgElement, nextImgElement] = [nextImgElement, currentImgElement];
+    }, 1500);
+  }
 }
 
 // Get all the .image-preview elements
-const previews = document.querySelectorAll('.image-preview');
+document.body.addEventListener(
+  "mouseenter",
+  (event) => {
+    if (event.target.classList.contains("image-preview")) {
+      event.target.classList.add("expanded");
+    }
+  },
+  true
+);
 
-// Add event listeners to each preview
-previews.forEach(preview => {
-    preview.addEventListener('mouseenter', () => {
-        // Add the 'expanded' class when mouse enters
-        preview.classList.add('expanded');
-    });
-    // If you want to allow the user to collapse the image back by clicking, uncomment below
-    /*
-    preview.addEventListener('click', () => {
-        // Toggle the 'expanded' class when image is clicked
-        preview.classList.toggle('expanded');
-    });
-    */
-});
+// ... [previous code]
 
+function highlightClickedLink(clickedLinkIdentifier) {
+  if (currentSelectedLink) {
+    currentSelectedLink.style.color = ""; // Reset previous link color
+  }
 
-// Get all the <a> elements
-const links = document.querySelectorAll('a');
+  // Adjust the selector to match the onclick attribute
+  const onclickToMatch = `loadProject('coding/${clickedLinkIdentifier}`;
+  const clickedLink = document.querySelector(`a[onclick*="${onclickToMatch}"]`);
 
-// Add event listeners to each link
-links.forEach(link => {
-    link.addEventListener('click', () => {
-        // Add a 'clicked' class to the link
-        link.classList.add('clicked');
-    });
+  if (clickedLink) {
+    clickedLink.style.color = "magenta"; // Highlight new link
+    currentSelectedLink = clickedLink;
+  }
+}
+
+// Set up event delegation for dynamically loaded links
+document.addEventListener("click", function (event) {
+  if (
+    event.target.tagName === "A" &&
+    event.target.getAttribute("onclick").startsWith("loadProject")
+  ) {
+    event.preventDefault(); // Prevent default link behavior
+    const onclickAttr = event.target.getAttribute("onclick");
+    const match = onclickAttr.match(/loadProject\('([^']+)', '([^']+)'\)/);
+    if (match) {
+      loadProject(match[1], match[2]);
+    }
+  }
 });

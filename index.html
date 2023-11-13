@@ -1,238 +1,391 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Richard Qian Li</title>
-        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-        <link href="./styles.css" rel="stylesheet">
-        <script src="https://d3js.org/d3.v5.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.21/lodash.min.js"></script>
-    </head>
-    
-    <body>
-        <div id="voronoi-container"></div>
-        
-        <div class="home">
-            <a href="index.html" style="text-decoration: none;  ;"> return home</a> <br>
-            
-            <a class="social-icon" href="mailto:ludwig.peking@gmail.com">
-                <img src="./img/svg/email.svg" alt="Email" />
-            </a>
-            <a class="social-icon" href="https://github.com/ludwigpeking?tab=repositories" target="_blank">
-                <img src="./img/svg/github.svg" alt="github" />
-            </a>
-            <a class="social-icon" href="https://www.youtube.com/channel/UC70EKdkg918fqyimJ5-fNMA" target="_blank">
-                <img src="./img/svg/youtube.svg" alt="youtube" />
-            </a>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Richard Qian Li</title>
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+    <link href="./styles.css" rel="stylesheet" />
+    <script src="https://d3js.org/d3.v5.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.21/lodash.min.js"></script>
+  </head>
 
-            <a class="social-icon" href="https://twitter.com/urban_banal" target="_blank">
-                <img src="./img/svg/twitter.svg" alt="twitter" />
+  <body>
+    <div id="voronoi-container"></div>
+
+    <div class="home">
+      <a href="index.html" style="text-decoration: none"> return home</a> <br />
+
+      <a class="social-icon" href="mailto:ludwig.peking@gmail.com">
+        <img src="./img/svg/email.svg" alt="Email" />
+      </a>
+      <a
+        class="social-icon"
+        href="https://github.com/ludwigpeking?tab=repositories"
+        target="_blank"
+      >
+        <img src="./img/svg/github.svg" alt="github" />
+      </a>
+      <a
+        class="social-icon"
+        href="https://www.youtube.com/channel/UC70EKdkg918fqyimJ5-fNMA"
+        target="_blank"
+      >
+        <img src="./img/svg/youtube.svg" alt="youtube" />
+      </a>
+
+      <a
+        class="social-icon"
+        href="https://twitter.com/urban_banal"
+        target="_blank"
+      >
+        <img src="./img/svg/twitter.svg" alt="twitter" />
+      </a>
+    </div>
+
+    <!-- four vertical columns equal -->
+    <div class="column-container">
+      <div class="column">
+        <div class="container">
+          <h1
+            style="
+              font-family: Georgia, 'Times New Roman', Times, serif;
+              color: aqua;
+            "
+          >
+            <a
+              href="https://www.linkedin.com/in/qian-li-944a0510/"
+              class="name-link"
+              target="_blank"
+            >
+              Richard <br />Qian Li
+              <span class="linkedin-tooltip">LinkedIn</span>
             </a>
+            <p style="color: aqua">architect, urban designer, land planner</p>
+          </h1>
         </div>
 
-        <!-- four vertical columns equal -->
-        <div class="column-container">
-            <div class="column">
-                <div class="container">
-                    <h1 style="font-family: Georgia, 'Times New Roman', Times, serif; color:aqua;"> 
-                        <a href="https://www.linkedin.com/in/qian-li-944a0510/" class="name-link" target="_blank">
-                            Richard <br>Qian Li
-                            <span class="linkedin-tooltip">LinkedIn</span>
-                        </a> 
-                        <p style="color:aqua">architect, urban designer, land planner</p> 
-                    </h1>
-                </div>
-                
+        <h3>CV:</h3>
+        <p style="max-height: 800px; overflow-y: auto">
+          <b>Education </b><br />
+          <br />
+          <b>University of Michigan</b>, Ann Arbor, MI <br />
+          Master of Urban Design <br /><br />
+          <b>Tsinghua University</b>, Beijing <br />
+          Bachelor of Architecture <br /><br />
+          <b>Career </b><br /><br />
+          2011 - present
+          <br /><b>Vanke Co.</b>, Beijing/Shenyang/Taiyuan <br />
+          Director of Design, Senior Partner, Chief Architect,<br />
+          Lecturer/trainer, <br />
+          Project Managing Director <br /><br />
 
-                <h3> CV: </h3>
-                <p style="max-height: 800px; overflow-y: auto;"> <b>Education </b><br> <br>
-                    <b>University of Michigan</b>, Ann Arbor, MI <br> 
-                    Master of Urban Design <br><br>
-                    <b>Tsinghua University</b>, Beijing
-                    <br> Bachelor of Architecture
-                    <br><br>
-                    <b>Career </b><br><br>
-                    2011 - present 
-                    <br><b>Vanke Co.</b>, Beijing/Shenyang/Taiyuan <br> Director of Design, Senior Partner, Chief Architect,<br>
-                    Lecturer/trainer, <br>
-                    Managing Director of Hongmei Cultural Park <br><br>
+          2014 - 2015 <br />
+          <b>CFLD</b>, Beijing <br />
+          Director of Products<br /><br />
 
-                    2014 - 2015 <br>
-                    <b>CFLD</b>, Beijing <br> Director of Product<br><br>
+          2008 - 2010 <br />
+          <b>EE&K Architects</b>, Washington, DC <br />
+          Architectural Designer, Project Architect<br /><br />
 
-                    2008 - 2010 <br>
-                    <b>EE&K Architects</b>, Washington, DC <br> Architectural Designer, Project Architect<br><br>
+          2003 - 2006<br />
+          <b>Obermeyer Planen+Beraten GmbH</b>, Being, China — Architect,
+          Project Architect
+        </p>
+      </div>
+      <div class="column">
+        <div>
+          <h1>
+            <a
+              href="https://ludwigpeking.wordpress.com/2022/12/14/an-evolutionary-history-of-the-city-table-of-contents/"
+              target="_blank"
+            >
+              Writing and </a
+            ><a href="https://www.ximalaya.com/album/3733966">Podcasting </a>
+          </h1>
+        </div>
+        <h3 style="font-weight: bold">
+          <a
+            href="https://ludwigpeking.wordpress.com/2022/12/14/an-evolutionary-history-of-the-city-table-of-contents/"
+            target="_blank"
+            rel="noopener noreferrer"
+            style="color: inherit"
+            >The Book: [ An Evolutionary History of the City ]</a
+          >
+        </h3>
+        <p>
+          <a
+            href="https://ludwigpeking.wordpress.com/2022/12/14/an-evolutionary-history-of-the-city-table-of-contents/"
+            style="font-weight: bold"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            00. Introduction, Table of Contents
+          </a>
+        </p>
 
-                    2003 - 2006<br>
-                    <b>Obermeyer Planen+Beraten GmbH</b>, Being, China — Architect, Project Architect
-                
-                </p>
-            </div>
-            <div class="column">
-                <div>
-                    <h1>
-                        <a href="https://ludwigpeking.wordpress.com/2022/12/14/an-evolutionary-history-of-the-city-table-of-contents/" target="_blank">
-                            Writing and </a><a href="https://www.ximalaya.com/album/3733966">Podcasting
-                        </a>
-                    </h1>
-                </div>
-                <h3  style="font-weight: bold;"> <a href="https://ludwigpeking.wordpress.com/2022/12/14/an-evolutionary-history-of-the-city-table-of-contents/" target="_blank" rel="noopener noreferrer" style="color: inherit;">The Book: [ An Evolutionary History of the City ]</a> </h3>
-                <p> <a href="https://ludwigpeking.wordpress.com/2022/12/14/an-evolutionary-history-of-the-city-table-of-contents/" style="font-weight: bold;" target="_blank" rel="noopener noreferrer">
-                00. Introduction, Table of Contents </a></p>
+        <div
+          id="linksContainer"
+          style="max-height: 400px; overflow-y: auto"
+        ></div>
+        <script>
+          document.addEventListener("DOMContentLoaded", function () {
+            fetch("links.html")
+              .then((response) => response.text())
+              .then((html) => {
+                document.getElementById("linksContainer").innerHTML = html;
+              })
+              .catch((err) => console.warn("Something went wrong.", err));
+          });
+        </script>
 
-                <div id="linksContainer" style="max-height: 400px; overflow-y: auto;"></div>
-                <script>
-                    document.addEventListener("DOMContentLoaded", function() {
-                    fetch('links.html')
-                        .then(response => response.text())
-                        .then(html => {
-                        document.getElementById('linksContainer').innerHTML = html;
-                        })
-                        .catch(err => console.warn('Something went wrong.', err));
-                    });
-                </script>
-                    
-                <div>
-                    <h3><br>
-                        Podcasts <a href="https://www.ximalaya.com/album/3733966" style="background-color: hotpink;" target="_blank" rel="noopener noreferrer"> <br>
-                        Banal Smasher Episodes <br> </a>陳腐粉碎機</h3>
-                  
-                    <p style="color: gray"> This series focuses on urban history, contains 118 episodes, and has around one million accumulated listens.</p>
-                </div>
-            </div>
-            <div class="column">
-                <div >
-                    <h1> <a href="coding.html">Coding <br>
-                        and Generative Arts</a> </h1>
-                </div>
-                <div>
-                    <p>
-                        <b> </b> most of the links to the code and the apps are included in the website, please click into the projects below for more information.
-                    </p>
-                </div>
-                <div style="overflow-y:auto; max-height: 900px;" >
-                    <!-- here I need the same links as in the coding.html -->
-                    <p>
+        <div>
+          <h3>
+            <br />
+            Podcasts
+            <a
+              href="https://www.ximalaya.com/album/3733966"
+              style="background-color: hotpink"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <br />
+              Banal Smasher Episodes <br /> </a
+            >陳腐粉碎機
+          </h3>
+
+          <p style="color: gray">
+            This series focuses on urban history, contains 118 episodes, and has
+            around one million accumulated listens.
+          </p>
+        </div>
+      </div>
+      <div class="column">
+        <div>
+          <h1>
+            <a href="coding.html"
+              >Coding <br />
+              and Generative Arts</a
+            >
+          </h1>
+        </div>
+        <div>
+          <h3>
+            Coding Projects, 2021-2023, Experiments to architectural generation
+            and analysis
+          </h3>
+          <p>Code Repos, Apps and Playgrounds in the links below:</p>
+        </div>
+
+        <div style="overflow-y: auto; max-height: 800px">
+          <!-- here I need the same links as in the coding.html -->
+          <!-- <p>
                         A simulation: becomingCity, Value Based Location and Roadway Pattern  <a>&#9963</a>
                     </p>
                     <div class="image-preview">
                         <img src="./img/Coding/BecomingCity/img001.jpg" alt="Image 1">
-                    </div>
-                    
-                </div>
-            </div>
+                    </div> -->
+          <div id="codeLinksContainer"></div>
 
-            <div class="column" >
-                <div>
-                    <h1>
-                        <a href="arch.html">
-                            Architcture, Urban Design, Sketches
-                        </a>
-                    </h1>
-                </div>
-                    
-                    
-                <div style="overflow-y:scroll; max-height: 500px;" >
-                    <p><a href="arch.html?project=architecture/michigan.html"> Early Work, 2002-2008</a></p>
+          <script>
+            document.addEventListener("DOMContentLoaded", function () {
+              fetch("coding-project-links.html")
+                .then((response) => response.text())
+                .then((html) => {
+                  document.getElementById("codeLinksContainer").innerHTML =
+                    html;
 
-                    <div class="image-preview">
-                        <a href="arch.html?project=architecture/michigan.html">
-                        <img src="img\Arch\early-work\06.jpg" alt="Image 1"></a>
-                    </div>
+                  // Update link behavior based on the current page
+                  const currentPage = window.location.pathname.split("/").pop();
+                  const links = document.querySelectorAll(
+                    "#codeLinksContainer a"
+                  );
 
-                    <p><a href="arch.html?project=architecture/tsingtao-harborfront.html"> Tsingtao Harborfront, Tsingtao, 2010</a></p>
-                    <div class="image-preview">
-                        <a href="arch.html?project=architecture/tsingtao-harborfront.html">
-                        <img src="img\Arch\tsingtao-harborfront\RackMultipart20130309-10395-1a7fmcf.jpg" alt="Image 1"></a>
-                    </div>
+                  links.forEach((link) => {
+                    if (currentPage === "index.html") {
+                      // Modify link for navigation to coding.html with parameters
+                      const project = link
+                        .getAttribute("onclick")
+                        .match(/'([^']+)'/)[1];
+                      link.setAttribute(
+                        "href",
+                        `coding.html?project=${project}`
+                      );
+                      link.removeAttribute("onclick"); // Remove the onclick attribute
+                    } else if (currentPage === "coding.html") {
+                      // Keep the existing onclick behavior
+                    }
+                  });
+                })
+                .catch((err) => console.warn("Something went wrong.", err));
+            });
+          </script>
+        </div>
+      </div>
 
-                    <p><a href="arch.html?project=architecture/prince-hotel.html">Lake Songhua Resort and Prince Hotel, Jilin,  2011-2014</a></p>
-                    <div class="image-preview">
-                        <a href="arch.html?project=architecture/prince-hotel.html">
-                        <img src="img\Arch\lake-songhua\03.jpg" alt="Image 1"></a>
-                    </div>
+      <div class="column">
+        <div>
+          <h1>
+            <a href="arch.html"> Architcture, Urban Design, Sketches </a>
+          </h1>
+        </div>
 
-                    
+        <div style="overflow-y: scroll; max-height: 500px">
+          <p>
+            <a href="arch.html?project=architecture/michigan.html">
+              Early Work, 2002-2008</a
+            >
+          </p>
 
-                    <p><a href="arch.html?project=architecture/sino-japanese.html"> Sino-japanese Industrial Park, Shenyang, 2020-2022</a></p>
-                    <div class="image-preview">
-                        <a href="arch.html?project=architecture/sino-japanese.html">
-                        <img src="./img/Arch/sino-japanese/01.jpg" alt="Image 1"></a>
-                    </div>
+          <div class="image-preview">
+            <a href="arch.html?project=architecture/michigan.html">
+              <img src="img\Arch\early-work\06.jpg" alt="Image 1"
+            /></a>
+          </div>
 
-                    <p><a href="arch.html?project=architecture/mansion-oriental.html"> The Mansion Oriental, Shenyang, 2020-2022</a></p>
-                    <div class="image-preview">
-                        <a href="arch.html?project=architecture/mansion-oriental.html">
-                        <img src="img\Arch\maison-oriental\04.png" alt="Image 1"></a>
+          <p>
+            <a href="arch.html?project=architecture/tsingtao-harborfront.html">
+              Tsingtao Harborfront, Tsingtao, 2010</a
+            >
+          </p>
+          <div class="image-preview">
+            <a href="arch.html?project=architecture/tsingtao-harborfront.html">
+              <img
+                src="img\Arch\tsingtao-harborfront\RackMultipart20130309-10395-1a7fmcf.jpg"
+                alt="Image 1"
+            /></a>
+          </div>
 
-                    </div>
-                   
+          <p>
+            <a href="arch.html?project=architecture/prince-hotel.html"
+              >Lake Songhua Resort and Prince Hotel, Jilin, 2011-2014</a
+            >
+          </p>
+          <div class="image-preview">
+            <a href="arch.html?project=architecture/prince-hotel.html">
+              <img src="img\Arch\lake-songhua\03.jpg" alt="Image 1"
+            /></a>
+          </div>
 
-                    <p><a href="arch.html?project=architecture/light-of-the-north.html">The Light of the North, Shenyang, 2019-2021</a></p>
-                    <div class="image-preview">
-                        <a href="arch.html?project=architecture/light-of-the-north.html">
-                        <img src="img\Arch\light of the north\08-shenyang-vanke-beichenzhiguang-lacime.webp" alt="Image 1"></a>
-                    </div>
-                    
-                    <p><a href="arch.html?project=architecture/light-of-the-west.html">The Light of the West, Shenyang, 2020-2022</a></p>
-                    <div class="image-preview">
-                        <a href="arch.html?project=architecture/light-of-the-west.html">
-                        <img src="img\Arch\light-of-the-west\01.jpg" alt="Image 1"></a>
-                    </div>
+          <p>
+            <a href="arch.html?project=architecture/sino-japanese.html">
+              Sino-japanese Industrial Park, Shenyang, 2020-2022</a
+            >
+          </p>
+          <div class="image-preview">
+            <a href="arch.html?project=architecture/sino-japanese.html">
+              <img src="./img/Arch/sino-japanese/01.jpg" alt="Image 1"
+            /></a>
+          </div>
 
-                    <p><a href="arch.html?project=architecture/sino-german.html">Sino-german Community, Shenyang, 2020-2022</a></p>
-                    <div class="image-preview">
-                        <a href="arch.html?project=architecture/sino-german.html">
-                        <img src="img\Arch\sino-german\01.jpg" alt="Image 1"></a>
-                    </div>
+          <p>
+            <a href="arch.html?project=architecture/mansion-oriental.html">
+              The Mansion Oriental, Shenyang, 2020-2022</a
+            >
+          </p>
+          <div class="image-preview">
+            <a href="arch.html?project=architecture/mansion-oriental.html">
+              <img src="img\Arch\maison-oriental\04.png" alt="Image 1"
+            /></a>
+          </div>
 
-                    <p><a href="arch.html?project=architecture/four-seasons.htmll">The City of the Four Seasons, Shenyang, 2020-2022</a></p>
-                    <div class="image-preview">
-                        <a href="arch.html?project=architecture/four-seasons.html">
-                        <img src="img\Arch\polis of four seasons\01.jpg" alt="Image 1"></a>
-                    </div>       
-                </div>
-                    <a href="./gallery.html">
-                    <h3><br>Design of Places - Sketches of Qian</h3></a>
+          <p>
+            <a href="arch.html?project=architecture/light-of-the-north.html"
+              >The Light of the North, Shenyang, 2019-2021</a
+            >
+          </p>
+          <div class="image-preview">
+            <a href="arch.html?project=architecture/light-of-the-north.html">
+              <img
+                src="img\Arch\light of the north\08-shenyang-vanke-beichenzhiguang-lacime.webp"
+                alt="Image 1"
+            /></a>
+          </div>
 
-                    <div style="overflow-y:scroll; max-height: 350px;" >
-                        <h3><a href="./gallery.html"> master plans, 2011-2022</a></h3>
-                        <div class="image-preview">
-                            <a href="./gallery.html">
-                            <img src="img\sketch\places-resize\068.jpg" alt="Image 1"></a>
-                        </div>
-                        <div class="image-preview">
-                            <a href="./gallery.html">
-                            <img src="img\sketch\places-resize\005.jpg" alt="Image 1"></a>
-                        </div>
-                        <div class="image-preview">
-                            <a href="./gallery.html">
-                            <img src="img\sketch\places-resize\001.jpg" alt="Image 1"></a>
-                        </div>
-                        <h3><a href="./gallery.html"> floor plans, 2011-2022</a></h3>
-                        <div class="image-preview">
-                            <a href="./gallery.html">
-                            <img src="img\sketch\floor-plan-others-resize\016.jpg" alt="Image 1">
-                            </a>
-                        </div>
-                        <div class="image-preview">
-                            <a href="./gallery.html">
-                            <img src="img\sketch\floor-plan-others-resize\036.jpg" alt="Image 1">
-                            </a>
-                        </div>
-                        <h3><a href="./gallery.html"> details and notes, 2011-2022</a></h3>
-                        <div class="image-preview">
-                            <a href="./gallery.html">
-                            <img src="img\sketch\places-resize\059.jpg" alt="Image 1">
-                            </a>
-                        </div>
-                    </div>
+          <p>
+            <a href="arch.html?project=architecture/light-of-the-west.html"
+              >The Light of the West, Shenyang, 2020-2022</a
+            >
+          </p>
+          <div class="image-preview">
+            <a href="arch.html?project=architecture/light-of-the-west.html">
+              <img src="img\Arch\light-of-the-west\01.jpg" alt="Image 1"
+            /></a>
+          </div>
 
-                    
-                    <script src="script.js"></script>
-            </div>
-        </div>        
+          <p>
+            <a href="arch.html?project=architecture/sino-german.html"
+              >Sino-german Community, Shenyang, 2020-2022</a
+            >
+          </p>
+          <div class="image-preview">
+            <a href="arch.html?project=architecture/sino-german.html">
+              <img src="img\Arch\sino-german\01.jpg" alt="Image 1"
+            /></a>
+          </div>
+
+          <p>
+            <a href="arch.html?project=architecture/four-seasons.htmll"
+              >The City of the Four Seasons, Shenyang, 2020-2022</a
+            >
+          </p>
+          <div class="image-preview">
+            <a href="arch.html?project=architecture/four-seasons.html">
+              <img src="img\Arch\polis of four seasons\01.jpg" alt="Image 1"
+            /></a>
+          </div>
+        </div>
+        <a href="./gallery.html">
+          <h3><br />Design of Places - Sketches of Qian</h3></a
+        >
+
+        <div style="overflow-y: scroll; max-height: 350px">
+          <h3><a href="./gallery.html"> master plans, 2011-2022</a></h3>
+          <div class="image-preview">
+            <a href="./gallery.html">
+              <img src="img\sketch\places-resize\068.jpg" alt="Image 1"
+            /></a>
+          </div>
+          <div class="image-preview">
+            <a href="./gallery.html">
+              <img src="img\sketch\places-resize\005.jpg" alt="Image 1"
+            /></a>
+          </div>
+          <div class="image-preview">
+            <a href="./gallery.html">
+              <img src="img\sketch\places-resize\001.jpg" alt="Image 1"
+            /></a>
+          </div>
+          <h3><a href="./gallery.html"> floor plans, 2011-2022</a></h3>
+          <div class="image-preview">
+            <a href="./gallery.html">
+              <img
+                src="img\sketch\floor-plan-others-resize\016.jpg"
+                alt="Image 1"
+              />
+            </a>
+          </div>
+          <div class="image-preview">
+            <a href="./gallery.html">
+              <img
+                src="img\sketch\floor-plan-others-resize\036.jpg"
+                alt="Image 1"
+              />
+            </a>
+          </div>
+          <h3><a href="./gallery.html"> details and notes, 2011-2022</a></h3>
+          <div class="image-preview">
+            <a href="./gallery.html">
+              <img src="img\sketch\places-resize\059.jpg" alt="Image 1" />
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="script.js"></script>
     <script src="./voronoiBack.js"></script>
-    </body>
+  </body>
 </html>

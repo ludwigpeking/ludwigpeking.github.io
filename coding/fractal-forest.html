@@ -1,47 +1,103 @@
-
 <html lang="en">
+  <h2>Factal Tree/Forest</h2>
+  <h3>2022</h3>
+  <a
+    href="https://editor.p5js.org/ludwig.peking/sketches/wkZduz_Fj"
+    target="_blank"
+  >
+    <h3 style="color: #fbe; text-decoration: underline">
+      Play Ground: <br />
+      p5*js link to open in new tab
+    </h3>
+  </a>
+  <img
+    src="img\Coding\fractal-forest\01.jpg"
+    alt="Slideshow Image"
+    width="800"
+    style="margin-left: 20px"
+  />
+  <img
+    src="img\Coding\fractal-forest\02.png"
+    alt="Slideshow Image"
+    width="800"
+    style="margin-left: 20px"
+  />
+  <p>
+    This code is a creative implementation of a tree drawing algorithm in
+    JavaScript using the p5.js library.
+  </p>
 
-<h2>Factal Tree/Forest</h2>
-<h3>2022</h3>
-<img src="img\Coding\fractal-forest\01.jpg" alt="Slideshow Image" width="800">
-<img src="img\Coding\fractal-forest\02.png" alt="Slideshow Image" width="800">
-<p>This code is a creative implementation of a tree drawing algorithm in JavaScript using the p5.js library. </p>
+  <h3>Global Variables</h3>
+  <p>
+    sizes: An array specifying the canvas width and height.<br />
+    slider: A UI slider that allows the user to adjust the branching angle of
+    the trees.<br />
+    angle: The angle by which branches diverge from the trunk and each other.<br />
+    ran: A random value used in the branching logic.<br />
+    offscreen: An offscreen canvas that holds the drawn trees. This is used to
+    maintain the tree drawings even when the main canvas is refreshed.<br />
+    numberOfTree: The number of trees to be drawn on the canvas.<br />
+    leafCount: A counter for the number of leaves drawn.<br />
+    redrawButton and treeButton: Buttons for user interactions.<br />
+  </p>
 
-<h3>Global Variables</h3>
-<p>
-sizes: An array specifying the canvas width and height.<br>
-slider: A UI slider that allows the user to adjust the branching angle of the trees.<br>
-angle: The angle by which branches diverge from the trunk and each other.<br>
-ran: A random value used in the branching logic.<br>
-offscreen: An offscreen canvas that holds the drawn trees. This is used to maintain the tree drawings even when the main canvas is refreshed.<br>
-numberOfTree: The number of trees to be drawn on the canvas.<br>
-leafCount: A counter for the number of leaves drawn.<br>
-redrawButton and treeButton: Buttons for user interactions.<br></p>
+  <h3>Functions</h3>
+  <p>preload() Function</p>
+  <p>
+    Before the main code runs, this function loads an image (the "Sign.png"
+    image) into the <strong>sign</strong> variable.
+  </p>
 
-<h3>Functions </h3>
-<p>preload() Function</p>
-<p>Before the main code runs, this function loads an image (the "Sign.png" image) into the <strong>sign</strong> variable.</p>
+  <p>setup() Function</p>
+  <p>
+    This function initializes the canvas, the offscreen canvas, and UI elements.
+    It also sets the initial state and draws the trees for the first time.
+  </p>
 
-<p>setup() Function</p>
-<p>This function initializes the canvas, the offscreen canvas, and UI elements. It also sets the initial state and draws the trees for the first time.</p>
+  <p>draw() Function</p>
+  <p>
+    This function is repeatedly called by p5.js and continuously renders the
+    canvas. It displays the offscreen canvas (with the trees) and the current
+    angle value from the slider.
+  </p>
 
-<p>draw() Function</p>
-<p>This function is repeatedly called by p5.js and continuously renders the canvas. It displays the offscreen canvas (with the trees) and the current angle value from the slider.</p>
+  <p>redrawTree() Function</p>
+  <p>
+    This function is responsible for drawing trees. It resets the offscreen
+    canvas background, sets the branching angle based on the slider's value, and
+    then draws a specified number of trees. After the trees, it overlays a
+    semi-transparent sign image. The tree trunks change colors based on their
+    position (creating a depth effect).
+  </p>
 
-<p>redrawTree() Function</p>
-<p>This function is responsible for drawing trees. It resets the offscreen canvas background, sets the branching angle based on the slider's value, and then draws a specified number of trees. After the trees, it overlays a semi-transparent sign image. The tree trunks change colors based on their position (creating a depth effect).</p>
+  <p>changeNumTrees() Function</p>
+  <p>
+    Allows the user to input a new number for the total trees and then redraws
+    the trees.
+  </p>
 
-<p>changeNumTrees() Function</p>
-<p>Allows the user to input a new number for the total trees and then redraws the trees.</p>
+  <p>branch() Function</p>
+  <p>
+    This is a recursive function that draws a tree branch and its sub-branches.
+    The function considers randomness to vary the angles and lengths of the
+    branches, creating a more natural look. When the branches are small enough,
+    leaves are drawn instead of further branches. The leaves' shapes are defined
+    using the bezierVertex function, which provides a way to draw curves.
+  </p>
 
-<p>branch() Function</p>
-<p>This is a recursive function that draws a tree branch and its sub-branches. The function considers randomness to vary the angles and lengths of the branches, creating a more natural look. When the branches are small enough, leaves are drawn instead of further branches. The leaves' shapes are defined using the bezierVertex function, which provides a way to draw curves.</p>
-
-<p>Credits and Acknowledgments</p>
-<p>The code acknowledges Qian Li (ludwig.peking) for reprogramming and redesigning, and also thanks Daniel Shiffman (The Coding Train on YouTube) and Steve's Makerspace for the knowledge acquired.</p>
-
-<h3 style="color:#fbe">Play Ground</h3>
-    <iframe src="https://editor.p5js.org/ludwig.peking/sketches/wkZduz_Fj" style="border: none; padding-left: 20px;" width="1200" height="800"></iframe>
-
-
+  <p>Credits and Acknowledgments</p>
+  <p>
+    The code acknowledges Qian Li (ludwig.peking) for reprogramming and
+    redesigning, and also thanks Daniel Shiffman (The Coding Train on YouTube)
+    and Steve's Makerspace for the knowledge acquired.
+  </p>
+  <a
+    href="https://editor.p5js.org/ludwig.peking/sketches/wkZduz_Fj"
+    target="_blank"
+  >
+    <h3 style="color: #fbe">
+      Play Ground: <br />
+      p5*js link open to new tab
+    </h3>
+  </a>
 </html>

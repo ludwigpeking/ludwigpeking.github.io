@@ -88,7 +88,7 @@ footer {
 }
 
 a {
-  margin: 10px 25px;
+  margin: 0px 0px;
   padding: 0;
   text-decoration: none;
   background: none;
@@ -294,7 +294,6 @@ img {
 /* Hover effect to expand image */
 .image-preview:hover {
   height: 140px; /* Example fixed height - adjust as needed */
-  transition-delay: 0s; /* No delay when hovering over */
   transition-delay: 0s; /* No delay when hovering over */
 }
 

@@ -8,26 +8,19 @@
         <link href="./styles.css" rel="stylesheet">
         <script src="https://d3js.org/d3.v5.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.21/lodash.min.js"></script>
-        <script src="script.js"></script>  
-        <script>
-            document.addEventListener('DOMContentLoaded', function() {
-                const urlParams = new URLSearchParams(window.location.search);
-                const project = urlParams.get('project');
-                const defaultProject = 'coding/grid-erosion.html';
-                loadProject(defaultProject);
-                if (project) {
-                    loadProject(project);
-                }
-            });
         
-            // function loadProject(projectPath) {
-            //     fetch(projectPath)
-            //         .then(response => response.text())
-            //         .then(html => {
-            //             document.getElementById('dynamic-content').innerHTML = html;
-            //         })
-            //         .catch(err => console.warn('Something went wrong.', err));
-            // }
+        <script>
+            document.addEventListener('DOMContentLoaded', function () {
+            const urlParams = new URLSearchParams(window.location.search);
+            const project = urlParams.get('project');
+            
+            const defaultProject = 'coding/grid-erosion.html';
+            loadProject(defaultProject); // Load the default project initially
+
+            if (project) {
+                loadProject(project); // Load a specific project if specified in URL
+            }
+        });
         </script>
         
     </head>
@@ -51,7 +44,7 @@
         </div>
 
         <div class="column-container">
-        <div class="column" style="max-width: 400px;">
+        <div class="column" style="max-width: 400px; ">
             <div >
                 <h1 style="font-family: Georgia, 'Times New Roman', Times, serif; color:aqua;"> 
                     <a href="https://www.linkedin.com/in/qian-li-944a0510/" class="name-link" target="_blank">
@@ -63,70 +56,19 @@
             </div>
         <!-- coding projects starts here -->
         
-            <div class="project-links">
-                <h3> Coding Projects, 2021-2023 </h3>
-                <div style="overflow-y:scroll; max-height: 800px;" >
-                    <!-- becomingCity -->
-                    <p><a href="#" onclick="loadProject('coding/city-values.html', this); return false;">becomingCity - Value Based City Generator, 2022</a></p>
-                    <div class="image-preview">
-                        <a onclick = "loadProject('coding/city-values.html')">
-                        <img src="./img/Coding/BecomingCity/005.jpg" alt="Image 1"></a>
-                    </div>
-                    <!-- voronoi city -->
-                    <p><a onclick = "loadProject('coding/city-voronoi.html', this); return false;"> City Voronoi Parcelization - an approach to its crystalization, 2022</a></p>
-                    <div class="image-preview">
-                        <a onclick = "loadProject('coding/city-voronoi.html')">
-                        <img src="img\Coding\BecomingCity_Voronoi Claimation\4.jpg" alt="Image 1"></a>
-                    </div> 
+        <div id="codeLinksContainer" style="overflow-y: auto;"></div>
+        <script>
+            document.addEventListener("DOMContentLoaded", function() {
+                fetch('coding-project-links.html')
+                    .then(response => response.text())
+                    .then(html => {
+                        document.getElementById('codeLinksContainer').innerHTML = html;
+                    })
+                    .catch(err => console.warn('Something went wrong.', err));
+            });
+        </script>
+        
 
-                    <!-- grid erosion -->
-                    <p><a onclick = "loadProject('coding/grid-erosion.html', this); return false;"> The Erosion of City Grids, 2023 </a></p>
-                    <div class="image-preview">
-                        <a onclick = "loadProject('coding/grid-erosion.html')">
-                        <img src="coding\grid-erosion\img\10.png" alt="Image 1"></a>
-                    </div> 
-                    <!-- shoin-rokuri -->
-                    <p><a onclick = "loadProject('coding/shoin-zukuri.html', this); return false;"> Shoin-zokuri - An Architecture Generator by Wave Function Collapse Algorithm, 2022-2023 </a></p>
-                    <div class="image-preview">
-                        <a onclick = "loadProject('coding/shoin-zukuri.html')">
-                        <img src="img\Coding\shoin-zukuri\1.png" alt="Image 1"></a>
-                    </div> 
-                    
-                    <!-- wfc floor plan -->
-                    <p><a onclick = "loadProject('coding/wfc-floorplan.html', this); return false;"> WFC Algorithm Floor Plan Generator, 2022 </a></p> 
-                    <div class="image-preview">
-                        <a onclick = "loadProject('coding/wfc-floorplan.html')">
-                        <img src="img\Coding\WFC_floorplan\12.png" alt="Image 1"></a>
-                    </div>  
-                    <!-- Forest -->
-                    <fractal-forest>
-                    <p><a onclick = "loadProject('coding/fractal-forest.html', this); return false;"> Fractal Forect Generator,
-                    2022 </a></p> 
-                    <div class="image-preview">
-                        <a onclick = "loadProject('coding/fractal-forest.html')">
-                        <img src="img\Coding\fractal-forest\01.jpg" alt="Image 1"></a>
-                    </div>  
-
-                    <!-- three.js tree class -->
-                    <p><a onclick = "loadProject('coding/three-js-tree.html', this); return false;"> Three.js Fractal Tree Class,
-                    2023 </a></p> 
-                    <div class="image-preview">
-                        <a onclick = "loadProject('coding/three-js-tree.html')">
-                        <img src="img\Coding\fractal-tree-three-js\02.png" alt="Image 1"></a>
-                    </div> 
-
-
-     
-                    <!-- Malthusian -->
-                    <p><a onclick = "loadProject('coding/malthusian.html', this); return false;"> Malthusian World, 2022-2023 </a></p>    
-                    <div class="image-preview">
-                        <a onclick = "loadProject('coding/malthusian.html')">
-                        <img src="img\Coding\malthusian-world\save01.png" alt="Image 1"></a>
-                    </div> 
-                    
-                    <p><a onclick = "loadProject('coding/urban-forest.html')"> Urban Forest </a></p>
-                </div>     
-            </div>
         </div>
     
         <div class="column-wide" >
@@ -138,5 +80,6 @@
             </div>
         </div>
         <script src="./voronoiBack.js"></script>
+        <script src="script.js"></script>  
     </body>
 </html>
