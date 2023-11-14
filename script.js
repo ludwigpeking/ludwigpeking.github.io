@@ -60,7 +60,7 @@ function loadProject(projectPath, clickedLinkIdentifier) {
 
       // Update the 'visited' state of links
       if (clickedLinkIdentifier) {
-        highlightClickedLink(clickedLinkIdentifier);
+        highlightClickedLink(projectPath);
       }
     })
     .catch((err) => console.warn("Something went wrong.", err));
@@ -115,14 +115,17 @@ document.body.addEventListener(
 
 // ... [previous code]
 
-function highlightClickedLink(clickedLinkIdentifier) {
+function highlightClickedLink(projectPath) {
   if (currentSelectedLink) {
     currentSelectedLink.style.color = ""; // Reset previous link color
   }
 
-  // Adjust the selector to match the onclick attribute
-  const onclickToMatch = `loadProject('coding/${clickedLinkIdentifier}`;
-  const clickedLink = document.querySelector(`a[onclick*="${onclickToMatch}"]`);
+  // Find the link with the matching project path
+  const links = document.querySelectorAll(`a[onclick*="loadProject"]`);
+  const clickedLink = Array.from(links).find((link) => {
+    const onclickAttr = link.getAttribute("onclick");
+    return onclickAttr.includes(`'${projectPath}'`);
+  });
 
   if (clickedLink) {
     clickedLink.style.color = "magenta"; // Highlight new link
