@@ -165,9 +165,7 @@ h1 a:hover {
     margin-bottom: 0px; 
     padding-bottom: 0;
   }
-  .home : a {
-    size: 5px;
-  }
+
   .social-icon {
     margin: 0px 10px; /* Adjust margin for better spacing on mobile */
   }
