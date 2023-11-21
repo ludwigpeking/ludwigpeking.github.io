@@ -2,13 +2,13 @@ from PIL import Image
 import os
 
 # Set the directory containing your images
-image_directory = r'C:\Users\liq32\Desktop\IT\2308_website\ludwigpeking.github.io\img\sketch\places-resize'
+image_directory = r'C:\Users\liq32\Desktop\IT\2308_website\ludwigpeking.github.io\img\sketch\painting-resize'
 
 # Set the new width to which you want to resize your images
 new_width = 400
 
 # Loop through all images from 001 to 100
-for i in range(1, 101):
+for i in range(1, 106):
     # Create the file name, assuming the files are named as 001.jpg, 002.jpg, etc.
     file_name = f"{i:03d}.jpg"
     file_path = os.path.join(image_directory, file_name)
