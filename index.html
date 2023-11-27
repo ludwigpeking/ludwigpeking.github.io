@@ -105,7 +105,7 @@
         <div>
           <h1>
             <a
-              href="https://ludwigpeking.wordpress.com/2022/12/14/an-evolutionary-history-of-the-city-table-of-contents/"
+              href="https://the-book-an-evolutionary-history-of-the-city.vercel.app/?chapter=0"
               target="_blank"
             >
               Writing<br />
@@ -115,7 +115,7 @@
         </div>
         <h3 style="font-weight: bold">
           <a
-            href="https://ludwigpeking.wordpress.com/2022/12/14/an-evolutionary-history-of-the-city-table-of-contents/"
+            href="https://the-book-an-evolutionary-history-of-the-city.vercel.app/?chapter=0"
             target="_blank"
             rel="noopener noreferrer"
             style="color: inherit"
@@ -124,7 +124,7 @@
         </h3>
         <p>
           <a
-            href="https://ludwigpeking.wordpress.com/2022/12/14/an-evolutionary-history-of-the-city-table-of-contents/"
+            href="https://the-book-an-evolutionary-history-of-the-city.vercel.app/?chapter=0"
             style="font-weight: bold"
             target="_blank"
             rel="noopener noreferrer"
@@ -137,15 +137,66 @@
           id="linksContainer"
           style="max-height: 400px; overflow-y: auto"
         ></div>
+        <div id="chapterLinks" style="max-height: 400px; overflow-y: auto;"></div>
         <script>
-          document.addEventListener("DOMContentLoaded", function () {
-            fetch("links.html")
-              .then((response) => response.text())
-              .then((html) => {
-                document.getElementById("linksContainer").innerHTML = html;
-              })
-              .catch((err) => console.warn("Something went wrong.", err));
+          const baseEbookUrl =
+            "https://the-book-an-evolutionary-history-of-the-city.vercel.app/";
+          const chapters = [
+            "01. Examples: the Three Tourist Attractions with the Same Morphism",
+            "02. An Origin of the City, a Holy Site for Community Making",
+            "03. An Origin of the City, the Pattern of a Sanctuary – a Temple, a Treasury and Granary, a Bank, a Philanthropy, a Market, a Center of Study, a Decision Making Body",
+            "04. An Origin of the City, a Symbiont of Hunters and Farmers",
+            "05. An Origin of the City, the Symbiosis of Hunters and Farmers (2) – a bit Spenglerian Philosophy",
+            "06. A Game of Casting Risks, the Calculation on Castle Building",
+            "07. City as the Hardware of Organization – a summary of previous chapters",
+            "08. Over the Plain and Streams",
+            "09. Flood Plains, Honey Traps",
+            "10. By Men and their Mules, Routes being an Evolutionary System",
+            "11. Morphism of Narrow Pass: Bridge, Sandbar in River, City Gate, Mountain Pass",
+            "12. the Evolution of Trade Routes Affected by the Competition between Government",
+            "13. The Big Picture – Technological Transmit and Resistance Theory (1) Foot on the Trails, Canoe on Coastline, Chariot in the Steppe",
+            "14. The Big Picture – Technological Transmit and Resistance Theory (2) Canals, High Seas, Railways, Autobahns, Telegrams and Internet",
+            "15. the Patterns at Transportation Mode Change – from Ports and Warehouses to Metropolis",
+            "16. the Patterns at Transportation Mode Change – Stations, Airports and Garages",
+            "17 the Evolution of Commercial Communities (1) for Efficiency",
+            "18. the Evolution of Commercial Communities (2) Pedestrian Driven",
+            "19. the Evolution of Commercial Communities (3) Transportation Mode of the Customers",
+            "20 How Walls Reflect the Social Structure",
+            "21 Suburbanization – First Half – Train Driven Finger Patterns",
+            "22 Suburbanization – Second Half – Automobile Driven Sprawl (1)",
+            "23 Suburbanization – Second Half – the Economy in Automobile Suburbs",
+            "24 Suburban Shopping Center – the development of the Typology",
+            "25 Suburbanization of China Characteristics – the Inherent Incongruity",
+            "26 Vertical Development",
+            "27 Coordinality and Contexuality",
+            "28 Informal occupation – reflets better the underlying orders",
+            "29 Top-level Design",
+            "30 Mechanics: The City is the Hardware of the Three Organizational Forces – Security, Economy, Ideology",
+            "31 Mechanics: Thermal Map",
+            "32 the Language of Urban Design (1) Circle, Grid",
+            "33 the Language of Urban Design (2) Radial, Grand Manner",
+            "34 the Language of Designing the Plan (3) Special Diagrams, Free Curve",
+            "35 Skyline as an Evolutionary Phenomenon",
+            "36 Skyline as an Language of Modern Urban Design",
+            "37 Morphology – Layers from History Root, Trunk, Branches and Leaves of the City",
+
+            "38. Morphology – Vernacular, Classic and Contemporary Styles and Their Ingredient in the City",
+          ];
+ 
+          const chapterLinksContainer = document.getElementById("chapterLinks");
+          chapters.forEach((title, index) => {
+            const chapterNumber = index + 1;
+            const pElement = document.createElement("p");
+            const link = document.createElement("a");
+            pElement.appendChild(link);
+            link.href = `${baseEbookUrl}?chapter=${chapterNumber}`;
+            link.textContent = title;
+            link.innerHTML += "<br>";
+            chapterLinksContainer.appendChild(pElement);
           });
+        </script>
+        
+
         </script>
 
         <div>
