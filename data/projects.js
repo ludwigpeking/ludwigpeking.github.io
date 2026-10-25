@@ -84,7 +84,6 @@ window.PROJECTS = [
     tags: ["product", "SketchUp", "Ruby", "real estate", "finance", "Vue"],
     thumb: "img/projects/decisive.jpg",
     thumbMotion: "img/projects/motion/decisive.mp4",
-    thumbMotion: "img/projects/motion/decisive.webp",
     hero: "img/projects/decisive-hero.jpg",
     videoPending: "Promo film exists locally (2:03, March 2025, Chinese narration and burned-in Chinese subtitles). Add English subtitles, upload to YouTube and embed.",
     links: [
