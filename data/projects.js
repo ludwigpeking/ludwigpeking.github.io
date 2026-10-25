@@ -83,6 +83,7 @@ window.PROJECTS = [
       "Move a building in the model and the cash flow updates. A Ruby extension that couples the design of a development to its financial outcome as you draw.",
     tags: ["product", "SketchUp", "Ruby", "real estate", "finance", "Vue"],
     thumb: "img/projects/decisive.jpg",
+    thumbMotion: "img/projects/motion/decisive.mp4",
     thumbMotion: "img/projects/motion/decisive.webp",
     hero: "img/projects/decisive-hero.jpg",
     videoPending: "Promo film exists locally (2:03, March 2025, Chinese narration and burned-in Chinese subtitles). Add English subtitles, upload to YouTube and embed.",
