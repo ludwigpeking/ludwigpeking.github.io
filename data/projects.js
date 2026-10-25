@@ -682,28 +682,6 @@ window.PROJECTS = [
       "<p>The terrain is one of the inputs to the city simulations elsewhere on this site: where water goes decides where people go.</p>"
   },
   {
-    id: "fractal-tree",
-    title: "Fractal tree class for three.js",
-    category: "games",
-    year: "2023",
-    context: "Independent study",
-    summary:
-      "A reusable class that grows parametric trees in three.js, written as entourage for the Shoin-zukuri generator.",
-    tags: ["procedural", "three.js", "React Three Fiber"],
-    thumb: "img/projects/fractal-tree.jpg",
-    embed: {
-      url: "https://three-js-fractal-tree.vercel.app/",
-      label: "Grow a tree",
-      note: "Runs in the page. Orbit with the mouse and adjust the parameters."
-    },
-    links: [
-      { label: "Code", url: "https://github.com/ludwigpeking/fractalTree" },
-      { label: "Live", url: "https://three-js-fractal-tree.vercel.app/" }
-    ],
-    body:
-      "<p>Trunk taper, branching angle, branch count per node, leaf density and randomness are all parameters. The class exports OBJ so the trees can travel to Blender or a game engine.</p>"
-  },
-  {
     id: "becoming-city-film",
     title: "Becoming City, a short film",
     category: "games",
