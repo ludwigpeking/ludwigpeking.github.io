@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sketches — Richard Qian Li</title>
+    <meta name="description" content="Curated p5.js sketches by Richard Qian Li: shaders, hand tracking, sound, geometry and simulation. They run in the page." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,300;0,500;0,600;1,300&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;600&display=swap" rel="stylesheet" />
+    <link href="./styles.css" rel="stylesheet" />
+    <script src="./data/projects.js"></script>
+    <script src="./data/sketches.js"></script>
+    <script src="./site.js"></script>
+  </head>
+  <body>
+    <header class="site-header"></header>
+
+    <main class="container">
+      <section class="hero" style="padding-bottom: 20px">
+        <div class="eyebrow">Sketchbook</div>
+        <h1 style="font-size: clamp(2rem, 6vw, 3.2rem)">p5.js sketches</h1>
+        <p class="lede">
+          Two hundred sketches since 2022, curated to the ones worth running. Tap a card and the
+          sketch plays in the page; some ask for a camera or a hand.
+        </p>
+        <p><a class="section-link" href="https://editor.p5js.org/ludwig.peking/sketches" target="_blank" rel="noopener">All 200 sketches on the p5.js editor</a></p>
+      </section>
+      <div class="sketch-grid" data-sketch-grid></div>
+    </main>
+
+    <div class="sketch-viewer" role="dialog" aria-modal="true" aria-label="Sketch viewer">
+      <div class="viewer-bar">
+        <span class="viewer-title"></span>
+        <a data-viewer-editor href="#" target="_blank" rel="noopener">Open in editor</a>
+        <button type="button" data-viewer-close>Close</button>
+      </div>
+      <iframe src="about:blank" allow="camera; microphone; accelerometer; gyroscope; fullscreen" title="p5.js sketch"></iframe>
+    </div>
+
+    <footer class="site-footer"></footer>
+  </body>
+</html>

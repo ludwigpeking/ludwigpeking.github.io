@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Architecture — Richard Qian Li</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,300;0,500;0,600;1,300&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;600&display=swap" rel="stylesheet" />
+    <link href="./styles.css" rel="stylesheet" />
+    <script src="./data/projects.js"></script>
+    <script src="./site.js"></script>
+  </head>
+  <body>
+    <header class="site-header"></header>
+
+    <main class="container">
+      <header class="project-hero">
+        <div class="eyebrow"><a href="architecture.html" style="color: var(--color-accent)">Architecture archive</a></div>
+      </header>
+      <div class="project-body" id="architecture-body" style="max-width: 60em"></div>
+      <nav class="project-nav">
+        <a href="architecture.html">&larr; All architecture</a>
+        <a href="gallery.html">Hand drawings &rarr;</a>
+      </nav>
+    </main>
+
+    <footer class="site-footer"></footer>
+
+    <script>
+      (function () {
+        var urlParameters = new URLSearchParams(window.location.search);
+        var fragmentPath = urlParameters.get("fragment");
+        var bodyElement = document.getElementById("architecture-body");
+        if (!fragmentPath || fragmentPath.indexOf("architecture/") !== 0) {
+          bodyElement.innerHTML = '<p>Choose a project from the <a href="architecture.html">archive</a>.</p>';
+          return;
+        }
+        fetch(fragmentPath)
+          .then(function (response) {
+            return response.text();
+          })
+          .then(function (fragmentHtml) {
+            var wrapperElement = document.createElement("div");
+            wrapperElement.innerHTML = fragmentHtml;
+            var scriptElements = wrapperElement.querySelectorAll("script");
+            Array.prototype.forEach.call(scriptElements, function (scriptElement) {
+              scriptElement.remove();
+            });
+            var titleElement = wrapperElement.querySelector("h2, h1");
+            if (titleElement) {
+              document.title = titleElement.textContent.trim() + " — Richard Qian Li";
+              var heading = document.createElement("h1");
+              heading.textContent = titleElement.textContent.trim();
+              titleElement.parentNode.replaceChild(heading, titleElement);
+            }
+            bodyElement.innerHTML = wrapperElement.innerHTML;
+          })
+          .catch(function (fetchError) {
+            bodyElement.innerHTML = "<p>Could not load this project.</p>";
+            console.warn(fetchError);
+          });
+      })();
+    </script>
+  </body>
+</html>

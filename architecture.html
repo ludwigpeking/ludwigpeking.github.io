@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Architecture — Richard Qian Li</title>
+    <meta name="description" content="Architecture and urban design archive of Richard Qian Li, 2002 to 2022." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,300;0,500;0,600;1,300&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;600&display=swap" rel="stylesheet" />
+    <link href="./styles.css" rel="stylesheet" />
+    <script src="./data/projects.js"></script>
+    <script src="./site.js"></script>
+  </head>
+  <body>
+    <header class="site-header"></header>
+
+    <main class="container">
+      <section class="hero" style="padding-bottom: 20px">
+        <div class="eyebrow">Earlier practice, 2002 – 2022</div>
+        <h1 style="font-size: clamp(2rem, 6vw, 3.2rem)">Architecture &amp; urban design</h1>
+        <p class="lede">
+          Two decades of buildings, master plans and drawings, mostly as Director of Design at
+          Vanke and earlier at EE&amp;K in Washington. Kept here as background to the
+          computational work rather than as its centre.
+        </p>
+      </section>
+
+      <div class="card-grid" id="architecture-grid"></div>
+
+      <section class="section" style="padding-bottom: 0">
+        <div class="section-header">
+          <h2 style="font-size: 1.5rem">Hand drawings</h2>
+          <a class="section-link" href="gallery.html">Open the drawing gallery</a>
+        </div>
+        <div class="image-wall" id="drawing-preview"></div>
+      </section>
+    </main>
+
+    <footer class="site-footer"></footer>
+
+    <script>
+      (function () {
+        var architectureProjects = [
+          { fragment: "architecture/sino-japanese.html", title: "Sino-Japanese Industrial Park", place: "Shenyang, 2020 – 2022", thumb: "img/Arch/sino-japanese/01.jpg", note: "Melbourne Design Awards 2022, Gold" },
+          { fragment: "architecture/mansion-oriental.html", title: "The Mansion Oriental", place: "Shenyang, 2020 – 2022", thumb: "img/Arch/maison-oriental/04.png" },
+          { fragment: "architecture/light-of-the-north.html", title: "The Light of the North", place: "Shenyang, 2019 – 2021", thumb: "img/Arch/light of the north/08-shenyang-vanke-beichenzhiguang-lacime.webp" },
+          { fragment: "architecture/light-of-the-west.html", title: "The Light of the West", place: "Shenyang, 2020 – 2022", thumb: "img/Arch/light-of-the-west/01.jpg" },
+          { fragment: "architecture/sino-german.html", title: "Sino-German Community", place: "Shenyang, 2020 – 2022", thumb: "img/Arch/sino-german/01.jpg" },
+          { fragment: "architecture/four-seasons.html", title: "The City of the Four Seasons", place: "Shenyang, 2020 – 2022", thumb: "img/Arch/polis of four seasons/01.jpg" },
+          { fragment: "architecture/prince-hotel.html", title: "Lake Songhua Resort and Prince Hotel", place: "Jilin, 2011 – 2014", thumb: "img/Arch/lake-songhua/03.jpg" },
+          { fragment: "architecture/tsingtao-harborfront.html", title: "Qingdao Harborfront", place: "Qingdao, 2010", thumb: "img/Arch/tsingtao-harborfront/RackMultipart20130309-10395-1a7fmcf.jpg", note: "AIA New York Urban Design Honor Award 2013" },
+          { fragment: "architecture/michigan.html", title: "Early work", place: "2002 – 2008", thumb: "img/Arch/early-work/06.jpg" }
+        ];
+
+        var gridElement = document.getElementById("architecture-grid");
+        gridElement.innerHTML = architectureProjects
+          .map(function (project) {
+            return (
+              '<a class="project-card" href="archproject.html?fragment=' + encodeURIComponent(project.fragment) + '">' +
+              '<div class="thumb"><img loading="lazy" src="' + project.thumb + '" alt="' + project.title + '"></div>' +
+              '<div class="card-body">' +
+              '<div class="card-meta">' + project.place + '</div>' +
+              "<h3>" + project.title + "</h3>" +
+              (project.note ? "<p>" + project.note + "</p>" : "") +
+              "</div></a>"
+            );
+          })
+          .join("");
+
+        var previewElement = document.getElementById("drawing-preview");
+        var previewImages = ["068", "005", "001", "012", "040", "077", "021", "033"];
+        previewElement.innerHTML = previewImages
+          .map(function (imageNumber) {
+            return '<a href="gallery.html"><img loading="lazy" src="img/sketch/places-resize/' + imageNumber + '.jpg" alt="Sketch ' + imageNumber + '"></a>';
+          })
+          .join("");
+      })();
+    </script>
+  </body>
+</html>

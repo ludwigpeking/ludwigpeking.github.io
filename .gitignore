@@ -1,0 +1,5 @@
+# local-only tooling for choosing motion thumbnails
+tools/motion-candidates/
+tools/motion_choices.json
+tools/__pycache__/
+.vscode/

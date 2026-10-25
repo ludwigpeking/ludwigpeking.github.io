@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Writing — Richard Qian Li</title>
+    <meta name="description" content="An Evolutionary History of the City, the Banal Smasher podcast and other writing by Richard Qian Li." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,300;0,500;0,600;1,300&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;600&display=swap" rel="stylesheet" />
+    <link href="./styles.css" rel="stylesheet" />
+    <script src="./data/projects.js"></script>
+    <script src="./site.js"></script>
+  </head>
+  <body>
+    <header class="site-header"></header>
+
+    <main class="container">
+      <section class="hero" style="padding-bottom: 16px">
+        <div class="eyebrow">Writing &amp; talking</div>
+        <h1 style="font-size: clamp(2rem, 6vw, 3.2rem)">How cities evolve</h1>
+        <p class="lede">
+          The simulations on this site come out of a longer argument about cities as
+          evolutionary systems. That argument lives in a book in progress, a podcast and a
+          video essay.
+        </p>
+      </section>
+
+      <section class="section" style="padding-top: 8px">
+        <div class="aside-strip">
+          <div class="aside-card">
+            <div class="eyebrow">Book, 2018 – present</div>
+            <h3>An Evolutionary History of the City</h3>
+            <p>
+              Thirty-eight chapters online, from the sanctuary and the granary to suburban
+              sprawl and the skyline, written as a theory of why cities take the shapes they do.
+            </p>
+            <a class="button" href="https://the-book-an-evolutionary-history-of-the-city.vercel.app/?chapter=0" target="_blank" rel="noopener">Read the introduction</a>
+          </div>
+          <div class="aside-card">
+            <div class="eyebrow">Podcast, 2016 – present</div>
+            <h3>Banal Smasher 陳腐粉碎機</h3>
+            <p>
+              A Mandarin-language podcast on urban history. One hundred and twenty episodes,
+              around one million accumulated listens.
+            </p>
+            <a class="button" href="https://www.ximalaya.com/album/3733966" target="_blank" rel="noopener">Listen on Ximalaya</a>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" style="padding-top: 0">
+        <div class="section-header">
+          <h2 style="font-size: 1.5rem">Chapters</h2>
+          <a class="section-link" href="https://the-book-an-evolutionary-history-of-the-city.vercel.app/?chapter=0" target="_blank" rel="noopener">Open the book</a>
+        </div>
+        <ol class="chapter-list" id="chapter-list"></ol>
+      </section>
+    </main>
+
+    <footer class="site-footer"></footer>
+
+    <script>
+      (function () {
+        var bookBaseUrl = "https://the-book-an-evolutionary-history-of-the-city.vercel.app/";
+        var chapterTitles = [
+          "Examples: the Three Tourist Attractions with the Same Morphism",
+          "An Origin of the City, a Holy Site for Community Making",
+          "An Origin of the City, the Pattern of a Sanctuary: a Temple, a Treasury and Granary, a Bank, a Philanthropy, a Market, a Center of Study, a Decision Making Body",
+          "An Origin of the City, a Symbiont of Hunters and Farmers",
+          "An Origin of the City, the Symbiosis of Hunters and Farmers (2): a bit of Spenglerian Philosophy",
+          "A Game of Casting Risks, the Calculation on Castle Building",
+          "City as the Hardware of Organization: a summary of previous chapters",
+          "Over the Plain and Streams",
+          "Flood Plains, Honey Traps",
+          "By Men and their Mules, Routes being an Evolutionary System",
+          "Morphism of Narrow Pass: Bridge, Sandbar in River, City Gate, Mountain Pass",
+          "The Evolution of Trade Routes Affected by the Competition between Governments",
+          "The Big Picture: Technological Transmit and Resistance Theory (1) Foot on the Trails, Canoe on Coastline, Chariot in the Steppe",
+          "The Big Picture: Technological Transmit and Resistance Theory (2) Canals, High Seas, Railways, Autobahns, Telegrams and Internet",
+          "The Patterns at Transportation Mode Change: from Ports and Warehouses to Metropolis",
+          "The Patterns at Transportation Mode Change: Stations, Airports and Garages",
+          "The Evolution of Commercial Communities (1) for Efficiency",
+          "The Evolution of Commercial Communities (2) Pedestrian Driven",
+          "The Evolution of Commercial Communities (3) Transportation Mode of the Customers",
+          "How Walls Reflect the Social Structure",
+          "Suburbanization, First Half: Train Driven Finger Patterns",
+          "Suburbanization, Second Half: Automobile Driven Sprawl (1)",
+          "Suburbanization, Second Half: the Economy in Automobile Suburbs",
+          "Suburban Shopping Center: the Development of the Typology",
+          "Suburbanization of China Characteristics: the Inherent Incongruity",
+          "Vertical Development",
+          "Coordinality and Contextuality",
+          "Informal Occupation Reflects Better the Underlying Orders",
+          "Top-level Design",
+          "Mechanics: The City is the Hardware of the Three Organizational Forces: Security, Economy, Ideology",
+          "Mechanics: Thermal Map",
+          "The Language of Urban Design (1) Circle, Grid",
+          "The Language of Urban Design (2) Radial, Grand Manner",
+          "The Language of Designing the Plan (3) Special Diagrams, Free Curve",
+          "Skyline as an Evolutionary Phenomenon",
+          "Skyline as a Language of Modern Urban Design",
+          "Morphology: Layers from History, Root, Trunk, Branches and Leaves of the City",
+          "Morphology: Vernacular, Classic and Contemporary Styles and Their Ingredient in the City"
+        ];
+        var listElement = document.getElementById("chapter-list");
+        listElement.innerHTML = chapterTitles
+          .map(function (chapterTitle, chapterIndex) {
+            var chapterNumber = chapterIndex + 1;
+            return (
+              '<li><a href="' + bookBaseUrl + "?chapter=" + chapterNumber + '" target="_blank" rel="noopener">' +
+              "<span>" + (chapterNumber < 10 ? "0" + chapterNumber : chapterNumber) + "</span>" +
+              "<span>" + chapterTitle + "</span></a></li>"
+            );
+          })
+          .join("");
+      })();
+    </script>
+  </body>
+</html>

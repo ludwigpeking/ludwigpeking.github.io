@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Choose motion thumbnails</title>
+    <style>
+      :root { color-scheme: light; }
+      body { margin: 0; font-family: "IBM Plex Sans", system-ui, sans-serif; background: #f4f1ea; color: #17161a; }
+      header { padding: 20px 24px 8px; }
+      header h1 { margin: 0 0 6px; font-size: 1.5rem; }
+      header p { margin: 0; color: #6b675f; font-size: 0.95rem; max-width: 60em; }
+      .project { padding: 20px 24px; border-top: 1px solid #dcd7cc; }
+      .project h2 { margin: 0 0 4px; font-size: 1.2rem; }
+      .project .note { color: #6b675f; font-size: 0.9rem; margin: 0 0 12px; }
+      .status { font-family: "IBM Plex Mono", monospace; font-size: 0.8rem; color: #6b675f; margin-left: 10px; }
+      .status.applied { color: #1f7a3a; }
+      .status.error { color: #b3261e; }
+      .candidates { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 14px; }
+      .candidate { background: #fbf9f4; border: 2px solid #dcd7cc; border-radius: 10px; overflow: hidden; cursor: pointer; }
+      .candidate.selected { border-color: #d24a2a; }
+      .candidate.current { box-shadow: 0 0 0 3px #1f7a3a33; }
+      .candidate video, .candidate img { display: block; width: 100%; aspect-ratio: 4 / 3; object-fit: cover; background: #ddd; }
+      .candidate .meta { padding: 8px 10px 10px; font-size: 0.85rem; }
+      .candidate .meta strong { display: block; font-family: "IBM Plex Mono", monospace; font-weight: 500; font-size: 0.78rem; }
+      .candidate .meta span { color: #6b675f; }
+      .candidate .size { float: right; font-family: "IBM Plex Mono", monospace; font-size: 0.72rem; color: #6b675f; }
+      .actions { margin-top: 12px; display: flex; gap: 10px; align-items: center; }
+      button { font: inherit; padding: 8px 16px; border-radius: 999px; border: 1px solid #17161a; background: #17161a; color: #fff; cursor: pointer; }
+      button[disabled] { opacity: 0.4; cursor: default; }
+      .webp-preview { margin-top: 10px; display: none; }
+      .webp-preview img { width: 300px; border: 1px solid #dcd7cc; border-radius: 6px; }
+      .toggle { font-size: 0.8rem; color: #6b675f; cursor: pointer; text-decoration: underline; }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>Choose motion thumbnails</h1>
+      <p>
+        Each card loops a candidate clip. Click a card to select it, then press <b>Apply</b>: the
+        clip is copied to <code>img/projects/motion/&lt;project&gt;.webp</code>, the project's
+        <code>thumbMotion</code> is set in <code>data/projects.js</code>, and the small reel copy is
+        rebuilt. A green ring marks the candidate currently applied. "Show WebP" previews the exact
+        file the site will use (12 fps, 600 x 450).
+      </p>
+    </header>
+    <main id="projects"></main>
+
+    <script>
+      (function () {
+        var manifest = null;
+        var choices = {};
+        var selected = {};
+
+        function fetchJson(url, options) {
+          return fetch(url, options).then(function (response) { return response.json(); });
+        }
+
+        function formatSize(kilobytes) {
+          return kilobytes >= 1024 ? (kilobytes / 1024).toFixed(1) + " MB" : kilobytes + " kB";
+        }
+
+        function render() {
+          var root = document.getElementById("projects");
+          root.innerHTML = "";
+          manifest.projects.forEach(function (project) {
+            var section = document.createElement("section");
+            section.className = "project";
+            var currentCandidate = choices[project.id] || null;
+            section.innerHTML =
+              "<h2>" + project.title + ' <span class="status" data-status="' + project.id + '">' +
+              (currentCandidate ? "applied: " + currentCandidate : project.existing ? "existing motion kept: " + project.existing : "no motion yet") +
+              "</span></h2>" +
+              '<p class="note">' + project.note + "</p>" +
+              '<div class="candidates" data-project="' + project.id + '"></div>' +
+              '<div class="actions"><button data-apply="' + project.id + '" disabled>Apply selected</button>' +
+              '<span class="toggle" data-toggle="' + project.id + '">Show WebP of selected</span></div>' +
+              '<div class="webp-preview" data-preview="' + project.id + '"></div>';
+            var grid = section.querySelector(".candidates");
+            project.candidates.forEach(function (candidate) {
+              var card = document.createElement("div");
+              card.className = "candidate" + (currentCandidate === candidate.name ? " current" : "");
+              card.setAttribute("data-candidate", candidate.name);
+              card.innerHTML =
+                '<video src="motion-candidates/' + candidate.name + '.mp4" muted loop playsinline autoplay preload="metadata" poster="motion-candidates/' + candidate.name + '.jpg"></video>' +
+                '<div class="meta"><span class="size">' + formatSize(candidate.webpKilobytes) + "</span><strong>" + candidate.name + "</strong><span>" + candidate.label + "</span></div>";
+              card.addEventListener("click", function () {
+                selected[project.id] = candidate.name;
+                Array.prototype.forEach.call(grid.querySelectorAll(".candidate"), function (otherCard) {
+                  otherCard.classList.toggle("selected", otherCard === card);
+                });
+                section.querySelector("[data-apply]").disabled = false;
+                var preview = section.querySelector("[data-preview]");
+                preview.innerHTML = '<img src="motion-candidates/' + candidate.name + '.webp?' + Date.now() + '" alt="">';
+              });
+              grid.appendChild(card);
+            });
+            section.querySelector("[data-apply]").addEventListener("click", function () {
+              var button = this;
+              var status = section.querySelector("[data-status]");
+              button.disabled = true;
+              status.textContent = "applying...";
+              status.className = "status";
+              fetchJson("/apply", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ project: project.id, candidate: selected[project.id] })
+              }).then(function (result) {
+                if (result.ok) {
+                  choices = result.choices;
+                  status.textContent = "applied: " + selected[project.id];
+                  status.className = "status applied";
+                  Array.prototype.forEach.call(grid.querySelectorAll(".candidate"), function (card) {
+                    card.classList.toggle("current", card.getAttribute("data-candidate") === selected[project.id]);
+                  });
+                } else {
+                  status.textContent = "error: " + result.error;
+                  status.className = "status error";
+                }
+                button.disabled = false;
+              }).catch(function (error) {
+                status.textContent = "server not reachable: " + error;
+                status.className = "status error";
+                button.disabled = false;
+              });
+            });
+            section.querySelector("[data-toggle]").addEventListener("click", function () {
+              var preview = section.querySelector("[data-preview]");
+              preview.style.display = preview.style.display === "block" ? "none" : "block";
+            });
+            root.appendChild(section);
+          });
+        }
+
+        Promise.all([
+          fetchJson("motion-candidates/manifest.json"),
+          fetchJson("/choices").catch(function () { return {}; })
+        ]).then(function (results) {
+          manifest = results[0];
+          choices = results[1] || {};
+          render();
+        });
+      })();
+    </script>
+  </body>
+</html>
