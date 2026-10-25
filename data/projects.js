@@ -153,6 +153,7 @@ window.PROJECTS = [
       "Identity and site for a clinical-trial design company: logo, logo animation and a text-driven landing page.",
     tags: ["client work", "branding", "animation", "web"],
     thumb: "img/projects/altrovia.jpg",
+    thumbMotion: "img/projects/motion/altrovia.mp4",
     hero: "img/projects/altrovia-hero.jpg",
     links: [
       { label: "Live", url: "https://www.altrovia.ai/" },
