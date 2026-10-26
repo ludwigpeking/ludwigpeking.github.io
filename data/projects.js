@@ -173,7 +173,7 @@ window.PROJECTS = [
       "Go played on procedurally generated, non-rectangular boards. Board editor, Monte Carlo tree search opponent, online multiplayer and printable boards.",
     tags: ["game", "multiplayer", "MCTS", "p5.js", "Node", "WebSockets", "PyTorch", "computational geometry"],
     thumb: "img/projects/vortego.jpg",
-    thumbMotion: "img/projects/motion/vortego.webp",
+    thumbMotion: "img/projects/motion/vortego.mp4",
     hero: "img/projects/vortego-hero.jpg",
     videoPending: "No gameplay video yet. Record a two-minute game on a preset board at vortego.itp.io.",
     links: [
