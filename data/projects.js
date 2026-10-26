@@ -225,20 +225,19 @@ window.PROJECTS = [
     thumb: "img/projects/clash-of-iron.jpg",
     thumbMotion: "img/projects/motion/clash-of-iron.mp4",
     hero: "img/projects/clash-of-iron-hero.jpg",
+    embed: {
+      url: "https://www.rattenstadt.com/ClashOfIronMaps/?lang=en",
+      label: "Open the battle maps"
+    },
+    links: [{ label: "Battle maps", url: "https://www.rattenstadt.com/ClashOfIronMaps/?lang=en" }],
+    youtubeAtEnd: true,
     youtube: [
       { id: "pwhKH2OnY-U", label: "The Battle of Tsushima in 3D (58 min)" },
       { id: "A_Acq_oTGgE", label: "黄海海战 1894 开发日志 (Chinese)" },
       { id: "xnsX_WNRLPc", label: "黄海海戦 1894 (Japanese)" }
     ],
     body:
-      "<p>A media pipeline around the history of the armoured warship. Open-source ship models are rendered with headless Blender into covers and story videos, narrated in several languages. The battles are playable scenes in Godot with custom ocean, sky and light-shaft shaders. Ironclad Foundry, a Next.js and three.js app, lets you compose your own ship from hulls, turrets and superstructures.</p>",
-    gallery: [
-      { src: "img/projects/clash-of-iron-g3.jpg", caption: "USS Iowa, three-quarter bow render" },
-      { src: "img/projects/clash-of-iron-g4.jpg", caption: "USS Iowa, broadside" },
-      { src: "img/projects/clash-of-iron-g1.jpg", caption: "Yalu 1894: Laiyuan ablaze" },
-      { src: "img/projects/clash-of-iron-g2.jpg", caption: "Yalu 1894: Zhiyuan's charge" },
-      { src: "img/projects/clash-of-iron-g5.jpg", caption: "Relief chart of the North Sea for Jutland" }
-    ]
+      "<p>A media pipeline around the history of the armoured warship. Open-source ship models are rendered with headless Blender into covers and story videos, narrated in several languages. The battles are playable scenes in Godot with custom ocean, sky and light-shaft shaders. Ironclad Foundry, a Next.js and three.js app, lets you compose your own ship from hulls, turrets and superstructures.</p>"
   },
   {
     id: "a-quiet-practice",

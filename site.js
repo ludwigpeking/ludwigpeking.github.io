@@ -1141,15 +1141,20 @@
 
     var mediaParts = [];
     var hasYoutube = project.youtube && project.youtube.length > 0;
+    var youtubeParts = [];
     if (hasYoutube) {
-      mediaParts.push(youtubeMarkup(project.youtube[0]));
+      youtubeParts.push(youtubeMarkup(project.youtube[0]));
       if (project.youtube.length > 1) {
-        mediaParts.push(
+        youtubeParts.push(
           '<div class="video-row">' +
             project.youtube.slice(1).map(youtubeMarkup).join("") +
             "</div>"
         );
       }
+    }
+    // Videos lead the page unless the project asks for them after the text.
+    if (hasYoutube && !project.youtubeAtEnd) {
+      mediaParts = mediaParts.concat(youtubeParts);
     }
     if (project.embed) {
       mediaParts.push(embedMarkup(project.embed, project.hero || project.thumb));
@@ -1180,7 +1185,10 @@
       (project.body || "") +
       "</div>" +
       galleryMarkup(project.gallery) +
-      "</div>";
+      "</div>" +
+      (project.youtubeAtEnd && hasYoutube
+        ? '<div class="container project-media-stack">' + youtubeParts.join("") + "</div>"
+        : "");
 
     rootElement.innerHTML =
       heroMarkup +
