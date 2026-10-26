@@ -378,6 +378,7 @@ window.PROJECTS = [
       "Traffic emerges in New York, Portland and Roman-camp grids; then the grid erodes under crisis and informal occupation reshapes the streets.",
     tags: ["urban", "simulation", "p5.js"],
     thumb: "img/projects/grid-erosion.jpg",
+    thumbMotion: "img/projects/motion/grid-erosion.mp4",
     embed: {
       url: "https://grid-erosion.vercel.app/",
       label: "Run the grid"
