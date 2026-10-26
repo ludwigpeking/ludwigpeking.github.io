@@ -358,6 +358,7 @@ window.PROJECTS = [
       "Settlers with different professions weigh the same landscape differently, and a town emerges from where each of them chooses to build.",
     tags: ["urban", "pathfinding", "Voronoi", "p5.js", "agent-based simulation"],
     thumb: "img/projects/becoming-city.jpg",
+    thumbMotion: "img/projects/motion/becoming-city.mp4",
     embed: {
       url: "https://becoming-city.vercel.app/",
       label: "Grow a town"
