@@ -336,19 +336,16 @@
     return project.title.split(":")[0];
   }
 
-  /* Reels load small copies made by tools/make_reel_images.py: a 400 x 300
-     still (img/projects/reel/) instead of the 1200 x 900 thumbnail, and a
-     320 x 240 silent video (img/projects/motion/reel/) instead of the
-     600 x 450 animated WebP. A project whose small still is missing falls
-     back to its full thumbnail; one without a video keeps its still. */
+  /* Reels load an 800 x 450 still made by tools/make_reel_images.py
+     (img/projects/reel/) instead of the 1200 x 675 thumbnail, and play the
+     800 x 450 motion preview itself. A project whose small still is missing
+     falls back to its full thumbnail; one without a video keeps its still. */
   function reelStillPath(project) {
     return project.thumb.replace("img/projects/", "img/projects/reel/");
   }
 
   function reelMotionPath(project) {
-    return project.thumbMotion
-      .replace("img/projects/motion/", "img/projects/motion/reel/")
-      .replace(/\.webp$/, ".mp4");
+    return project.thumbMotion;
   }
 
   function reelCardMarkup(project, isRepeat) {
