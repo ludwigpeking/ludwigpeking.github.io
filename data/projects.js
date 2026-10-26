@@ -628,6 +628,7 @@ window.PROJECTS = [
       "Wave function collapse over tectonic building blocks produces endless, surprising Japanese residential complexes on a bent quad grid with terrain and shore, rendered live in three.js.",
     tags: ["wave function collapse", "three.js", "Blender", "procedural", "architecture", "Japan", "film"],
     thumb: "img/projects/shoin-zukuri.jpg",
+    thumbMotion: "img/projects/motion/shoin-zukuri.mp4",
     hero: "img/projects/shoin-zukuri-hero.jpg",
     youtube: [{ id: "Lgg20hnOQvI", label: "Architecture in 24 blocks: wave function collapse (5:40)" }],
     embed: {
