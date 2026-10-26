@@ -3,8 +3,7 @@
 
    Each project:
      id, title, category, year, context, summary, tags, thumb
-     optional: featured, hero, thumbMotion (animated WebP, 600 x 450, about six seconds,
-               shown on hover), youtube [{id, label}], videoPending (string),
+     optional: featured, hero, thumbMotion (silent H.264 video, 800 x 450, shown on hover), youtube [{id, label}], videoPending (string),
                embed {url, label, note}, links [{label, url}], body (HTML),
                fragment (HTML file loaded into the body), gallery [{src, caption}],
                copyPending (true = body is placeholder text, still to be written)
@@ -659,6 +658,7 @@ window.PROJECTS = [
       "Apartment plans generated from tectonic rules rather than precedent. Valid adjacencies are learned from sample plans, then rooms collapse one by one into a complete layout. Now with a web studio and a film.",
     tags: ["wave function collapse", "Python", "architecture", "generative design", "DXF", "film", "real estate"],
     thumb: "img/projects/wfc-floorplan.jpg",
+    thumbMotion: "img/projects/motion/wfc-floorplan.mp4",
     hero: "img/projects/wfc-floorplan-hero.jpg",
     youtube: [{ id: "7-f_Z4S9-rE", label: "Floor plan generation from wave function collapse (5:03)" }],
     links: [{ label: "Code", url: "https://github.com/ludwigpeking/WFC_floorPlan_Generation" }],
