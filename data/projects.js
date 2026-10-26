@@ -138,6 +138,7 @@ window.PROJECTS = [
       "An interactive map of rare diseases: a weighted evidence graph with sourced edges, node2vec similarity and random-walk ranking, in three languages.",
     tags: ["product", "graph", "machine learning", "node2vec", "health", "web app"],
     thumb: "img/projects/ariadne.jpg",
+    thumbMotion: "img/projects/motion/ariadne.mp4",
     videoPending: "One-minute pitch film exists locally; upload to YouTube and embed.",
     links: [{ label: "Live", url: "https://ariadne.dcdecisive.com/" }],
     copyPending: true,
