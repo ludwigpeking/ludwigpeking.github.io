@@ -676,6 +676,7 @@ window.PROJECTS = [
       "Tens of thousands of droplets per frame carve rivers and lakes into a procedural terrain of a million cells, in the browser.",
     tags: ["three.js", "GLSL", "simulation", "terrain", "procedural"],
     thumb: "img/projects/erosion-terrain.jpg",
+    thumbMotion: "img/projects/motion/erosion-terrain.mp4",
     videoPending: "Short capture of the terrain ageing under the sliders.",
     links: [{ label: "Code", url: "https://github.com/ludwigpeking/2606_Erosion" }],
     body:
