@@ -2,12 +2,12 @@
 
 Stills are made for the card thumbnails named in data/projects.js (the
 `thumb:` fields), so rerun this after editing that list. The project cards
-elsewhere use full-size images (stills 1200 x 900, animated
-previews 600 x 450). A reel card is at most about 370 x 280 CSS pixels, so the
+elsewhere use full-size images (stills 1200 x 675, motion previews 800 x 450,
+both 16:9 like a screen). A reel card is at most about 370 x 210 CSS pixels, so the
 reels load small copies instead:
 
-  img/projects/<name>.jpg          -> img/projects/reel/<name>.jpg         400 x 300 JPEG
-  img/projects/motion/<name>.webp  -> img/projects/motion/reel/<name>.mp4  320 x 240 silent H.264 video
+  img/projects/<name>.jpg          -> img/projects/reel/<name>.jpg         400 x 225 JPEG
+  img/projects/motion/<name>.mp4   -> img/projects/motion/reel/<name>.mp4  320 x 180 silent H.264 video
 
 The motion copies are videos rather than animated WebP because H.264 is
 about seven times smaller for the same picture (Rome WFC: 529 kB as a small
@@ -30,9 +30,9 @@ import tempfile
 
 from PIL import Image
 
-REEL_STILL_SIZE_PIXELS = (400, 300)
+REEL_STILL_SIZE_PIXELS = (400, 225)
 REEL_STILL_JPEG_QUALITY = 80
-REEL_MOTION_SIZE_PIXELS = (320, 240)
+REEL_MOTION_SIZE_PIXELS = (320, 180)
 # H.264 constant rate factor: lower is better quality and bigger files.
 REEL_MOTION_VIDEO_QUALITY_FACTOR = 28
 
@@ -100,9 +100,8 @@ def make_reel_motion():
         sys.exit("ffmpeg is not on the PATH; it is needed for the motion previews")
     output_directory = motion_image_directory / "reel"
     output_directory.mkdir(exist_ok=True)
-    # A motion preview may also be a silent 600 x 450 H.264 video (img/projects/motion/<name>.mp4),
-    # used for long or detailed clips that an animated WebP cannot keep small. Those are
-    # simply scaled down for the reel.
+    # A motion preview is a silent 800 x 450 H.264 video (img/projects/motion/<name>.mp4),
+    # simply scaled down for the reel. Older animated WebP previews are still handled below.
     for source_path in sorted(motion_image_directory.glob("*.mp4")):
         output_path = output_directory / source_path.name
         if is_up_to_date(source_path, output_path):

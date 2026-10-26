@@ -21,6 +21,6 @@ Personal portfolio of Richard Qian Li. Static site, no build step, hosted on Git
 
 ## Adding a project
 
-Append an object to `window.PROJECTS` in `data/projects.js` with `id`, `title`, `category`, `year`, `summary`, `tags`, `thumb`, and optionally `hero`, `thumbMotion` (animated WebP in `img/projects/motion/`, 600 x 450, about six seconds, played on hover or when the card is mostly in view on touch screens), `youtube` (list of `{id, label}`), `videoPending` (note shown in the placeholder box), `embed`, `links`, `body` (HTML), `fragment`, `gallery`, `featured` and `copyPending` (marks placeholder text).
+Append an object to `window.PROJECTS` in `data/projects.js` with `id`, `title`, `category`, `year`, `summary`, `tags`, `thumb`, and optionally `hero`, `thumbMotion` (silent H.264 video in `img/projects/motion/`, 800 x 450, six to thirty seconds, played on hover or when the card is mostly in view on touch screens), `youtube` (list of `{id, label}`), `videoPending` (note shown in the placeholder box), `embed`, `links`, `body` (HTML), `fragment`, `gallery`, `featured` and `copyPending` (marks placeholder text).
 
 `PORTFOLIO_PLAN.md` holds the October 2026 reorganisation plan, the media sources for every project and the list of material still missing.

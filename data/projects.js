@@ -59,7 +59,7 @@ window.PROJECTS = [
       "Prices thousands of parking spaces at once by modelling the buildings around them, the walking routes, and the customers who will choose between them.",
     tags: ["product", "real estate", "simulation", "pathfinding", "JavaScript", "urban"],
     thumb: "img/projects/parcbalance.jpg",
-    thumbMotion: "img/projects/motion/parcbalance.webp",
+    thumbMotion: "img/projects/motion/parcbalance.mp4",
     hero: "img/projects/parcbalance-hero.jpg",
     links: [{ label: "Code", url: "https://github.com/ludwigpeking/ParcBalance_2505" }],
     body:
@@ -201,7 +201,7 @@ window.PROJECTS = [
       "A world of portals linking a savanna, a temple precinct, a sanctuary and a cave, built from generated 3D characters and Gaussian splats, and a multiplayer web version of the same idea.",
     tags: ["Gaussian splatting", "Blender", "generative AI", "three.js", "socket.io", "multiplayer"],
     thumb: "img/projects/the-pantheon.jpg",
-    thumbMotion: "img/projects/motion/the-pantheon.webp",
+    thumbMotion: "img/projects/motion/the-pantheon.mp4",
     hero: "img/projects/the-pantheon-hero.jpg",
     videoPending: "Savanna flythrough (0:34) exists locally; upload and embed.",
     body:
@@ -250,7 +250,7 @@ window.PROJECTS = [
       "A dry-landscape garden you tend at your own pace: rake the gravel, shape the sand, place four stones. No score, no timer. Four seasons, three lights, wind and cicadas.",
     tags: ["game", "three.js", "Japan", "published", "procedural", "Unreal"],
     thumb: "img/projects/a-quiet-practice.jpg",
-    thumbMotion: "img/projects/motion/a-quiet-practice.webp",
+    thumbMotion: "img/projects/motion/a-quiet-practice.mp4",
     hero: "img/projects/a-quiet-practice-hero.jpg",
     youtube: [{ id: "hMuYt7BOra8", label: "A Quiet Practice (film)" }],
     links: [
@@ -279,7 +279,7 @@ window.PROJECTS = [
       "A Townscaper-style Roman town grown from a 3D volume grid, with classical, vernacular and temporary building tiers and an economy that sets the rents.",
     tags: ["wave function collapse", "simulation", "real estate", "three.js", "history", "procedural", "film"],
     thumb: "img/projects/rome-wfc.jpg",
-    thumbMotion: "img/projects/motion/rome-wfc.webp",
+    thumbMotion: "img/projects/motion/rome-wfc.mp4",
     hero: "img/projects/rome-wfc-hero.jpg",
     videoPending: "Two Chinese films exist locally (Parameters 5:11, Real Estate 3:11); upload and embed.",
     copyPending: true,
@@ -336,7 +336,7 @@ window.PROJECTS = [
       "Bands of people grow, move and split on a resource grid, passing through ages of Eden and Collapse and sometimes a long metastable calm. The 2025 version plays its own music.",
     tags: ["agent-based simulation", "p5.js", "music", "urban"],
     thumb: "img/projects/malthusian-world.jpg",
-    thumbMotion: "img/projects/motion/malthusian-world.webp",
+    thumbMotion: "img/projects/motion/malthusian-world.mp4",
     embed: {
       url: "https://malthusian-world.vercel.app/",
       label: "Run the world"
@@ -403,7 +403,7 @@ window.PROJECTS = [
       "Shape the sand with your hands and a city grows on it. A Kinect reads the terrain, a projector paints settlements, roads and land use back onto the sand in real time.",
     tags: ["installation", "Kinect", "projection mapping", "urban", "simulation", "p5.js", "three.js", "GeoTIFF", "exhibited"],
     thumb: "img/projects/sand-table.jpg",
-    thumbMotion: "img/projects/motion/sand-table.webp",
+    thumbMotion: "img/projects/motion/sand-table.mp4",
     hero: "img/projects/sand-table-hero.jpg",
     youtube: [{ id: "BnPAcg75PMg", label: "Intelligent simulations: the three iterations" }],
     videoPending: "Winter Show footage (4:52) exists as a 2.6 GB original; cut and upload.",
@@ -456,7 +456,7 @@ window.PROJECTS = [
       "The whole subway network laid out procedurally inside a cube, animated in Blender for projection onto a physical box. Each of the 158 stations has its own jingle and announcement.",
     tags: ["projection mapping", "Blender", "bpy", "data", "generated audio"],
     thumb: "img/projects/nyc-subway-cube.jpg",
-    thumbMotion: "img/projects/motion/nyc-subway-cube.webp",
+    thumbMotion: "img/projects/motion/nyc-subway-cube.mp4",
     hero: "img/projects/nyc-subway-cube-hero.jpg",
     youtube: [{ id: "2Dt884pKMxk", label: "An NYC Metro Dream" }],
     body:
@@ -500,7 +500,7 @@ window.PROJECTS = [
       "Ghost faces, a flock and a line of dancers rendered as per-brick displacement relief for an 8 by 12 metre brick wall in downtown Brooklyn, with three synthesised soundtracks.",
     tags: ["projection mapping", "WebGL", "generated audio", "installation", "Brooklyn"],
     thumb: "img/projects/brick-ghosts.jpg",
-    thumbMotion: "img/projects/motion/brick-ghosts.webp",
+    thumbMotion: "img/projects/motion/brick-ghosts.mp4",
     hero: "img/projects/brick-ghosts-hero.jpg",
     videoPending: "4K landscape and portrait exports (1:37) exist locally; upload and embed.",
     copyPending: true,
@@ -575,7 +575,7 @@ window.PROJECTS = [
       "A three-dimensional ribbon drawn in the air with a webcam. Palm width and camera field of view give the depth; a custom shader lofts the path into a tube.",
     tags: ["GLSL", "p5.js", "ml5", "MediaPipe", "interactive", "computer vision"],
     thumb: "img/projects/tube-shader.jpg",
-    thumbMotion: "img/projects/motion/tube-shader.webp",
+    thumbMotion: "img/projects/motion/tube-shader.mp4",
     videoPending: "Screen capture (0:21) exists locally; upload and embed.",
     embed: {
       url: "https://editor.p5js.org/ludwig.peking/full/NqolOlefE",
@@ -702,7 +702,7 @@ window.PROJECTS = [
       "An Indigenous village grows into a city in one continuous generated shot: painted stills turned into video with image-to-video models.",
     tags: ["film", "generative video", "Photoshop", "urban"],
     thumb: "img/projects/becoming-city-film.jpg",
-    thumbMotion: "img/projects/motion/becoming-city-film.webp",
+    thumbMotion: "img/projects/motion/becoming-city-film.mp4",
     videoPending: "The film (0:55) exists locally; upload and embed.",
     body:
       "<p>A companion to the simulations: the same story of settlement, told as a painting that keeps growing. Key frames were composed by hand and extended with image-to-video generation, then cut together so the camera never leaves the river bend.</p>"
