@@ -677,8 +677,14 @@ window.PROJECTS = [
     tags: ["three.js", "GLSL", "simulation", "terrain", "procedural"],
     thumb: "img/projects/erosion-terrain.jpg",
     thumbMotion: "img/projects/motion/erosion-terrain.mp4",
-    videoPending: "Short capture of the terrain ageing under the sliders.",
-    links: [{ label: "Code", url: "https://github.com/ludwigpeking/2606_Erosion" }],
+    embed: {
+      url: "https://www.rattenstadt.com/2606_Erosion/",
+      label: "Erode the terrain"
+    },
+    links: [
+      { label: "Live", url: "https://www.rattenstadt.com/2606_Erosion/" },
+      { label: "Code", url: "https://github.com/ludwigpeking/2606_Erosion" }
+    ],
     body:
       "<p>A droplet model of hydraulic erosion running live on a 1000 by 1000 procedural terrain. Each droplet picks up sediment where it moves fast and deposits it where it slows, and a separate water-volume field lets rivers and lakes appear. The erode and deposit rates, sediment capacity, inertia, evaporation and gravity are all live sliders, so the landscape can be pushed from young and jagged to old and rounded in seconds.</p>" +
       "<p>The terrain is one of the inputs to the city simulations elsewhere on this site: where water goes decides where people go.</p>"
