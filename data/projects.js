@@ -692,19 +692,4 @@ window.PROJECTS = [
       "<p>A droplet model of hydraulic erosion running live on a 1000 by 1000 procedural terrain. Each droplet picks up sediment where it moves fast and deposits it where it slows, and a separate water-volume field lets rivers and lakes appear. The erode and deposit rates, sediment capacity, inertia, evaporation and gravity are all live sliders, so the landscape can be pushed from young and jagged to old and rounded in seconds.</p>" +
       "<p>The terrain is one of the inputs to the city simulations elsewhere on this site: where water goes decides where people go.</p>"
   },
-  {
-    id: "becoming-city-film",
-    title: "Becoming City, a short film",
-    category: "games",
-    year: "2025",
-    context: "NYU ITP, Hypercinema",
-    summary:
-      "An Indigenous village grows into a city in one continuous generated shot: painted stills turned into video with image-to-video models.",
-    tags: ["film", "generative video", "Photoshop", "urban"],
-    thumb: "img/projects/becoming-city-film.jpg",
-    thumbMotion: "img/projects/motion/becoming-city-film.mp4",
-    videoPending: "The film (0:55) exists locally; upload and embed.",
-    body:
-      "<p>A companion to the simulations: the same story of settlement, told as a painting that keeps growing. Key frames were composed by hand and extended with image-to-video generation, then cut together so the camera never leaves the river bend.</p>"
-  },
 ];
