@@ -56,7 +56,7 @@ window.PROJECTS = [
     context: "Product, used on projects in Jinan, Panjin and Qingdao",
     summary:
       "Prices thousands of parking spaces at once by modelling the buildings around them, the walking routes, and the customers who will choose between them.",
-    tags: ["product", "real estate", "simulation", "pathfinding", "JavaScript", "urban"],
+    tags: ["product", "real estate", "simulation", "architecture+urbanism", "ML+AI", "systems modelling", "finance", "web app", "research"],
     thumb: "img/projects/parcbalance.jpg",
     thumbMotion: "img/projects/motion/parcbalance.mp4",
     hero: "img/projects/parcbalance-hero.jpg",
@@ -80,7 +80,7 @@ window.PROJECTS = [
     context: "Product, dcdecisive.com",
     summary:
       "Move a building in the model and the cash flow updates. A Ruby extension that couples the design of a development to its financial outcome as you draw.",
-    tags: ["product", "SketchUp", "Ruby", "real estate", "finance", "Vue"],
+    tags: ["product", "Ruby", "real estate", "finance", "simulation", "architecture+urbanism", "ML+AI", "systems modelling"],
     thumb: "img/projects/decisive.jpg",
     thumbMotion: "img/projects/motion/decisive.mp4",
     hero: "img/projects/decisive-hero.jpg",
@@ -107,7 +107,7 @@ window.PROJECTS = [
     context: "Open interactive book and lecture",
     summary:
       "An interactive book of urban self-organisation: chapters on resources, pathfinding, spatial syntax and spatial optimisation, each with a simulation you can run.",
-    tags: ["open book", "urban", "simulation", "p5.js", "three.js", "Godot", "teaching", "exhibited"],
+    tags: ["open book", "architecture+urbanism", "simulation", "webGL+three.js", "exhibited+award", "real estate", "game", "procedural", "history", "ML+AI", "systems modelling", "finance", "web app", "shaders"],
     thumb: "img/projects/algorithms-of-the-city.jpg",
     thumbMotion: "img/projects/motion/algorithms-of-the-city.mp4",
     hero: "img/projects/algorithms-of-the-city-hero.jpg",
@@ -135,7 +135,7 @@ window.PROJECTS = [
     context: "Product, ariadne.dcdecisive.com",
     summary:
       "An interactive map of rare diseases: a weighted evidence graph with sourced edges, node2vec similarity and random-walk ranking, in three languages.",
-    tags: ["product", "graph", "machine learning", "node2vec", "health", "web app"],
+    tags: ["product", "ML+AI", "web app", "UI+UX"],
     thumb: "img/projects/ariadne.jpg",
     thumbMotion: "img/projects/motion/ariadne.mp4",
     videoPending: "One-minute pitch film exists locally; upload to YouTube and embed.",
@@ -151,7 +151,7 @@ window.PROJECTS = [
     context: "Client work, altrovia.ai",
     summary:
       "Identity and site for a clinical-trial design company: logo, logo animation and a text-driven landing page.",
-    tags: ["client work", "branding", "animation", "web"],
+    tags: ["UI+UX", "animation", "web app", "product", "exhibited+award"],
     thumb: "img/projects/altrovia.jpg",
     thumbMotion: "img/projects/motion/altrovia.mp4",
     hero: "img/projects/altrovia-hero.jpg",
@@ -171,7 +171,7 @@ window.PROJECTS = [
     context: "Independent project, online",
     summary:
       "Go played on procedurally generated, non-rectangular boards. Board editor, Monte Carlo tree search opponent, online multiplayer and printable boards.",
-    tags: ["game", "multiplayer", "MCTS", "p5.js", "Node", "WebSockets", "PyTorch", "computational geometry"],
+    tags: ["game", "p5.js", "computational geometry", "webGL+three.js", "product", "ML+AI", "web app"],
     thumb: "img/projects/vortego.jpg",
     thumbMotion: "img/projects/motion/vortego.mp4",
     hero: "img/projects/vortego-hero.jpg",
@@ -198,7 +198,7 @@ window.PROJECTS = [
     context: "NYU ITP, ML for 3D",
     summary:
       "A world of portals linking a savanna, a temple precinct, a sanctuary and a cave, built from generated 3D characters and Gaussian splats, and a multiplayer web version of the same idea.",
-    tags: ["Gaussian splatting", "Blender", "generative AI", "three.js", "socket.io", "multiplayer"],
+    tags: ["Gaussian splatting", "webGL+three.js", "architecture+urbanism", "product", "web app"],
     thumb: "img/projects/the-pantheon.jpg",
     thumbMotion: "img/projects/motion/the-pantheon.mp4",
     hero: "img/projects/the-pantheon-hero.jpg",
@@ -221,7 +221,7 @@ window.PROJECTS = [
     context: "Independent project, film series and Godot scenes",
     summary:
       "The battles of the Yalu, Tsushima, Jutland and Guadalcanal reconstructed ship by ship: hour-long 3D films in six languages, playable Godot scenes with ocean and light-shaft shaders, and a procedural ship foundry.",
-    tags: ["history", "naval", "Blender", "Godot", "film", "Next.js", "three.js", "shaders"],
+    tags: ["history", "video", "shaders", "simulation", "procedural", "game", "VR+WebXR", "research", "published"],
     thumb: "img/projects/clash-of-iron.jpg",
     thumbMotion: "img/projects/motion/clash-of-iron.mp4",
     hero: "img/projects/clash-of-iron-hero.jpg",
@@ -247,7 +247,7 @@ window.PROJECTS = [
     context: "Published on itch.io",
     summary:
       "A dry-landscape garden you tend at your own pace: rake the gravel, shape the sand, place four stones. No score, no timer. Four seasons, three lights, wind and cicadas.",
-    tags: ["game", "three.js", "Japan", "published", "procedural", "Unreal"],
+    tags: ["game", "webGL+three.js", "published", "procedural", "simulation", "architecture+urbanism", "generative art"],
     thumb: "img/projects/a-quiet-practice.jpg",
     thumbMotion: "img/projects/motion/a-quiet-practice.mp4",
     hero: "img/projects/a-quiet-practice-hero.jpg",
@@ -276,7 +276,7 @@ window.PROJECTS = [
     context: "Independent study",
     summary:
       "A Townscaper-style Roman town grown from a 3D volume grid, with classical, vernacular and temporary building tiers and an economy that sets the rents.",
-    tags: ["wave function collapse", "simulation", "real estate", "three.js", "history", "procedural", "film"],
+    tags: ["simulation", "webGL+three.js", "history", "procedural", "video", "architecture+urbanism", "real estate", "systems modelling", "generative art"],
     thumb: "img/projects/rome-wfc.jpg",
     thumbMotion: "img/projects/motion/rome-wfc.mp4",
     hero: "img/projects/rome-wfc-hero.jpg",
@@ -296,7 +296,7 @@ window.PROJECTS = [
     context: "Independent project",
     summary:
       "A 2D life simulation on a to-scale map of China built from real elevation and river data. Rise from gig worker to tycoon or politician, with karma keeping score.",
-    tags: ["game", "China", "GIS", "generative art direction", "JavaScript", "simulation"],
+    tags: ["game", "GIS", "generative art", "simulation", "procedural", "systems modelling"],
     thumb: "img/projects/cathay-heroes.jpg",
     thumbMotion: "img/projects/motion/cathay-heroes.mp4",
     videoPending: "No gameplay video yet.",
@@ -317,7 +317,7 @@ window.PROJECTS = [
     context: "Independent project",
     summary:
       "A geopolitical strategy game about the AGI transition. Play a head of state, a Big Tech CEO or a non-state actor over a three-globe Earth with thirty modelled countries.",
-    tags: ["game", "strategy", "three.js", "AGI", "systems modelling"],
+    tags: ["game", "webGL+three.js", "systems modelling", "research", "simulation", "ML+AI"],
     thumb: "img/projects/last-day-of-ais.jpg",
     thumbMotion: "img/projects/motion/last-day-of-ais.mp4",
     hero: "img/projects/last-day-of-ais-hero.jpg",
@@ -335,7 +335,7 @@ window.PROJECTS = [
     context: "Independent study",
     summary:
       "Bands of people grow, move and split on a resource grid, passing through ages of Eden and Collapse and sometimes a long metastable calm. The 2025 version plays its own music.",
-    tags: ["agent-based simulation", "p5.js", "music", "urban"],
+    tags: ["p5.js", "music", "simulation", "history", "systems modelling"],
     thumb: "img/projects/malthusian-world.jpg",
     thumbMotion: "img/projects/motion/malthusian-world.mp4",
     embed: {
@@ -357,7 +357,7 @@ window.PROJECTS = [
     context: "Independent study",
     summary:
       "Settlers with different professions weigh the same landscape differently, and a town emerges from where each of them chooses to build.",
-    tags: ["urban", "pathfinding", "Voronoi", "p5.js", "agent-based simulation"],
+    tags: ["architecture+urbanism", "p5.js", "simulation", "procedural", "history", "systems modelling"],
     thumb: "img/projects/becoming-city.jpg",
     thumbMotion: "img/projects/motion/becoming-city.mp4",
     embed: {
@@ -378,7 +378,7 @@ window.PROJECTS = [
     context: "Independent study",
     summary:
       "Traffic emerges in New York, Portland and Roman-camp grids; then the grid erodes under crisis and informal occupation reshapes the streets.",
-    tags: ["urban", "simulation", "p5.js"],
+    tags: ["architecture+urbanism", "simulation", "p5.js", "history", "systems modelling"],
     thumb: "img/projects/grid-erosion.jpg",
     thumbMotion: "img/projects/motion/grid-erosion.mp4",
     embed: {
@@ -402,7 +402,7 @@ window.PROJECTS = [
     context: "NYU ITP, Winter Show 2025 and Spring Show 2026",
     summary:
       "Shape the sand with your hands and a city grows on it. A Kinect reads the terrain, a projector paints settlements, roads and land use back onto the sand in real time.",
-    tags: ["installation", "Kinect", "projection mapping", "urban", "simulation", "p5.js", "three.js", "GeoTIFF", "exhibited"],
+    tags: ["installation", "projection mapping", "architecture+urbanism", "simulation", "p5.js", "webGL+three.js", "GIS", "exhibited+award", "game", "digital fabrication", "history", "systems modelling"],
     thumb: "img/projects/sand-table.jpg",
     thumbMotion: "img/projects/motion/sand-table.mp4",
     hero: "img/projects/sand-table-hero.jpg",
@@ -434,7 +434,7 @@ window.PROJECTS = [
     context: "NYU ITP, projection mapping",
     summary:
       "A projector that finds its own way onto a face. A Gray-code scan calibrates projector to camera; MediaPipe landmarks and Kinect depth then keep a painted mask locked to the face in closed loop.",
-    tags: ["projection mapping", "computer vision", "MediaPipe", "OpenCV", "Kinect", "Python", "film"],
+    tags: ["projection mapping", "computer vision", "Python", "video", "computational geometry"],
     thumb: "img/projects/motion-projection.jpg",
     thumbMotion: "img/projects/motion/motion-projection.mp4",
     hero: "img/projects/motion-projection-hero.jpg",
@@ -456,7 +456,7 @@ window.PROJECTS = [
     context: "NYU ITP, projection mapping",
     summary:
       "The whole subway network laid out procedurally inside a cube, animated in Blender for projection onto a physical box. Each of the 158 stations has its own jingle and announcement.",
-    tags: ["projection mapping", "Blender", "bpy", "data", "generated audio"],
+    tags: ["projection mapping", "data visualization", "video", "procedural", "installation"],
     thumb: "img/projects/nyc-subway-cube.jpg",
     thumbMotion: "img/projects/motion/nyc-subway-cube.mp4",
     hero: "img/projects/nyc-subway-cube-hero.jpg",
@@ -477,7 +477,7 @@ window.PROJECTS = [
     context: "NYU ITP, digital fabrication",
     summary:
       "Four stacked free-form glass layers, trained with the adjoint method so that white light passing through them comes out as an image. Plus an optical bench app for designing printable lenses, and a nine-minute primer on optical computing.",
-    tags: ["optics", "3D printing", "Python", "JAX", "Godot", "research", "film", "wave optics"],
+    tags: ["digital fabrication", "Python", "research", "video", "simulation", "installation"],
     thumb: "img/projects/optical-network.jpg",
     hero: "img/projects/optical-network-hero.jpg",
     videoPending: "Optical Computing Primer (9:22, English and Chinese) exists locally; upload and embed.",
@@ -500,7 +500,7 @@ window.PROJECTS = [
     context: "NYU ITP, projection mapping",
     summary:
       "Ghost faces, a flock and a line of dancers rendered as per-brick displacement relief for an 8 by 12 metre brick wall in downtown Brooklyn, with three synthesised soundtracks.",
-    tags: ["projection mapping", "WebGL", "generated audio", "installation", "Brooklyn"],
+    tags: ["projection mapping", "installation", "video", "procedural", "computer vision"],
     thumb: "img/projects/brick-ghosts.jpg",
     thumbMotion: "img/projects/motion/brick-ghosts.mp4",
     hero: "img/projects/brick-ghosts-hero.jpg",
@@ -520,7 +520,7 @@ window.PROJECTS = [
     context: "NYU ITP, physical computing",
     summary:
       "A Halloween installation. Flocking ghosts react to how far people stand from an Azure Kinect, with spatial audio and a 3D-printed mask on the sensor.",
-    tags: ["installation", "Azure Kinect", "p5.js", "Web Audio", "Python", "3D printing"],
+    tags: ["installation", "p5.js", "Python", "digital fabrication", "exhibited+award"],
     thumb: "img/projects/ghost-corridor.jpg",
     thumbMotion: "img/projects/motion/ghost-corridor.mp4",
     hero: "img/projects/ghost-corridor-hero.jpg",
@@ -542,7 +542,7 @@ window.PROJECTS = [
     context: "NYU ITP, team project",
     summary:
       "A multiplayer WebXR scene of a New York fire escape at night, shared over a local network, with AR occlusion tests and a day-night cycle.",
-    tags: ["WebXR", "three.js", "Blender", "WebSockets", "multiplayer"],
+    tags: ["VR+WebXR", "webGL+three.js", "simulation", "procedural", "game", "exhibited+award"],
     thumb: "img/projects/playful-nyc-xr.jpg",
     thumbMotion: "img/projects/motion/playful-nyc-xr.mp4",
     body:
@@ -557,7 +557,7 @@ window.PROJECTS = [
     context: "Independent research and documentary",
     summary:
       "A custom PyTorch transformer trained on the 32 piano sonatas, with pitch-aware rotary attention, chord and cadence models, fitness critics and a blind listening test. And a nineteen-minute film on how AI learned music.",
-    tags: ["machine learning", "PyTorch", "transformer", "music", "MIDI", "film", "research"],
+    tags: ["ML+AI", "music", "research"],
     thumb: "img/projects/beethoven-motif-lab.jpg",
     hero: "img/projects/beethoven-motif-lab-hero.jpg",
     youtube: [
@@ -577,7 +577,7 @@ window.PROJECTS = [
     context: "NYU ITP, shader programming",
     summary:
       "A three-dimensional ribbon drawn in the air with a webcam. Palm width and camera field of view give the depth; a custom shader lofts the path into a tube.",
-    tags: ["GLSL", "p5.js", "ml5", "MediaPipe", "interactive", "computer vision"],
+    tags: ["p5.js", "computer vision", "webGL+three.js", "ML+AI", "shaders"],
     thumb: "img/projects/tube-shader.jpg",
     thumbMotion: "img/projects/motion/tube-shader.mp4",
     videoPending: "Screen capture (0:21) exists locally; upload and embed.",
@@ -597,7 +597,7 @@ window.PROJECTS = [
     context: "Independent study",
     summary:
       "A Townscaper-style irregular grid: a hexagonal domain is triangulated, the triangles are merged into quads, and the mesh is relaxed until every cell is almost square.",
-    tags: ["computational geometry", "p5.js", "mesh", "procedural"],
+    tags: ["computational geometry", "p5.js", "procedural", "game"],
     thumb: "img/projects/quadrangulation.jpg",
     thumbMotion: "img/projects/motion/quadrangulation.mp4",
     links: [{ label: "Code", url: "https://github.com/ludwigpeking/quadrangulation" }],
@@ -616,7 +616,7 @@ window.PROJECTS = [
     context: "Independent study",
     summary:
       "Wave function collapse over tectonic building blocks produces endless, surprising Japanese residential complexes on a bent quad grid with terrain and shore, rendered live in three.js.",
-    tags: ["wave function collapse", "three.js", "Blender", "procedural", "architecture", "Japan", "film"],
+    tags: ["webGL+three.js", "procedural", "video", "architecture+urbanism", "ML+AI", "generative art", "shaders"],
     thumb: "img/projects/shoin-zukuri.jpg",
     thumbMotion: "img/projects/motion/shoin-zukuri.mp4",
     hero: "img/projects/shoin-zukuri-hero.jpg",
@@ -645,7 +645,7 @@ window.PROJECTS = [
     context: "R&D for a developer, then independent study",
     summary:
       "Apartment plans generated from tectonic rules rather than precedent. Valid adjacencies are learned from sample plans, then rooms collapse one by one into a complete layout. Now with a web studio and a film.",
-    tags: ["wave function collapse", "Python", "architecture", "generative design", "DXF", "film", "real estate"],
+    tags: ["Python", "video", "real estate", "architecture+urbanism", "ML+AI", "research"],
     thumb: "img/projects/wfc-floorplan.jpg",
     thumbMotion: "img/projects/motion/wfc-floorplan.mp4",
     hero: "img/projects/wfc-floorplan-hero.jpg",
@@ -666,7 +666,7 @@ window.PROJECTS = [
     context: "Independent study",
     summary:
       "Tens of thousands of droplets per frame carve rivers and lakes into a procedural terrain of a million cells, in the browser.",
-    tags: ["three.js", "GLSL", "simulation", "terrain", "procedural"],
+    tags: ["webGL+three.js", "simulation", "procedural", "shaders"],
     thumb: "img/projects/erosion-terrain.jpg",
     thumbMotion: "img/projects/motion/erosion-terrain.mp4",
     embed: {
