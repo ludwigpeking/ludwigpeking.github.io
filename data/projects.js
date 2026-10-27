@@ -543,6 +543,7 @@ window.PROJECTS = [
       "A multiplayer WebXR scene of a New York fire escape at night, shared over a local network, with AR occlusion tests and a day-night cycle.",
     tags: ["WebXR", "three.js", "Blender", "WebSockets", "multiplayer"],
     thumb: "img/projects/playful-nyc-xr.jpg",
+    thumbMotion: "img/projects/motion/playful-nyc-xr.mp4",
     body:
       "<p>A team project with three classmates. I modelled the fire-escape facade and its night lighting in Blender and worked on the shared scene, which is synchronised between headsets over a LAN websocket so that several players see the same objects move.</p>",
     gallery: [{ src: "img/projects/playful-nyc-xr-g1.jpg", caption: "In-game screen" }]
