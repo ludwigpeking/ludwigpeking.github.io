@@ -943,24 +943,14 @@
     }
   }
 
+  /* Every card with a motion preview plays it whenever the card is in view,
+     on any device; the still only shows while the card is off screen, or for
+     visitors who ask for less motion. */
   function wireMotionThumbs() {
-    var hasHoverPointer = window.matchMedia("(hover: hover)").matches;
-    if (hasHoverPointer) {
-      document.addEventListener("mouseover", function (event) {
-        var card = event.target.closest ? event.target.closest(".project-card") : null;
-        if (card && !card.contains(event.relatedTarget)) {
-          showMotion(motionImageInCard(card));
-        }
-      });
-      document.addEventListener("mouseout", function (event) {
-        var card = event.target.closest ? event.target.closest(".project-card") : null;
-        if (card && !card.contains(event.relatedTarget)) {
-          showStill(motionImageInCard(card));
-        }
-      });
+    if (!("IntersectionObserver" in window)) {
       return;
     }
-    if (!("IntersectionObserver" in window)) {
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
       return;
     }
     var observer = new IntersectionObserver(
@@ -973,7 +963,7 @@
           }
         });
       },
-      { threshold: 0.8 }
+      { threshold: 0.2 }
     );
     var observeAll = function () {
       Array.prototype.forEach.call(document.querySelectorAll("img[data-motion]"), function (imageElement) {
