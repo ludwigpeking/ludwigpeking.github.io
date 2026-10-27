@@ -600,7 +600,7 @@ window.PROJECTS = [
     tags: ["computational geometry", "p5.js", "mesh", "procedural"],
     thumb: "img/projects/quadrangulation.jpg",
     thumbMotion: "img/projects/motion/quadrangulation.mp4",
-    links: [{ label: "Code", url: "https://github.com/ludwigpeking/quadangulation" }],
+    links: [{ label: "Code", url: "https://github.com/ludwigpeking/quadrangulation" }],
     body:
       "<p>Regular grids make regular cities, and regular cities are rare. This study builds the irregular-but-orderly grid that Oskar Stålberg used in Townscaper: triangulate a hexagon, pair triangles into quads, then relax the vertices so the quads become as square as they can. The result is the substrate for the <a href='project.html?id=sand-table'>sand-table simulator</a>, the boards of <a href='project.html?id=vortego'>VorteGo</a> and the ground of <a href='project.html?id=rome-wfc'>Rome WFC</a>.</p>",
     gallery: [{ src: "img/projects/quadrangulation-g1.jpg", caption: "Before relaxation" }]
