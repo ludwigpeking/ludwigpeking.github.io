@@ -319,6 +319,7 @@ window.PROJECTS = [
       "A geopolitical strategy game about the AGI transition. Play a head of state, a Big Tech CEO or a non-state actor over a three-globe Earth with thirty modelled countries.",
     tags: ["game", "strategy", "three.js", "AGI", "systems modelling"],
     thumb: "img/projects/last-day-of-ais.jpg",
+    thumbMotion: "img/projects/motion/last-day-of-ais.mp4",
     hero: "img/projects/last-day-of-ais-hero.jpg",
     videoPending: "No gameplay video yet.",
     links: [{ label: "Code", url: "https://github.com/ludwigpeking/theLastDayOfAIs" }],
