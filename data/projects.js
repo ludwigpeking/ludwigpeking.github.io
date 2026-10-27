@@ -434,6 +434,7 @@ window.PROJECTS = [
       "A projector that finds its own way onto a face. A Gray-code scan calibrates projector to camera; MediaPipe landmarks and Kinect depth then keep a painted mask locked to the face in closed loop.",
     tags: ["projection mapping", "computer vision", "MediaPipe", "OpenCV", "Kinect", "Python", "film"],
     thumb: "img/projects/motion-projection.jpg",
+    thumbMotion: "img/projects/motion/motion-projection.mp4",
     hero: "img/projects/motion-projection-hero.jpg",
     youtube: [{ id: "-aCN75vNGhA", label: "How to projection map on a moving object? (9:21)" }],
     links: [{ label: "Code", url: "https://github.com/ludwigpeking/MotionProjection" }],
