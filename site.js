@@ -1021,23 +1021,39 @@
     );
   }
 
+  /* Related projects are the ones sharing the most tags with this one. Ties
+     are broken by how specific the shared tags are: a tag carried by few
+     projects says more about kinship than one carried by most of them. */
   function relatedProjectsMarkup(project) {
     var ownTags = project.tags || [];
-    var scored = (window.PROJECTS || [])
+    var allProjects = window.PROJECTS || [];
+    var projectCountByTag = {};
+    allProjects.forEach(function (candidate) {
+      (candidate.tags || []).forEach(function (tag) {
+        projectCountByTag[tag] = (projectCountByTag[tag] || 0) + 1;
+      });
+    });
+    var scored = allProjects
       .filter(function (candidate) {
         return candidate.id !== project.id;
       })
       .map(function (candidate) {
-        var sharedTagCount = (candidate.tags || []).filter(function (tag) {
+        var sharedTags = (candidate.tags || []).filter(function (tag) {
           return ownTags.indexOf(tag) !== -1;
-        }).length;
-        return { project: candidate, sharedTagCount: sharedTagCount };
+        });
+        var sharedSpecificity = sharedTags.reduce(function (sum, tag) {
+          return sum + 1 / projectCountByTag[tag];
+        }, 0);
+        return { project: candidate, sharedTagCount: sharedTags.length, sharedSpecificity: sharedSpecificity };
       })
       .filter(function (entry) {
         return entry.sharedTagCount >= 2;
       })
       .sort(function (first, second) {
-        return second.sharedTagCount - first.sharedTagCount;
+        return (
+          second.sharedTagCount - first.sharedTagCount ||
+          second.sharedSpecificity - first.sharedSpecificity
+        );
       })
       .slice(0, 3);
     if (scored.length === 0) {
