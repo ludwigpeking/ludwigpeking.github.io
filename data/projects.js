@@ -603,23 +603,6 @@ window.PROJECTS = [
       "<p>Regular grids make regular cities, and regular cities are rare. This study builds the irregular-but-orderly grid that Oskar Stålberg used in Townscaper: triangulate a hexagon, pair triangles into quads, then relax the vertices so the quads become as square as they can. The result is the substrate for the <a href='project.html?id=sand-table'>sand-table simulator</a>, the boards of <a href='project.html?id=vortego'>VorteGo</a> and the ground of <a href='project.html?id=rome-wfc'>Rome WFC</a>.</p>",
     gallery: [{ src: "img/projects/quadrangulation-g1.jpg", caption: "Before relaxation" }]
   },
-  {
-    id: "voronoi-parcels",
-    title: "Rectangular parcels from Voronoi claiming",
-    category: "interactive",
-    year: "2022",
-    context: "Independent study",
-    summary:
-      "Aligned nuclei along a street, each claiming ground Voronoi-style, produce rectangular parcels and leftover lanes. A hypothesis about where the city block comes from.",
-    tags: ["Voronoi", "urban", "p5.js", "pathfinding"],
-    thumb: "img/projects/voronoi-parcels.jpg",
-    embed: {
-      url: "https://editor.p5js.org/ludwig.peking/full/PCsBXbjDi",
-      label: "Run the claiming"
-    },
-    links: [{ label: "p5.js editor", url: "https://editor.p5js.org/ludwig.peking/sketches/PCsBXbjDi" }],
-    fragment: "coding/city-voronoi.html"
-  },
 
   /* ================================== games: generative (was creative) */
   {
