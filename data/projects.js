@@ -521,6 +521,7 @@ window.PROJECTS = [
       "A Halloween installation. Flocking ghosts react to how far people stand from an Azure Kinect, with spatial audio and a 3D-printed mask on the sensor.",
     tags: ["installation", "Azure Kinect", "p5.js", "Web Audio", "Python", "3D printing"],
     thumb: "img/projects/ghost-corridor.jpg",
+    thumbMotion: "img/projects/motion/ghost-corridor.mp4",
     hero: "img/projects/ghost-corridor-hero.jpg",
     videoPending: "Raw 1080p documentation clips exist locally (five takes, 1 to 6 minutes each); cut a one-minute edit, upload and embed.",
     links: [{ label: "Code", url: "https://github.com/ludwigpeking/2025-holloween" }],
@@ -596,6 +597,7 @@ window.PROJECTS = [
       "A Townscaper-style irregular grid: a hexagonal domain is triangulated, the triangles are merged into quads, and the mesh is relaxed until every cell is almost square.",
     tags: ["computational geometry", "p5.js", "mesh", "procedural"],
     thumb: "img/projects/quadrangulation.jpg",
+    thumbMotion: "img/projects/motion/quadrangulation.mp4",
     links: [{ label: "Code", url: "https://github.com/ludwigpeking/quadangulation" }],
     body:
       "<p>Regular grids make regular cities, and regular cities are rare. This study builds the irregular-but-orderly grid that Oskar Stålberg used in Townscaper: triangulate a hexagon, pair triangles into quads, then relax the vertices so the quads become as square as they can. The result is the substrate for the <a href='project.html?id=sand-table'>sand-table simulator</a>, the boards of <a href='project.html?id=vortego'>VorteGo</a> and the ground of <a href='project.html?id=rome-wfc'>Rome WFC</a>.</p>",
