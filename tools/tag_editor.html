@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Tag editor</title>
+<style>
+  :root { --ink: #1b1b1b; --muted: #6b6b6b; --line: #d9d9d9; --accent: #c8451f; --tint: #fbf8f3; --on: #e6f2e9; }
+  html, body { margin: 0; background: #fff; color: var(--ink); font: 14px/1.4 system-ui, -apple-system, "Segoe UI", sans-serif; }
+  header { position: sticky; top: 0; z-index: 3; background: #fff; border-bottom: 1px solid var(--line); padding: 10px 16px; display: flex; gap: 12px; align-items: center; flex-wrap: wrap; }
+  header h1 { font-size: 15px; margin: 0 12px 0 0; }
+  button { font: inherit; padding: 6px 12px; border: 1px solid var(--line); border-radius: 6px; background: #fff; cursor: pointer; }
+  button.primary { background: var(--accent); border-color: var(--accent); color: #fff; }
+  button:disabled { opacity: 0.5; cursor: default; }
+  input[type=text] { font: inherit; padding: 6px 8px; border: 1px solid var(--line); border-radius: 6px; min-width: 160px; }
+  #status { color: var(--muted); }
+  #status.error { color: var(--accent); }
+  .wrap { overflow: auto; max-height: calc(100vh - 54px); }
+  table { border-collapse: separate; border-spacing: 0; }
+  th, td { border-bottom: 1px solid var(--line); border-right: 1px solid var(--line); padding: 0; }
+  thead th { position: sticky; top: 0; z-index: 2; background: var(--tint); vertical-align: bottom; height: 150px; }
+  thead th.corner { left: 0; z-index: 4; }
+  tbody th { position: sticky; left: 0; z-index: 1; background: var(--tint); text-align: left; font-weight: 500; padding: 6px 10px; white-space: nowrap; min-width: 240px; }
+  tbody th small { display: block; color: var(--muted); font-weight: 400; font-size: 11px; }
+  td.cell { width: 34px; text-align: center; cursor: pointer; user-select: none; }
+  td.cell.on { background: var(--on); }
+  td.cell:hover { outline: 2px solid var(--accent); outline-offset: -2px; }
+  td.cell span { display: inline-block; width: 34px; line-height: 34px; color: #2a6a3a; font-weight: 700; }
+  th.tag { width: 34px; }
+  th.tag .label { display: flex; flex-direction: column; align-items: center; justify-content: flex-end; height: 150px; }
+  th.tag .name { writing-mode: vertical-rl; transform: rotate(180deg); white-space: nowrap; font-weight: 500; cursor: text; padding: 6px 0; max-height: 118px; overflow: hidden; text-overflow: ellipsis; }
+  th.tag .name:focus { outline: 2px solid var(--accent); background: #fff; }
+  th.tag .count { font-size: 10px; color: var(--muted); font-weight: 400; }
+  th.tag .remove { border: 0; background: none; color: var(--muted); padding: 2px 6px; font-size: 12px; }
+  th.tag .remove:hover { color: var(--accent); }
+  tr.category td, tr.category th { background: #efe9df; font-weight: 600; font-size: 12px; letter-spacing: 0.04em; text-transform: uppercase; }
+  .hint { color: var(--muted); font-size: 12px; }
+</style>
+</head>
+<body>
+<header>
+  <h1>Project tags</h1>
+  <input type="text" id="new-tag" placeholder="New tag name">
+  <button id="add-tag">Add tag</button>
+  <button id="sort-tags">Sort tags by use</button>
+  <button id="save" class="primary" disabled>Save to data/projects.js</button>
+  <span id="status">Loading…</span>
+  <span class="hint">Click a cell to toggle · click a tag name to rename it · × removes a tag from every project</span>
+</header>
+<div class="wrap"><table id="table"></table></div>
+<script>
+(function () {
+  var projects = [];
+  var tags = [];
+  var dirty = false;
+  var statusElement = document.getElementById("status");
+  var saveButton = document.getElementById("save");
+  var tableElement = document.getElementById("table");
+
+  function setStatus(message, isError) {
+    statusElement.textContent = message;
+    statusElement.className = isError ? "error" : "";
+  }
+
+  function markDirty() {
+    dirty = true;
+    saveButton.disabled = false;
+    setStatus("Unsaved changes");
+  }
+
+  function collectTags() {
+    var seen = {};
+    var ordered = [];
+    projects.forEach(function (project) {
+      project.tags.forEach(function (tag) {
+        if (!seen[tag]) {
+          seen[tag] = true;
+          ordered.push(tag);
+        }
+      });
+    });
+    tags.forEach(function (tag) {
+      if (!seen[tag]) {
+        seen[tag] = true;
+        ordered.push(tag);
+      }
+    });
+    tags = ordered;
+  }
+
+  function usageCount(tag) {
+    return projects.filter(function (project) { return project.tags.indexOf(tag) !== -1; }).length;
+  }
+
+  function escapeHtml(text) {
+    return String(text).replace(/[&<>"]/g, function (character) {
+      return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[character];
+    });
+  }
+
+  function render() {
+    var headerCells = '<th class="corner"></th>' + tags.map(function (tag, index) {
+      return '<th class="tag" data-index="' + index + '"><div class="label">' +
+        '<button class="remove" title="Remove this tag from every project">×</button>' +
+        '<span class="name" contenteditable="true" spellcheck="false">' + escapeHtml(tag) + '</span>' +
+        '<span class="count">' + usageCount(tag) + '</span></div></th>';
+    }).join("");
+    var rows = [];
+    var lastCategory = null;
+    projects.forEach(function (project, projectIndex) {
+      if (project.category !== lastCategory) {
+        lastCategory = project.category;
+        rows.push('<tr class="category"><th>' + escapeHtml(project.category) + '</th><td colspan="' + tags.length + '"></td></tr>');
+      }
+      rows.push('<tr data-project="' + projectIndex + '"><th>' + escapeHtml(project.title) + '<small>' + escapeHtml(project.tags.join(", ") || "no tags") + '</small></th>' +
+        tags.map(function (tag, tagIndex) {
+          var isOn = project.tags.indexOf(tag) !== -1;
+          return '<td class="cell' + (isOn ? " on" : "") + '" data-tag="' + tagIndex + '"><span>' + (isOn ? "✓" : "") + '</span></td>';
+        }).join("") + '</tr>');
+    });
+    tableElement.innerHTML = "<thead><tr>" + headerCells + "</tr></thead><tbody>" + rows.join("") + "</tbody>";
+  }
+
+  tableElement.addEventListener("click", function (event) {
+    var cell = event.target.closest("td.cell");
+    if (cell) {
+      var project = projects[Number(cell.parentNode.getAttribute("data-project"))];
+      var tag = tags[Number(cell.getAttribute("data-tag"))];
+      var position = project.tags.indexOf(tag);
+      if (position === -1) {
+        project.tags.push(tag);
+      } else {
+        project.tags.splice(position, 1);
+      }
+      markDirty();
+      render();
+      return;
+    }
+    var removeButton = event.target.closest("button.remove");
+    if (removeButton) {
+      var tagIndex = Number(removeButton.closest("th").getAttribute("data-index"));
+      var removedTag = tags[tagIndex];
+      if (!window.confirm('Remove the tag "' + removedTag + '" from every project?')) {
+        return;
+      }
+      projects.forEach(function (project) {
+        project.tags = project.tags.filter(function (candidate) { return candidate !== removedTag; });
+      });
+      tags.splice(tagIndex, 1);
+      markDirty();
+      render();
+    }
+  });
+
+  /* Renaming: commit on blur or Enter, merge if the new name already exists. */
+  tableElement.addEventListener("keydown", function (event) {
+    if (event.target.classList.contains("name") && event.key === "Enter") {
+      event.preventDefault();
+      event.target.blur();
+    }
+  });
+  tableElement.addEventListener("focusout", function (event) {
+    if (!event.target.classList.contains("name")) {
+      return;
+    }
+    var tagIndex = Number(event.target.closest("th").getAttribute("data-index"));
+    var oldName = tags[tagIndex];
+    var newName = event.target.textContent.trim();
+    if (!newName || newName === oldName) {
+      event.target.textContent = oldName;
+      return;
+    }
+    projects.forEach(function (project) {
+      project.tags = project.tags.map(function (tag) { return tag === oldName ? newName : tag; });
+      project.tags = project.tags.filter(function (tag, index) { return project.tags.indexOf(tag) === index; });
+    });
+    tags[tagIndex] = newName;
+    tags = tags.filter(function (tag, index) { return tags.indexOf(tag) === index; });
+    markDirty();
+    render();
+  });
+
+  document.getElementById("add-tag").addEventListener("click", function () {
+    var input = document.getElementById("new-tag");
+    var name = input.value.trim();
+    if (!name) {
+      return;
+    }
+    if (tags.indexOf(name) === -1) {
+      tags.push(name);
+      markDirty();
+    }
+    input.value = "";
+    render();
+    document.querySelector(".wrap").scrollLeft = 1e6;
+  });
+
+  document.getElementById("sort-tags").addEventListener("click", function () {
+    tags.sort(function (first, second) { return usageCount(second) - usageCount(first) || first.localeCompare(second); });
+    render();
+  });
+
+  saveButton.addEventListener("click", function () {
+    var tagsById = {};
+    projects.forEach(function (project) { tagsById[project.id] = project.tags; });
+    saveButton.disabled = true;
+    setStatus("Saving…");
+    fetch("/save", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ tagsById: tagsById }) })
+      .then(function (response) { return response.json(); })
+      .then(function (result) {
+        if (!result.ok) {
+          throw new Error(result.error || "save failed");
+        }
+        dirty = false;
+        setStatus("Saved: " + result.changedProjects + " project(s) changed in data/projects.js");
+      })
+      .catch(function (error) {
+        saveButton.disabled = false;
+        setStatus("Save failed: " + error.message, true);
+      });
+  });
+
+  window.addEventListener("beforeunload", function (event) {
+    if (dirty) {
+      event.preventDefault();
+      event.returnValue = "";
+    }
+  });
+
+  fetch("/projects")
+    .then(function (response) { return response.json(); })
+    .then(function (loaded) {
+      projects = loaded;
+      collectTags();
+      render();
+      setStatus(projects.length + " projects, " + tags.length + " tags");
+    })
+    .catch(function (error) {
+      setStatus("Could not load projects: " + error.message, true);
+    });
+})();
+</script>
+</body>
+</html>

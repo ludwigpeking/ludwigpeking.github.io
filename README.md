@@ -24,3 +24,13 @@ Personal portfolio of Richard Qian Li. Static site, no build step, hosted on Git
 Append an object to `window.PROJECTS` in `data/projects.js` with `id`, `title`, `category`, `year`, `summary`, `tags`, `thumb`, and optionally `hero`, `thumbMotion` (silent H.264 video in `img/projects/motion/`, 800 x 450, six to thirty seconds, played whenever the card is in view), `youtube` (list of `{id, label}`), `videoPending` (note shown in the placeholder box), `embed`, `links`, `body` (HTML), `fragment`, `gallery`, `featured` and `copyPending` (marks placeholder text).
 
 `PORTFOLIO_PLAN.md` holds the October 2026 reorganisation plan, the media sources for every project and the list of material still missing.
+
+## Editing tags
+
+Run `python tools/tag_editor.py` from the repository root and open
+http://127.0.0.1:8778/. The page is a table of projects against tags: click a
+cell to add or remove a tag from a project, click a tag name to rename it
+(renaming onto an existing name merges the two), use the field at the top to
+add a tag, and the × above a column removes that tag from every project. Save
+rewrites only the `tags: [...]` lines in `data/projects.js`; commit the result
+as usual.
