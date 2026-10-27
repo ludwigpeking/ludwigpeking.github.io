@@ -1282,21 +1282,88 @@
     var titleElement = viewerElement.querySelector(".viewer-title");
     var editorLinkElement = viewerElement.querySelector("[data-viewer-editor]");
     var closeButton = viewerElement.querySelector("[data-viewer-close]");
-    var iframeElement = viewerElement.querySelector("iframe");
+    /* The iframe in the markup is only a template; each sketch gets a fresh
+       one, removed again on close. The p5 editor page adds a history entry of
+       its own shortly after it loads inside the iframe, which is why the Back
+       button used to step the iframe instead of closing the viewer and left
+       the page looking frozen. So the viewer pushes a history state of its
+       own only after the editor's entry has appeared, keeping its state on
+       top: Back then closes the viewer, and the removed iframe takes its
+       entry with it. */
+    var frameTemplate = viewerElement.querySelector("iframe");
+    var frameAllow = frameTemplate.getAttribute("allow");
+    var frameTitle = frameTemplate.getAttribute("title");
+    frameTemplate.parentNode.removeChild(frameTemplate);
+    var activeFrame = null;
+    /* Measured: the editor adds its entry about 300 ms after the iframe loads. */
+    var EDITOR_HISTORY_SETTLE_MILLISECONDS = 900;
+    /* History entries the editor added underneath the viewer's own state; they
+       belong to the removed iframe once the viewer closes, and are skipped
+       so that one more Back leaves the page instead of doing nothing. */
+    var editorEntryCount = 0;
+    var historyLengthAtOpen = 0;
+
+    function viewerStateIsOnTop() {
+      return Boolean(window.history.state && window.history.state.sketchViewer);
+    }
 
     function openSketch(sketch) {
       titleElement.textContent = sketch.title;
       editorLinkElement.href = p5EditorUrl(sketch.id);
-      iframeElement.src = p5FullscreenUrl(sketch.id);
+      if (activeFrame) {
+        viewerElement.removeChild(activeFrame);
+      }
+      var frame = document.createElement("iframe");
+      frame.setAttribute("allow", frameAllow);
+      frame.setAttribute("title", frameTitle);
+      frame.addEventListener("load", function () {
+        window.setTimeout(function () {
+          if (frame === activeFrame && viewerElement.classList.contains("open") && !viewerStateIsOnTop()) {
+            editorEntryCount = Math.max(0, window.history.length - historyLengthAtOpen);
+            window.history.pushState({ sketchViewer: true }, "");
+          }
+        }, EDITOR_HISTORY_SETTLE_MILLISECONDS);
+      });
+      if (!viewerStateIsOnTop()) {
+        historyLengthAtOpen = window.history.length;
+      }
+      frame.src = p5FullscreenUrl(sketch.id);
+      activeFrame = frame;
+      viewerElement.appendChild(frame);
       viewerElement.classList.add("open");
       document.body.style.overflow = "hidden";
     }
 
     function closeViewer() {
       viewerElement.classList.remove("open");
-      iframeElement.src = "about:blank";
+      if (activeFrame) {
+        viewerElement.removeChild(activeFrame);
+        activeFrame = null;
+      }
       document.body.style.overflow = "";
     }
+
+    /* Close through the history when the viewer's own entry is on top, so the
+       Back button and the Close button leave the history in the same state. */
+    function requestClose() {
+      if (viewerStateIsOnTop()) {
+        window.history.back();
+      } else {
+        closeViewer();
+      }
+    }
+
+    window.addEventListener("popstate", function () {
+      if (!viewerElement.classList.contains("open")) {
+        return;
+      }
+      closeViewer();
+      if (editorEntryCount > 0) {
+        var entriesToSkip = editorEntryCount;
+        editorEntryCount = 0;
+        window.history.go(-entriesToSkip);
+      }
+    });
 
     gridElement.addEventListener("click", function (clickEvent) {
       var cardElement = clickEvent.target.closest(".sketch-card");
@@ -1305,10 +1372,10 @@
       }
       openSketch(sketches[Number(cardElement.getAttribute("data-sketch-index"))]);
     });
-    closeButton.addEventListener("click", closeViewer);
+    closeButton.addEventListener("click", requestClose);
     document.addEventListener("keydown", function (keyEvent) {
       if (keyEvent.key === "Escape" && viewerElement.classList.contains("open")) {
-        closeViewer();
+        requestClose();
       }
     });
   }
