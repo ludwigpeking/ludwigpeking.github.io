@@ -298,6 +298,7 @@ window.PROJECTS = [
       "A 2D life simulation on a to-scale map of China built from real elevation and river data. Rise from gig worker to tycoon or politician, with karma keeping score.",
     tags: ["game", "China", "GIS", "generative art direction", "JavaScript", "simulation"],
     thumb: "img/projects/cathay-heroes.jpg",
+    thumbMotion: "img/projects/motion/cathay-heroes.mp4",
     videoPending: "No gameplay video yet.",
     body:
       "<p>The map is real: a digital elevation model, Natural Earth coastlines and river data, projected to scale, so that travel between cities costs what it should. On top of it runs a life simulation with jobs, housing, businesses, institutions and a karma system that remembers how you got rich. The art, several hundred scenes, cards and characters, is generated from a prompt manifest in a Hiroshige woodblock style, so every region has its own look while the whole stays consistent. A designer tool edits the world data in place.</p>",
