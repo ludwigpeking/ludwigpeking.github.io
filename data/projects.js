@@ -542,7 +542,7 @@ window.PROJECTS = [
     context: "NYU ITP, team project",
     summary:
       "A multiplayer WebXR scene of a New York fire escape at night, shared over a local network, with AR occlusion tests and a day-night cycle.",
-    tags: ["VR + WebXR", "webGL + three.js", "simulation", "procedural", "game", "exhibited + award"],
+    tags: ["VR + WebXR", "webGL + three.js", "simulation", "procedural", "game", "exhibited + award", "installation"],
     thumb: "img/projects/playful-nyc-xr.jpg",
     thumbMotion: "img/projects/motion/playful-nyc-xr.mp4",
     body:
