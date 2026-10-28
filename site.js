@@ -1236,6 +1236,10 @@
 
   /* --------------------------------------------------------- sketch page */
 
+  /* A sketch card plays its clip (a recording of the sketch itself, made by
+     tools/build_sketch_motion_pages.mjs) whenever it is in view, through the
+     same wireMotionThumbs as the project cards. */
+
   function p5FullscreenUrl(sketchId) {
     return "https://editor.p5js.org/ludwig.peking/full/" + sketchId;
   }
@@ -1256,11 +1260,17 @@
           '<button class="sketch-card" type="button" data-sketch-index="' +
           index +
           '">' +
-          '<div class="thumb"><img loading="lazy" src="' +
+          '<div class="thumb' +
+          (sketch.motion ? " has-motion" : "") +
+          '"><img loading="lazy" src="' +
           escapeHtml(sketch.thumb) +
           '" alt="' +
           escapeHtml(sketch.title) +
-          '"></div>' +
+          '"' +
+          (sketch.motion
+            ? ' data-still="' + escapeHtml(sketch.thumb) + '" data-motion="' + escapeHtml(sketch.motion) + '"'
+            : "") +
+          "></div>" +
           '<div class="card-body">' +
           "<h3>" +
           escapeHtml(sketch.title) +

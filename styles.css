@@ -1124,15 +1124,29 @@ a.tag:hover {
 }
 
 .sketch-card .thumb {
+  position: relative;
   aspect-ratio: 1;
   background: var(--color-tag-background);
   overflow: hidden;
 }
 
-.sketch-card .thumb img {
+.sketch-card .thumb img,
+.sketch-card .thumb video {
   width: 100%;
   height: 100%;
   object-fit: cover;
+}
+
+/* The recording of the sketch sits over the still and fades in once it plays. */
+.sketch-card .thumb video {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.sketch-card .thumb video.is-playing {
+  opacity: 1;
 }
 
 .sketch-card .card-body {
