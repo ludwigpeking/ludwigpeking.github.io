@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Title and summary editor</title>
+<style>
+  :root { --ink: #1b1b1b; --muted: #6b6b6b; --line: #d9d9d9; --accent: #c8451f; --tint: #fbf8f3; --changed: #fff4ec; }
+  html, body { margin: 0; background: #fff; color: var(--ink); font: 14px/1.4 system-ui, -apple-system, "Segoe UI", sans-serif; }
+  header { position: sticky; top: 0; z-index: 3; background: #fff; border-bottom: 1px solid var(--line); padding: 10px 16px; display: flex; gap: 12px; align-items: center; flex-wrap: wrap; }
+  header h1 { font-size: 15px; margin: 0 12px 0 0; }
+  button { font: inherit; padding: 6px 12px; border: 1px solid var(--line); border-radius: 6px; background: #fff; cursor: pointer; }
+  button.primary { background: var(--accent); border-color: var(--accent); color: #fff; }
+  button:disabled { opacity: 0.5; cursor: default; }
+  #status { color: var(--muted); }
+  #status.error { color: var(--accent); }
+  .hint { color: var(--muted); font-size: 12px; }
+  main { max-width: 1100px; margin: 0 auto; padding: 8px 16px 80px; }
+  h2 { font-size: 12px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); margin: 28px 0 8px; padding-bottom: 6px; border-bottom: 1px solid var(--line); }
+  .project { display: grid; grid-template-columns: 240px 1fr; gap: 16px; padding: 14px 0; border-bottom: 1px solid var(--line); }
+  .project.changed { background: var(--changed); margin: 0 -12px; padding-left: 12px; padding-right: 12px; }
+  .thumb { aspect-ratio: 16 / 9; background: var(--tint); border-radius: 6px; overflow: hidden; }
+  .thumb img { display: block; width: 100%; height: 100%; object-fit: cover; }
+  .meta { color: var(--muted); font-size: 12px; margin-bottom: 6px; }
+  .meta code { font-size: 11px; color: var(--muted); }
+  input.title { display: block; width: 100%; box-sizing: border-box; font: 600 18px/1.3 system-ui, -apple-system, "Segoe UI", sans-serif; padding: 6px 8px; border: 1px solid var(--line); border-radius: 6px; margin-bottom: 8px; }
+  textarea.summary { display: block; width: 100%; box-sizing: border-box; font: inherit; padding: 6px 8px; border: 1px solid var(--line); border-radius: 6px; resize: none; overflow: hidden; min-height: 60px; }
+  input:focus, textarea:focus { outline: 2px solid var(--accent); outline-offset: -1px; }
+  .counts { display: flex; gap: 16px; color: var(--muted); font-size: 11px; margin-top: 4px; }
+  .counts .long { color: var(--accent); }
+  @media (max-width: 640px) { .project { grid-template-columns: 1fr; } .thumb { max-width: 240px; } }
+</style>
+</head>
+<body>
+<header>
+  <h1>Project titles and summaries</h1>
+  <button id="save" class="primary" disabled>Save to data/projects.js</button>
+  <button id="revert" disabled>Discard changes</button>
+  <span id="status">Loading…</span>
+  <span class="hint">Edit in place · Ctrl+S saves · the summary is the text under the thumbnail on the work page (about 200 characters fits in three lines)</span>
+</header>
+<main id="main"></main>
+<script>
+(function () {
+  var summaryComfortableLength = 200;
+  var titleComfortableLength = 48;
+  var projects = [];
+  var categories = [];
+  var statusElement = document.getElementById("status");
+  var saveButton = document.getElementById("save");
+  var revertButton = document.getElementById("revert");
+  var mainElement = document.getElementById("main");
+
+  function setStatus(message, isError) {
+    statusElement.textContent = message;
+    statusElement.className = isError ? "error" : "";
+  }
+
+  function changedProjects() {
+    return projects.filter(function (project) {
+      return project.titleField.value.trim() !== project.title || project.summaryField.value.trim() !== project.summary;
+    });
+  }
+
+  function refreshState() {
+    var changed = changedProjects();
+    projects.forEach(function (project) {
+      project.element.classList.toggle("changed", changed.indexOf(project) !== -1);
+    });
+    saveButton.disabled = changed.length === 0;
+    revertButton.disabled = changed.length === 0;
+    setStatus(changed.length === 0 ? "No unsaved changes" : changed.length + " project" + (changed.length === 1 ? "" : "s") + " changed, not saved");
+  }
+
+  function fitTextarea(textarea) {
+    textarea.style.height = "auto";
+    textarea.style.height = textarea.scrollHeight + 2 + "px";
+  }
+
+  function updateCounts(project) {
+    var titleLength = project.titleField.value.trim().length;
+    var summaryLength = project.summaryField.value.trim().length;
+    project.titleCount.textContent = "title " + titleLength + " characters";
+    project.titleCount.className = titleLength > titleComfortableLength ? "long" : "";
+    project.summaryCount.textContent = "summary " + summaryLength + " characters";
+    project.summaryCount.className = summaryLength > summaryComfortableLength ? "long" : "";
+  }
+
+  function buildProject(project) {
+    var element = document.createElement("div");
+    element.className = "project";
+    var thumb = document.createElement("div");
+    thumb.className = "thumb";
+    if (project.thumb) {
+      var image = document.createElement("img");
+      image.src = project.thumb;
+      image.alt = "";
+      image.loading = "lazy";
+      thumb.appendChild(image);
+    }
+    var fields = document.createElement("div");
+    var meta = document.createElement("div");
+    meta.className = "meta";
+    meta.textContent = [project.year, project.context].filter(Boolean).join(" · ") + " · ";
+    var idCode = document.createElement("code");
+    idCode.textContent = project.id;
+    meta.appendChild(idCode);
+    var titleField = document.createElement("input");
+    titleField.type = "text";
+    titleField.className = "title";
+    titleField.value = project.title;
+    titleField.spellcheck = true;
+    var summaryField = document.createElement("textarea");
+    summaryField.className = "summary";
+    summaryField.value = project.summary || "";
+    summaryField.rows = 2;
+    var counts = document.createElement("div");
+    counts.className = "counts";
+    var titleCount = document.createElement("span");
+    var summaryCount = document.createElement("span");
+    counts.appendChild(titleCount);
+    counts.appendChild(summaryCount);
+    fields.appendChild(meta);
+    fields.appendChild(titleField);
+    fields.appendChild(summaryField);
+    fields.appendChild(counts);
+    element.appendChild(thumb);
+    element.appendChild(fields);
+    project.element = element;
+    project.titleField = titleField;
+    project.summaryField = summaryField;
+    project.titleCount = titleCount;
+    project.summaryCount = summaryCount;
+    function onInput() {
+      fitTextarea(summaryField);
+      updateCounts(project);
+      refreshState();
+    }
+    titleField.addEventListener("input", onInput);
+    summaryField.addEventListener("input", onInput);
+    updateCounts(project);
+    return element;
+  }
+
+  function render() {
+    mainElement.innerHTML = "";
+    categories.forEach(function (category) {
+      var heading = document.createElement("h2");
+      heading.textContent = category.label;
+      mainElement.appendChild(heading);
+      projects.filter(function (project) { return project.category === category.id; }).forEach(function (project) {
+        mainElement.appendChild(buildProject(project));
+      });
+    });
+    var orphans = projects.filter(function (project) {
+      return !categories.some(function (category) { return category.id === project.category; });
+    });
+    if (orphans.length) {
+      var heading = document.createElement("h2");
+      heading.textContent = "Other";
+      mainElement.appendChild(heading);
+      orphans.forEach(function (project) { mainElement.appendChild(buildProject(project)); });
+    }
+    projects.forEach(function (project) { fitTextarea(project.summaryField); });
+    refreshState();
+  }
+
+  function load() {
+    fetch("/catalogue").then(function (response) { return response.json(); }).then(function (catalogue) {
+      categories = catalogue.categories;
+      projects = catalogue.projects;
+      render();
+    }).catch(function (error) {
+      setStatus("Could not load the catalogue: " + error.message, true);
+    });
+  }
+
+  function save() {
+    var changed = changedProjects();
+    if (changed.length === 0) { return; }
+    var fieldsById = {};
+    changed.forEach(function (project) {
+      fieldsById[project.id] = { title: project.titleField.value.trim(), summary: project.summaryField.value.trim() };
+    });
+    saveButton.disabled = true;
+    setStatus("Saving…");
+    fetch("/save", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ fieldsById: fieldsById }) })
+      .then(function (response) { return response.json(); })
+      .then(function (result) {
+        if (!result.ok) { throw new Error(result.error || "save failed"); }
+        changed.forEach(function (project) {
+          project.title = project.titleField.value.trim();
+          project.summary = project.summaryField.value.trim();
+          project.titleField.value = project.title;
+          project.summaryField.value = project.summary;
+        });
+        refreshState();
+        setStatus("Saved " + result.changedProjects + " project" + (result.changedProjects === 1 ? "" : "s") + " to data/projects.js");
+      })
+      .catch(function (error) {
+        setStatus("Save failed: " + error.message, true);
+        saveButton.disabled = false;
+      });
+  }
+
+  function revert() {
+    changedProjects().forEach(function (project) {
+      project.titleField.value = project.title;
+      project.summaryField.value = project.summary;
+      fitTextarea(project.summaryField);
+      updateCounts(project);
+    });
+    refreshState();
+  }
+
+  saveButton.addEventListener("click", save);
+  revertButton.addEventListener("click", revert);
+  document.addEventListener("keydown", function (event) {
+    if ((event.ctrlKey || event.metaKey) && event.key.toLowerCase() === "s") {
+      event.preventDefault();
+      save();
+    }
+  });
+  window.addEventListener("beforeunload", function (event) {
+    if (changedProjects().length > 0) {
+      event.preventDefault();
+      event.returnValue = "";
+    }
+  });
+  window.addEventListener("resize", function () {
+    projects.forEach(function (project) { fitTextarea(project.summaryField); });
+  });
+  load();
+})();
+</script>
+</body>
+</html>

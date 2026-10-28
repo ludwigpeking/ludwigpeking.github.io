@@ -51,3 +51,12 @@ cell to add or remove a tag from a project, click a tag name to rename it
 add a tag, and the × above a column removes that tag from every project. Save
 rewrites only the `tags: [...]` lines in `data/projects.js`; commit the result
 as usual.
+
+## Editing titles and summaries
+
+Run `python tools/copy_editor.py` from the repository root and open
+http://127.0.0.1:8779/. The page lists every project with its thumbnail, a
+field for the title and one for the summary shown under the thumbnail on the
+work page, with character counts (about 200 characters of summary fit in
+three lines on a card). Save (or Ctrl+S) rewrites only the changed `title:`
+and `summary:` strings in `data/projects.js`; commit the result as usual.
