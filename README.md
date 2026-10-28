@@ -36,7 +36,7 @@ scratch folder (`python -I -m http.server 8849 --directory <folder>`), then
 downloads every curated sketch from the p5 editor into `<folder>/<id>/`,
 applies the small parameter changes listed in the script to the sketches that
 would otherwise stand still (drifting Voronoi seeds, swaying fractal trees, a
-turning WFC roof, contour lines that draw themselves, and so on), and records
+floor plan drawn piece by piece, contour lines that draw themselves, and so on), and records
 each page through `tools/record_sketch_motion.mjs` into `img/sketches/motion/
 <id>.mp4` with a matching still in `img/sketches/<id>.jpg`. Add `--only=<id>`
 to redo one sketch. The sketches on the editor are not changed; the viewer

@@ -8,9 +8,9 @@
 // projects/<id>), rebuilds its files and folders under <pages dir>/<id>/,
 // fetches the sketch's images, and applies the small parameter changes below
 // to the sketches that would otherwise sit still: the Voronoi colonies drift,
-// the yosegi squares breathe, the superellipse morphs, the fractal trees sway
-// with a fixed seed, the contour map draws itself level by level and the WFC
-// roof turns. Everything else is recorded as it is.
+// the yosegi squares breathe, the superellipse morphs, the fractal forest sways
+// with a fixed seed, the contour map draws itself level by level and the floor
+// plan is drawn piece by piece. Everything else is recorded as it is.
 //
 // --record then plays each page from a static server (python -I -m http.server
 // 8849 --directory <pages dir>) in the private headless Chrome on CDP port
@@ -99,14 +99,6 @@ const tweaks = {
     { find: '        rect(0, 0, currentSize + random(-3,3), currentSize+ random(-3,3));',
       replace: '        rect(0, 0, currentSize + random(-jitterRange, jitterRange), currentSize + random(-jitterRange, jitterRange));' }
   ] },
-  // D3 Voronoi: a square canvas, more seeds, and the seeds wander.
-  '8mdWLLeki': { 'sketch.js': [
-    { find: '  var width = 500,\n    height = 300;', replace: '  var width = 600,\n    height = 600;' },
-    { find: '  var vertices = d3.range(100).map(function (d) {\n    return [Math.random() * width, Math.random() * height];\n  });',
-      replace: '  if (!window.baseVertices) {\n    window.baseVertices = d3.range(220).map(function (d) {\n      return [Math.random() * width, Math.random() * height];\n    });\n  }\n  var vertices = window.baseVertices.map(function (v, i) {\n    return [v[0] + 14 * Math.sin(frameCount * 0.03 + i * 0.7), v[1] + 14 * Math.cos(frameCount * 0.024 + i * 1.3)];\n  });' },
-    { find: '  createCanvas(width, height);', replace: '  if (frameCount === 0) {\n    createCanvas(width, height);\n  }' },
-    { find: 'function setup() {', replace: 'function setup() {\n  frameRate(30);\n  drawVoronoi();\n}\n\nfunction draw() {\n  drawVoronoi();\n}\n\nfunction drawVoronoi() {' }
-  ] },
   // Superellipse: the exponent and the axes keep changing.
   N9kk9Wq7S: { 'sketch.js': [
     { find: '  createCanvas(400, 400);', replace: '  createCanvas(400, 400);\n  pixelDensity(2);' },
@@ -118,17 +110,9 @@ const tweaks = {
     { find: '    r1 = 100+ 40 * sin( 4 * (theta - PI*3/8));\n    r2 = 110+ 20 * sin( 4 * (theta - PI*1/8));',
       replace: '    r1 = 100 + 40 * sin(4 * (theta - PI * 3 / 8 + frameCount * 0.01));\n    r2 = 110 + 20 * sin(4 * (theta - PI * 1 / 8 - frameCount * 0.013));' }
   ] },
-  // Fractal sakura: the branch angle sways. The seed is reset before every
-  // redraw so the same tree bends instead of a new one growing, and since a
-  // redraw takes long, one cycle of the sway is rendered up front and played
-  // back.
-  PHgkeZCIi: { 'sketch.js': [
-    { find: 'function draw() {\n  image(offscreen, 0, 0); // Draw offscreen canvas to main canvas\n}',
-      replace: swayPlayback('Math.PI / 7', 0.1, 24, 5) + '\n  image(offscreen, 0, 0);\n}' },
-    { find: '  angle = slider.value();', replace: '  angle = swayAngle;\n  randomSeed(seed);' }
-  ] },
-  // Fractal forest: the same sway with a fixed seed (fewer steps: a redraw
-  // of its sixty thousand leaves takes several seconds).
+  // Fractal forest: the branch angle sways with a fixed seed. One cycle of
+  // the sway is rendered up front and played back, since a redraw of its
+  // sixty thousand leaves takes several seconds.
   wkZduz_Fj: { 'sketch.js': [
     { find: 'function draw() {\n  background(255);\n  image(offscreen, 0, 0);',
       replace: swayPlayback('Math.PI / 9', 0.07, 16, 8) + '\n  background(255);\n  image(offscreen, 0, 0);' },
@@ -143,25 +127,50 @@ const tweaks = {
     { find: '  for (let h = -1; h < 2; h += 0.02) {\n    colorMode(HSB, 100);\n    stroke(100 * h, 50, 50);\n    strokeWeight(1);', replace: '}\n\nfunction drawLevel(h) {\n  {\n    colorMode(HSB, 100);\n    stroke(100 * h, 50, 50);\n    strokeWeight(2);' },
     { find: '  }\n  noLoop();\n}', replace: '  }\n}' }
   ] },
-  // 3D WFC roof: turns slowly about the middle of the grid.
-  '2R5QuHH9E': { 'sketch.js': [
-    { find: '  orbitControl(3,3,3);\n  rotateX(0.5);\n  translate(-width / 3 , -height/3);\n  fill(200,200,200)\n  tree(100,100)',
-      replace: '  rotateX(0.5);\n  rotateZ(frameCount * 0.004);\n  translate(-cols * res / 2, -rows * res / 2);\n  fill(200,200,200)\n  randomSeed(11);\n  tree(100,100)' },
-    { find: '  noLoop()\n}', replace: '}' }
+  // Colour composition: mandala. The note and the buttons under the canvas
+  // are hidden for the recording.
+  '00EUGlXS5': { 'index.html': [
+    { find: '</head>', replace: '<style>p, button { display: none !important; }</style></head>' }
   ] },
-  // Pseudo-noise sine waves: the phase seed advances so the waves travel;
-  // the sliders over the canvas are hidden for the recording.
-  ZG4RgjJ5_: {
+  // Beethoven Markov: a square canvas with larger type and taller notes. The
+  // composed melody starts playing (without sound) as soon as it is composed
+  // and a new one follows when it ends. The seed field and the buttons are
+  // hidden.
+  _w8MgiERV: {
     'sketch.js': [
-      { find: 'function draw() {\n  background(255);', replace: 'function draw() {\n  seed = 122 + frameCount * 0.02;\n  background(255);' }
+      { find: '  createCanvas(720, 560);', replace: '  createCanvas(720, 720);' },
+      { find: '  textFont("monospace", 14);', replace: '  textFont("monospace", 18);' },
+      { find: '  text(songABC(), 20, 20, width - 40, 270);', replace: '  text(songABC(), 20, 20, width - 40, 340);' },
+      { find: '48, 96, height - 20, 300);', replace: '48, 96, height - 20, 380);' },
+      { find: '      rect(x, noteHeight, noteWidth - 1, 6);', replace: '      rect(x, noteHeight, noteWidth - 1, 10);' },
+      { find: '  song = compose(tokenize("K:\\n" + seedInput.value()));\n}',
+        replace: '  song = compose(tokenize("K:\\n" + seedInput.value()));\n  playIndex = 0;\n  nextNoteMillis = millis();\n}' },
+      { find: '    if (token[0] !== "z") synth.play(frequencyOf(token), 0.6, 0, seconds * 0.9);\n', replace: '' },
+      { find: '  fill(0);\n  text(songABC()',
+        replace: '  if (playIndex >= song.length && millis() >= nextNoteMillis + 1500) {\n    song = compose(tokenize("K:\\n" + seedInput.value()));\n    playIndex = 0;\n    nextNoteMillis = millis();\n  }\n  fill(0);\n  text(songABC()' }
     ],
     'index.html': [
-      { find: '</head>', replace: '<style>p, span, input { display: none !important; }</style></head>' }
+      { find: '</head>', replace: '<style>input, button { display: none !important; }</style></head>' }
     ]
-  }
+  },
+  // Floor plan class: the plan is drawn one wall, window or door every third
+  // of a second, holds for two seconds and starts again (one cycle is ten
+  // seconds, the length of the recording). The class logs every vector it
+  // builds, which slows the capture, so logging is switched off, and one
+  // background-coloured pixel is painted every frame: a canvas that is not
+  // touched for a while makes headless Chrome take over a second per
+  // screenshot.
+  fa0GZUDS6: { 'sketch.js': [
+    { find: 'function setup() {\n  createCanvas(1000, 1000);', replace: 'console.log = function () {};\n\nfunction setup() {\n  createCanvas(1000, 1000);' },
+    { find: '  textFont("Futura");', replace: '  drawTitle();\n  queuePlan();\n}\n\nfunction drawTitle() {\n  fill(255);\n  stroke(0);\n  strokeWeight(1);\n  textFont("Futura");' },
+    { find: '  p5Star(310, 860, 12);\n\n  const fp = new FloorPlan();',
+      replace: '  p5Star(310, 860, 12);\n}\n\nlet realPlan;\nlet planSteps = [];\nlet finishedFrame = 0;\nconst fp = {\n  wall: function () { planSteps.push({ method: "wall", args: arguments }); },\n  window: function () { planSteps.push({ method: "window", args: arguments }); },\n  door: function () { planSteps.push({ method: "door", args: arguments }); }\n};\n\nfunction draw() {\n  noStroke();\n  fill(220);\n  rect(0, 0, 1, 1);\n  if (planSteps.length > 0) {\n    if (frameCount % 20 === 0) {\n      const step = planSteps.shift();\n      realPlan[step.method].apply(realPlan, step.args);\n    }\n    finishedFrame = frameCount;\n  } else if (frameCount - finishedFrame > 140) {\n    background(220);\n    drawTitle();\n    queuePlan();\n  }\n}\n\nfunction queuePlan() {\n  realPlan = new FloorPlan();' }
+  ] }
 };
 
-/* Recording settings: seconds, warm-up, page size, square zoom and focus, pointer. */
+/* Recording settings: seconds, warm-up, page size, square zoom and focus,
+   pointer, and `realtime` for sketches that stall Chrome's virtual clock
+   (they are recorded on the wall clock instead). */
 const recordSettings = {
   YbSLl8Gr8: { seconds: 10, warmup: 4, zoom: 0.62, focus: '0.5,0.47' },
   oLlmrTQ5K: { seconds: 9, warmup: 1, mouse: 'circle' },
@@ -173,15 +182,14 @@ const recordSettings = {
   T35Gm5KOq: { seconds: 9, warmup: 1 },
   ZvP27kRL6: { seconds: 9, warmup: 1 },
   kRTwNCidG: { seconds: 9, warmup: 1 },
-  '8mdWLLeki': { seconds: 9, warmup: 1 },
   N9kk9Wq7S: { seconds: 9, warmup: 1, zoom: 0.75 },
   SbaAloSrl: { seconds: 9, warmup: 1, zoom: 0.8 },
-  ZG4RgjJ5_: { seconds: 9, warmup: 1 },
-  PHgkeZCIi: { seconds: 9, warmup: 0.5 },
   '8ZFqUc5KC': { seconds: 10, warmup: 2 },
   wkZduz_Fj: { seconds: 9, warmup: 0.5 },
   BD3zHhF9W: { seconds: 10, warmup: 0.2, zoom: 0.5, focus: '0.5,0.4', still: 3.5 },
-  '2R5QuHH9E': { seconds: 10, warmup: 2 }
+  '00EUGlXS5': { seconds: 10, warmup: 1, still: 8, realtime: true },
+  _w8MgiERV: { seconds: 10, warmup: 0.5, still: 4, realtime: true },
+  fa0GZUDS6: { seconds: 10, warmup: 0.02, viewport: '1100x1100', still: 8.5, realtime: true }
 };
 
 const catalogueText = readFileSync(path.join(repositoryRoot, 'data', 'sketches.js'), 'utf8');
@@ -249,6 +257,7 @@ if (shouldRecord) {
     if (settings.focus) { argumentList.push('--focus=' + settings.focus); }
     if (settings.mouse) { argumentList.push('--mouse=' + settings.mouse); }
     if (settings.still !== undefined) { argumentList.push('--still=' + settings.still); }
+    if (settings.realtime) { argumentList.push('--realtime', '--fps=30'); }
     console.log('[record] ' + sketchId);
     try {
       execFileSync(process.execPath, argumentList, { stdio: 'inherit' });
