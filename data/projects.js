@@ -3,7 +3,7 @@
 
    Each project:
      id, title, category, year, context, summary, tags, thumb
-     optional: featured, thumbMotion (silent H.264 video, 800 x 450, shown on hover), youtube [{id, label}], videoPending (string),
+     optional: featured, thumbMotion (silent H.264 video, 800 x 450, shown on hover), youtube [{id, label, start (seconds, optional)}], videoPending (string),
                embed {url, label, note}, links [{label, url}], body (HTML),
                fragment (HTML file loaded into the body), gallery [{src, caption}],
                copyPending (true = body is placeholder text, still to be written)
@@ -88,7 +88,7 @@ window.PROJECTS = [
     thumbMotion: "img/projects/motion/algorithms-of-the-city.mp4",
     youtube: [
       { id: "xrFgm3PKJoA", label: "Algorithms of the City" },
-      { id: "BnPAcg75PMg", label: "Intelligent simulations: the three iterations" }
+      { id: "BnPAcg75PMg", start: 242, label: "Intelligent simulations: the three iterations" }
     ],
     links: [{ label: "Live", url: "https://2603-the-algorithms-of-the-city.vercel.app/" }, { label: "Code", url: "https://github.com/ludwigpeking/2603_theAlgorithmsOfTheCity" }],
   },
@@ -133,6 +133,7 @@ window.PROJECTS = [
     tags: ["game", "p5.js", "computational geometry", "webGL + three.js", "product", "ML+AI", "web app"],
     thumb: "img/projects/vortego.jpg",
     thumbMotion: "img/projects/motion/vortego.mp4",
+    youtube: [{ id: "JJR4gnOrZX0", start: 143, label: "VorteGo: what if you play Go on Lost Temple?" }],
     links: [
       { label: "Play", url: "https://vortego.itp.io/" },
       { label: "Code", url: "https://github.com/ludwigpeking/VorteGoWebsite" },
@@ -172,6 +173,7 @@ window.PROJECTS = [
     links: [{ label: "Battle maps", url: "https://www.rattenstadt.com/ClashOfIronMaps/?lang=en" }],
     youtubeAtEnd: true,
     youtube: [
+      { id: "92UMnXJkuR4", start: 1645, label: "Clash of Iron: the battles in 3DCG" },
       { id: "pwhKH2OnY-U", label: "The Battle of Tsushima in 3D (58 min)" },
       { id: "A_Acq_oTGgE", label: "黄海海战 1894 开发日志 (Chinese)" },
       { id: "xnsX_WNRLPc", label: "黄海海戦 1894 (Japanese)" }
@@ -206,6 +208,7 @@ window.PROJECTS = [
     tags: ["simulation", "webGL + three.js", "history", "procedural", "video", "architecture + urbanism", "real estate", "systems modelling", "generative art"],
     thumb: "img/projects/rome-wfc.jpg",
     thumbMotion: "img/projects/motion/rome-wfc.mp4",
+    youtube: [{ id: "bvacpcuEwmA", label: "Rebuild Rome: algorithmic generation" }],
   },
   {
     id: "cathay-heroes",
@@ -282,7 +285,7 @@ window.PROJECTS = [
     year: "2023",
     context: "Independent study",
     summary:
-      "Traffic emerges in New York, Portland and Roman-camp grids; then the grid erodes under crisis and informal occupation reshapes the streets.",
+      "Imagine there's fall of our civilization: The mighty dominating city street grids erode under crisis and informal occupation, reshaping the city.",
     tags: ["architecture + urbanism", "simulation", "p5.js", "history", "systems modelling"],
     thumb: "img/projects/grid-erosion.jpg",
     thumbMotion: "img/projects/motion/grid-erosion.mp4",
@@ -327,7 +330,7 @@ window.PROJECTS = [
     tags: ["projection mapping", "computer vision", "Python", "video", "computational geometry"],
     thumb: "img/projects/motion-projection.jpg",
     thumbMotion: "img/projects/motion/motion-projection.mp4",
-    youtube: [{ id: "-aCN75vNGhA", label: "How to projection map on a moving object? (9:21)" }],
+    youtube: [{ id: "-aCN75vNGhA", start: 4, label: "How to projection map on a moving object? (9:21)" }],
     links: [{ label: "Code", url: "https://github.com/ludwigpeking/MotionProjection" }],
   },
   {
@@ -402,7 +405,7 @@ window.PROJECTS = [
     tags: ["ML+AI", "music", "research"],
     thumb: "img/projects/beethoven-motif-lab.jpg",
     youtube: [
-      { id: "-byFesduBOs", label: "How AI music actually works (19:00)" },
+      { id: "-byFesduBOs", start: 694, label: "How AI music actually works (19:00)" },
       { id: "p_z_A9FTAwU", label: "AI 是怎么学会作曲的 (Chinese)" }
     ],
   },
@@ -454,16 +457,19 @@ window.PROJECTS = [
   {
     id: "shoin-zukuri",
     featured: true,
-    title: "Shoin-zukuri: an infinite generator of Japanese architecture",
+    title: "WFC Shoin-zukuri: an infinite generator of classical architecture",
     category: "games",
     year: "2022 – 2026",
     context: "Independent study",
     summary:
-      "Wave function collapse over tectonic building blocks produces endless, surprising Japanese residential complexes on a bent quad grid with terrain and shore, rendered live in three.js.",
+      "Wave function collapse algorithm over tectonic building blocks produces endless, surprising classical building complex on a",
     tags: ["webGL + three.js", "procedural", "video", "architecture + urbanism", "ML+AI", "generative art", "shaders"],
     thumb: "img/projects/shoin-zukuri.jpg",
     thumbMotion: "img/projects/motion/shoin-zukuri.mp4",
-    youtube: [{ id: "Lgg20hnOQvI", label: "Architecture in 24 blocks: wave function collapse (5:40)" }],
+    youtube: [
+      { id: "cQL4t5zoCNk", start: 429, label: "A walkthrough of Shoin-zukuri WFC" },
+      { id: "Lgg20hnOQvI", label: "Architecture in 24 blocks: wave function collapse (5:40)" }
+    ],
     embed: {
       url: "https://shoin-zukuri-wfc.vercel.app/",
       label: "Generate a building",

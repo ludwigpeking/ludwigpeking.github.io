@@ -856,7 +856,8 @@
     var embedUrl =
       "https://www.youtube-nocookie.com/embed/" +
       encodeURIComponent(video.id) +
-      "?autoplay=1&rel=0";
+      "?autoplay=1&rel=0" +
+      (video.start ? "&start=" + video.start : "");
     var coverUrl =
       "https://img.youtube.com/vi/" + encodeURIComponent(video.id) + "/hqdefault.jpg";
     return (
@@ -1022,7 +1023,10 @@
     var videoActions = (project.youtube || []).map(function (video) {
       return {
         kind: "video",
-        url: "https://www.youtube.com/watch?v=" + encodeURIComponent(video.id),
+        url:
+          "https://www.youtube.com/watch?v=" +
+          encodeURIComponent(video.id) +
+          (video.start ? "&t=" + video.start + "s" : ""),
         label: video.label || "Video"
       };
     });
