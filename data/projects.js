@@ -50,12 +50,12 @@ window.PROJECTS = [
   {
     id: "parcbalance",
     featured: true,
-    title: "ParcBalance: parking-space pricing simulator",
+    title: "ParcBalance: a behavior-model driven parking-space pricing simulator",
     category: "web",
     year: "2023 – 2025",
     context: "Product, used on projects in Jinan, Panjin and Qingdao",
     summary:
-      "Prices thousands of parking spaces at once by modelling the buildings around them, the walking routes, and the customers who will choose between them.",
+      "How do customers choose parking lots? At what price? This tool answers these questions by modeling customers and the spatial arrangment, simulates their decision making behaviors, and give you the developer a fully optimized price scheme.",
     tags: ["product", "real estate", "simulation", "architecture + urbanism", "ML+AI", "systems modelling", "finance", "web app", "research"],
     thumb: "img/projects/parcbalance.jpg",
     thumbMotion: "img/projects/motion/parcbalance.mp4",
@@ -74,12 +74,12 @@ window.PROJECTS = [
   {
     id: "decisive",
     featured: true,
-    title: "Decisive 妙算: real-time finance inside SketchUp",
+    title: "Decisive 妙算: financial model while designing.",
     category: "web",
     year: "2024 – 2026",
     context: "Product, dcdecisive.com",
     summary:
-      "Move a building in the model and the cash flow updates. A Ruby extension that couples the design of a development to its financial outcome as you draw.",
+      "Change a unit or move a building in the model and the cash flow updates. A Ruby extension that couples the design of a development to its financial outcome as you draw.",
     tags: ["product", "Ruby", "real estate", "finance", "simulation", "architecture + urbanism", "ML+AI", "systems modelling"],
     thumb: "img/projects/decisive.jpg",
     thumbMotion: "img/projects/motion/decisive.mp4",
@@ -106,7 +106,7 @@ window.PROJECTS = [
     year: "2026 –",
     context: "Open interactive book and lecture",
     summary:
-      "An interactive book of urban self-organisation: chapters on resources, pathfinding, spatial syntax and spatial optimisation, each with a simulation you can run.",
+      "An interactive book of urban self-organisation: on resources, pathfinding, spatial syntax and spatial optimisation, each with a simulation you can run.",
     tags: ["open book", "architecture + urbanism", "simulation", "webGL + three.js", "exhibited + award", "real estate", "game", "procedural", "history", "ML+AI", "systems modelling", "finance", "web app", "shaders"],
     thumb: "img/projects/algorithms-of-the-city.jpg",
     thumbMotion: "img/projects/motion/algorithms-of-the-city.mp4",
@@ -134,7 +134,7 @@ window.PROJECTS = [
     year: "2026",
     context: "Product, ariadne.dcdecisive.com",
     summary:
-      "An interactive map of rare diseases: a weighted evidence graph with sourced edges, node2vec similarity and random-walk ranking, in three languages.",
+      "An interactive map of rare diseases: a weighted evidence graph with sourced edges, node2vec similarity ranking. A practitioner, researcher, or patient can search along the tree, fulling informed by the context.",
     tags: ["product", "ML+AI", "web app", "UI + UX"],
     thumb: "img/projects/ariadne.jpg",
     thumbMotion: "img/projects/motion/ariadne.mp4",
@@ -145,12 +145,12 @@ window.PROJECTS = [
   },
   {
     id: "altrovia",
-    title: "Altrovia: branding and website",
+    title: "Altrovia: branding and website (team)",
     category: "web",
     year: "2026",
     context: "Client work, altrovia.ai",
     summary:
-      "Identity and site for a clinical-trial design company: logo, logo animation and a text-driven landing page.",
+      "This project won the Adobe x NYU competition 2026, for Best Branding - Identity and site design for a clinical-trial design company:  logo, animation and a landing page. Teammates: Minglu Zhong, Tiffany Ziyi Yuan, Kurt Mu Qian.",
     tags: ["UI + UX", "animation", "web app", "product", "exhibited + award"],
     thumb: "img/projects/altrovia.jpg",
     thumbMotion: "img/projects/motion/altrovia.mp4",
@@ -165,12 +165,12 @@ window.PROJECTS = [
   {
     id: "vortego",
     featured: true,
-    title: "VorteGo: Go on generated boards",
+    title: "VorteGo: a superset of Go, with GNN AI player training",
     category: "web",
     year: "2026",
     context: "Independent project, online",
     summary:
-      "Go played on procedurally generated, non-rectangular boards. Board editor, Monte Carlo tree search opponent, online multiplayer and printable boards.",
+      "A superset of the game Go played on a graph rather than a grid. A GNN model trained for it and can be generalized to other Go boards. A website for online multiplayer. A tournament of VorteGo is running in NYC.",
     tags: ["game", "p5.js", "computational geometry", "webGL + three.js", "product", "ML+AI", "web app"],
     thumb: "img/projects/vortego.jpg",
     thumbMotion: "img/projects/motion/vortego.mp4",
@@ -197,7 +197,7 @@ window.PROJECTS = [
     year: "2026",
     context: "NYU ITP, ML for 3D",
     summary:
-      "A world of portals linking a savanna, a temple precinct, a sanctuary and a cave, built from generated 3D characters and Gaussian splats, and a multiplayer web version of the same idea.",
+      "An online memorial to remember the lost, and maintain the community and bond could be lost with them too.",
     tags: ["Gaussian splatting", "webGL + three.js", "architecture + urbanism", "product", "web app"],
     thumb: "img/projects/the-pantheon.jpg",
     thumbMotion: "img/projects/motion/the-pantheon.mp4",
