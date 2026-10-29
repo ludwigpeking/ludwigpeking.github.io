@@ -144,7 +144,7 @@
       '<div class="container">' +
       '<a class="site-home" href="index.html"' +
       (pageFileName === "index.html" ? ' aria-current="page"' : "") +
-      ">Home</a>" +
+      "><strong>Home</strong></a>" +
       '<nav class="site-nav" aria-label="Site">' +
       navigationMarkup +
       "</nav>" +
