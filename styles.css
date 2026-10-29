@@ -122,6 +122,11 @@ p {
   margin: 0 0 1em;
 }
 
+strong,
+b {
+  font-weight: 600;
+}
+
 button {
   font: inherit;
   color: inherit;
@@ -463,6 +468,7 @@ button {
 .reel-label {
   font-family: var(--font-display);
   font-size: var(--text-heading);
+  font-weight: 600;
 }
 
 .reel-label:hover {
