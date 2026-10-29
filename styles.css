@@ -305,12 +305,6 @@ button {
   margin-bottom: 12px;
 }
 
-/* Tagline under the name: body type, heavier, so the hero reads as one
-   serif title over a sans paragraph. */
-.hero-tagline {
-  margin: 0 0 14px;
-}
-
 .hero .lede {
   max-width: 34em;
   margin-bottom: 22px;
@@ -367,7 +361,6 @@ button {
   }
 }
 
-.home-hero .hero-tagline,
 .home-hero .lede {
   margin-bottom: 0;
 }
