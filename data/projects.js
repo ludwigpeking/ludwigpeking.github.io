@@ -344,7 +344,10 @@ window.PROJECTS = [
     tags: ["projection mapping", "data visualization", "video", "procedural", "installation"],
     thumb: "img/projects/nyc-subway-cube.jpg",
     thumbMotion: "img/projects/motion/nyc-subway-cube.mp4",
-    youtube: [{ id: "2Dt884pKMxk", label: "An NYC Metro Dream" }],
+    youtube: [
+      { id: "2Dt884pKMxk", label: "An NYC Metro Dream" },
+      { id: "gMmwr8R3CEA", label: "NYC metro with Yamanote styles (short)" }
+    ],
   },
   {
     id: "optical-network",
@@ -380,6 +383,7 @@ window.PROJECTS = [
     tags: ["installation", "p5.js", "Python", "digital fabrication", "exhibited + award"],
     thumb: "img/projects/ghost-corridor.jpg",
     thumbMotion: "img/projects/motion/ghost-corridor.mp4",
+    youtube: [{ id: "eSlbDPIE7yQ", label: "Poor men's air defense (short)" }],
     links: [{ label: "Code", url: "https://github.com/ludwigpeking/2025-holloween" }],
   },
   {
