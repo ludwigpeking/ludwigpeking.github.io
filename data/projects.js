@@ -55,7 +55,10 @@ window.PROJECTS = [
     tags: ["product", "real estate", "simulation", "architecture + urbanism", "ML+AI", "systems modelling", "finance", "web app", "research"],
     thumb: "img/projects/parcbalance.jpg",
     thumbMotion: "img/projects/motion/parcbalance.mp4",
-    links: [{ label: "Code", url: "https://github.com/ludwigpeking/ParcBalance_2505" }],
+    links: [
+      { label: "Live", url: "https://parking-lot-pricing.vercel.app/" },
+      { label: "Code", url: "https://github.com/ludwigpeking/ParcBalance_2505" }
+    ],
   },
   {
     id: "decisive",
@@ -103,7 +106,10 @@ window.PROJECTS = [
     tags: ["product", "ML+AI", "web app", "UI + UX"],
     thumb: "img/projects/ariadne.jpg",
     thumbMotion: "img/projects/motion/ariadne.mp4",
-    links: [{ label: "Live", url: "https://ariadne.dcdecisive.com/" }],
+    links: [
+      { label: "Live", url: "https://ariadne.dcdecisive.com/" },
+      { label: "Code", url: "https://github.com/ludwigpeking/Ariadne-rare-disease-atlas" }
+    ],
   },
   {
     id: "altrovia",
@@ -170,7 +176,10 @@ window.PROJECTS = [
       url: "https://www.rattenstadt.com/ClashOfIronMaps/?lang=en",
       label: "Open the battle maps"
     },
-    links: [{ label: "Battle maps", url: "https://www.rattenstadt.com/ClashOfIronMaps/?lang=en" }],
+    links: [
+      { label: "Battle maps", url: "https://www.rattenstadt.com/ClashOfIronMaps/?lang=en" },
+      { label: "Code", url: "https://github.com/ludwigpeking/NavalBattles" }
+    ],
     youtubeAtEnd: true,
     youtube: [
       { id: "92UMnXJkuR4", start: 1645, label: "Clash of Iron: the battles in 3DCG" },
@@ -192,6 +201,7 @@ window.PROJECTS = [
     thumbMotion: "img/projects/motion/a-quiet-practice.mp4",
     youtube: [{ id: "hMuYt7BOra8", label: "A Quiet Practice (film)" }],
     links: [
+      { label: "Live", url: "https://www.rattenstadt.com/a-quiet-practice-ryoanji/" },
       { label: "itch.io", url: "https://ludwigpeking.itch.io/a-quiet-practice" },
       { label: "Play online", url: "https://ryoanji-still-garden.ludwig-peking.chatgpt.site/" }
     ],
@@ -315,6 +325,7 @@ window.PROJECTS = [
     thumbMotion: "img/projects/motion/sand-table.mp4",
     youtube: [{ id: "BnPAcg75PMg", label: "Intelligent simulations: the three iterations" }],
     links: [
+      { label: "Live", url: "https://world-seven-gray.vercel.app/" },
       { label: "Code (Winter Show)", url: "https://github.com/ludwigpeking/2511_Hexaganal_World" },
       { label: "Code (Spring Show)", url: "https://github.com/ludwigpeking/Springshow2026" }
     ],
@@ -371,6 +382,10 @@ window.PROJECTS = [
     tags: ["projection mapping", "installation", "video", "procedural", "computer vision"],
     thumb: "img/projects/brick-ghosts.jpg",
     thumbMotion: "img/projects/motion/brick-ghosts.mp4",
+    links: [
+      { label: "Live", url: "https://www.rattenstadt.com/projection-on-brick-wall/" },
+      { label: "Code", url: "https://github.com/ludwigpeking/projection-on-brick-wall" }
+    ],
   },
   {
     id: "ghost-corridor",
@@ -384,7 +399,10 @@ window.PROJECTS = [
     thumb: "img/projects/ghost-corridor.jpg",
     thumbMotion: "img/projects/motion/ghost-corridor.mp4",
     youtube: [{ id: "eSlbDPIE7yQ", label: "Poor men's air defense (short)" }],
-    links: [{ label: "Code", url: "https://github.com/ludwigpeking/2025-holloween" }],
+    links: [
+      { label: "Live", url: "https://2025-halloween-eta.vercel.app/" },
+      { label: "Code", url: "https://github.com/ludwigpeking/2025-holloween" }
+    ],
   },
   {
     id: "playful-nyc-xr",
@@ -393,7 +411,7 @@ window.PROJECTS = [
     year: "2026",
     context: "NYU ITP, team project",
     summary:
-      "A multiplayer WebXR scene of a New York fire escape at night, shared over a local network, with AR occlusion tests and a day-night cycle.",
+      "Won Parsons New School Creative Center Award. A multiplayer WebXR scene of a New York fire escape at night, shared over a local network, with AR occlusion tests and a day-night cycle. Teammates: Aditya De, Elisabeth Kezia, Eros",
     tags: ["VR + WebXR", "webGL + three.js", "simulation", "procedural", "game", "exhibited + award", "installation"],
     thumb: "img/projects/playful-nyc-xr.jpg",
     thumbMotion: "img/projects/motion/playful-nyc-xr.mp4",
@@ -415,7 +433,7 @@ window.PROJECTS = [
   },
   {
     id: "tube-shader",
-    title: "Hand-tracked tube",
+    title: "Hand Pose Controlled Shader",
     category: "interactive",
     year: "2026",
     context: "NYU ITP, shader programming",
@@ -450,7 +468,7 @@ window.PROJECTS = [
     year: "2024",
     context: "Independent study",
     summary:
-      "A Townscaper-style irregular grid: a hexagonal domain is triangulated, the triangles are merged into quads, and the mesh is relaxed until every cell is almost square.",
+      "A research on Oskar Stalberg's method of quadrangulaiton.  First triangulated, the triangles are then merged into quads, and the mesh is relaxed until every cell is close to square.",
     tags: ["computational geometry", "p5.js", "procedural", "game"],
     thumb: "img/projects/quadrangulation.jpg",
     thumbMotion: "img/projects/motion/quadrangulation.mp4",
