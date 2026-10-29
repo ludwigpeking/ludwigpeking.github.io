@@ -4,43 +4,23 @@
    ========================================================================== */
 
 :root {
-  --color-background: #f4f1ea;
-  --color-surface: #fbf9f4;
+  --color-background: #ffffff;
+  --color-surface: #ffffff;
   --color-surface-raised: #ffffff;
   --color-ink: #17161a;
   --color-ink-muted: #6b675f;
-  --color-line: #dcd7cc;
+  --color-line: #e2e2e2;
   --color-accent: #d24a2a;
   --color-accent-soft: #f6d9cf;
-  --color-tag-background: #ebe6db;
+  --color-tag-background: #f1f1f1;
 
   --font-display: "Fraunces", Georgia, "Times New Roman", serif;
   --font-body: "IBM Plex Sans", "Helvetica Neue", Arial, sans-serif;
-  /* Type scale: two families and four sizes cover the whole site. */
-  --text-display: clamp(1.6rem, min(3.6vw, 6vh), 2.4rem);
-  --text-heading: 1.15rem;
-  --text-body: 0.875rem;
-  --text-small: 0.7rem;
 
   --gutter: 16px;
   --content-max-width: 1120px;
   --radius: 10px;
   --shadow-card: 0 1px 2px rgba(0, 0, 0, 0.06), 0 8px 24px rgba(0, 0, 0, 0.06);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root:not([data-theme="light"]) {
-    --color-background: #121214;
-    --color-surface: #19191c;
-    --color-surface-raised: #212125;
-    --color-ink: #ece8df;
-    --color-ink-muted: #9b968c;
-    --color-line: #2c2c31;
-    --color-accent: #ff6d48;
-    --color-accent-soft: #3a2119;
-    --color-tag-background: #26262b;
-    --shadow-card: 0 1px 2px rgba(0, 0, 0, 0.4), 0 8px 24px rgba(0, 0, 0, 0.35);
-  }
 }
 
 :root[data-theme="dark"] {
@@ -68,12 +48,14 @@ html {
   scroll-behavior: smooth;
 }
 
+/* Type: three styles for the whole site, each a fixed size.
+   h1 and h2 are Fraunces; everything else is the paragraph style. */
 body {
   margin: 0;
   background: var(--color-background);
   color: var(--color-ink);
   font-family: var(--font-body);
-  font-size: var(--text-body);
+  font-size: 14px;
   line-height: 1.5;
   overflow-x: hidden;
 }
@@ -94,28 +76,27 @@ a:hover {
   color: var(--color-accent);
 }
 
-h1,
+p a,
+li a {
+  color: var(--color-accent);
+}
+
+/* Type: three styles for the whole site, each a fixed size. h1 and h2 are
+   Fraunces; everything else inherits the paragraph style set on body. */
+h1 {
+  font-family: var(--font-display);
+  font-size: 36px;
+  font-weight: 600;
+  line-height: 1.1;
+  margin: 0 0 0.3em;
+}
+
 h2 {
   font-family: var(--font-display);
+  font-size: 18px;
   font-weight: 600;
-  line-height: 1.15;
+  line-height: 1.2;
   margin: 0 0 0.4em;
-  letter-spacing: -0.01em;
-}
-
-h1 {
-  font-size: var(--text-display);
-}
-
-h2 {
-  font-size: var(--text-heading);
-}
-
-h3 {
-  font-size: var(--text-body);
-  font-family: var(--font-body);
-  font-weight: 600;
-  line-height: 1.3;
 }
 
 p {
@@ -170,26 +151,16 @@ button {
 }
 
 .section-link {
-  font-size: var(--text-body);
-  color: var(--color-ink-muted);
   border-bottom: 1px solid var(--color-line);
   padding-bottom: 2px;
 }
 
 .section-link:hover {
-  color: var(--color-accent);
   border-color: var(--color-accent);
 }
 
-.muted {
-  color: var(--color-ink-muted);
-}
-
 .eyebrow {
-  font-size: var(--text-small);
-  color: var(--color-ink-muted);
   margin-bottom: 10px;
-  font-weight: 600;
 }
 
 /* ---------- site header ---------- */
@@ -213,16 +184,10 @@ button {
 /* Home link: same type as the section links, only heavier, set off by a
    thin rule. Its text lines up with the page content. */
 .site-home {
-  font-size: var(--text-body);
-  font-weight: 600;
   white-space: nowrap;
   padding-right: 14px;
   border-right: 1px solid var(--color-line);
   flex-shrink: 0;
-}
-
-.site-home:hover {
-  color: var(--color-accent);
 }
 
 .site-nav {
@@ -241,16 +206,13 @@ button {
 }
 
 .site-nav a {
-  font-size: var(--text-body);
   padding: 6px 9px;
   border-radius: 6px;
   white-space: nowrap;
-  color: var(--color-ink-muted);
 }
 
 .site-nav a:hover,
 .site-nav a[aria-current="page"] {
-  color: var(--color-ink);
   background: var(--color-tag-background);
 }
 
@@ -263,12 +225,10 @@ button {
   padding: 0 12px;
   border: 1px solid var(--color-line);
   border-radius: 999px;
-  font-size: var(--text-body);
   white-space: nowrap;
 }
 
 .site-email:hover {
-  color: var(--color-accent);
   border-color: var(--color-accent);
 }
 
@@ -338,9 +298,6 @@ button {
    with the small type around it. Its size also follows the window height,
    so the hero and the three reels fit on one screen, phones included. */
 .home-hero h1 {
-  font-size: var(--text-display);
-  letter-spacing: -0.02em;
-  line-height: 1.05;
   margin-bottom: 6px;
 }
 
@@ -351,14 +308,11 @@ button {
 /* Tagline under the name: body type, heavier, so the hero reads as one
    serif title over a sans paragraph. */
 .hero-tagline {
-  font-weight: 600;
   margin: 0 0 14px;
 }
 
 .hero .lede {
-  font-size: var(--text-body);
   max-width: 34em;
-  color: var(--color-ink-muted);
   margin-bottom: 22px;
 }
 
@@ -375,19 +329,16 @@ button {
   padding: 10px 16px;
   border-radius: 999px;
   border: 1px solid var(--color-ink);
-  font-size: var(--text-body);
   transition: background 0.15s ease, color 0.15s ease;
 }
 
 .button:hover {
-  background: var(--color-ink);
-  color: var(--color-background);
+  background: var(--color-tag-background);
 }
 
 .button.primary {
   background: var(--color-accent);
   border-color: var(--color-accent);
-  color: #fff;
 }
 
 .button.primary:hover {
@@ -423,7 +374,6 @@ button {
 
 .home-hero .lede {
   margin-top: 8px;
-  font-size: var(--text-body);
 }
 
 /* Fill the window below the 47px header (46px bar + 1px rule) on every
@@ -465,19 +415,8 @@ button {
   margin-bottom: 5px;
 }
 
-.reel-label {
-  font-family: var(--font-display);
-  font-size: var(--text-heading);
-  font-weight: 600;
-}
-
-.reel-label:hover {
-  color: var(--color-accent);
-}
-
-.reel-count {
-  font-size: var(--text-body);
-  color: var(--color-ink-muted);
+.reel-header h2 {
+  margin: 0;
 }
 
 /* The row is cut to the content column of .container, so its edges line up
@@ -577,8 +516,6 @@ button {
   padding: 20px 10px 7px;
   background: linear-gradient(transparent, rgba(0, 0, 0, 0.62));
   color: #fff;
-  font-size: var(--text-small);
-  font-weight: 600;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -627,7 +564,6 @@ button {
 .project-card:hover {
   transform: translateY(-3px);
   box-shadow: var(--shadow-card);
-  color: inherit;
 }
 
 .project-card .thumb {
@@ -673,20 +609,17 @@ button {
   padding: 10px 12px 12px;
 }
 
-.project-card h3 {
-  margin: 0 0 4px;
-}
-
 .project-card .card-meta {
-  font-size: var(--text-small);
-  color: var(--color-ink-muted);
   margin-bottom: 6px;
 }
 
 .project-card p {
   margin: 0;
-  font-size: var(--text-body);
-  color: var(--color-ink-muted);
+}
+
+/* The first paragraph of a card is its title. */
+.project-card p:first-of-type {
+  margin-bottom: 4px;
 }
 
 .tag-row {
@@ -710,11 +643,9 @@ button {
 }
 
 .tag {
-  font-size: var(--text-small);
   padding: 3px 8px;
   border-radius: 999px;
   background: var(--color-tag-background);
-  color: var(--color-ink-muted);
 }
 
 /* ---------- filter tabs ---------- */
@@ -732,18 +663,15 @@ button {
 }
 
 .filter-tabs a {
-  font-size: var(--text-body);
   padding: 7px 14px;
   border-radius: 999px;
   border: 1px solid var(--color-line);
   white-space: nowrap;
-  color: var(--color-ink-muted);
 }
 
 .filter-tabs a[aria-current="true"] {
-  background: var(--color-ink);
+  background: var(--color-tag-background);
   border-color: var(--color-ink);
-  color: var(--color-background);
 }
 
 /* ---------- tag filter ---------- */
@@ -755,29 +683,18 @@ button {
 }
 
 .tag-filter a {
-  font-size: var(--text-small);
   padding: 4px 10px;
   border-radius: 999px;
   background: var(--color-tag-background);
-  color: var(--color-ink-muted);
-}
-
-.tag-filter a:hover {
-  color: var(--color-ink);
 }
 
 .tag-filter a[aria-current="true"] {
-  background: var(--color-accent);
-  color: #fff;
+  background: var(--color-accent-soft);
 }
 
 .tag-filter .tag-count {
   opacity: 0.6;
   margin-left: 5px;
-}
-
-a.tag:hover {
-  color: var(--color-accent);
 }
 
 /* ---------- pending markers (scaffold stage) ---------- */
@@ -786,12 +703,10 @@ a.tag:hover {
   top: 8px;
   left: 8px;
   z-index: 1;
-  font-size: var(--text-small);
   padding: 3px 8px;
   border-radius: 999px;
   background: var(--color-accent);
   color: #fff;
-  font-weight: 600;
 }
 
 .project-card .thumb {
@@ -814,8 +729,6 @@ a.tag:hover {
   inset: 0;
   display: grid;
   place-items: center;
-  font-size: var(--text-small);
-  color: var(--color-ink-muted);
 }
 
 .video-pending {
@@ -833,26 +746,16 @@ a.tag:hover {
     var(--color-surface);
 }
 
-.video-pending-label {
-  font-size: var(--text-small);
-  color: var(--color-ink-muted);
-  font-weight: 600;
-}
-
 .video-pending p {
   margin: 0;
   max-width: 36em;
-  font-size: var(--text-body);
-  color: var(--color-ink-muted);
 }
 
 .copy-pending {
-  font-size: var(--text-small);
   padding: 8px 12px;
   margin-bottom: 16px;
   border-left: 3px solid var(--color-accent);
   background: var(--color-accent-soft);
-  color: var(--color-ink);
 }
 
 /* Videos, embeds and the hero image share one grid with the gallery below:
@@ -870,7 +773,6 @@ a.tag:hover {
 }
 
 .project-media-grid .embed-cover span {
-  font-size: var(--text-small);
   padding: 7px 12px;
 }
 
@@ -888,18 +790,11 @@ a.tag:hover {
   padding-bottom: 20px;
 }
 
-.project-hero .eyebrow a {
-  color: var(--color-accent);
-}
-
 .project-hero h1 {
-  font-size: var(--text-display);
   margin-bottom: 10px;
 }
 
 .project-hero .lede {
-  font-size: var(--text-body);
-  color: var(--color-ink-muted);
   max-width: 40em;
 }
 
@@ -918,21 +813,17 @@ a.tag:hover {
   padding: 9px 16px;
   border: 1px solid var(--color-ink);
   border-radius: 999px;
-  font-size: var(--text-body);
-  color: var(--color-ink);
   text-decoration: none;
   transition: background 0.15s ease, color 0.15s ease;
 }
 
 .project-action::before {
-  font-size: 0.8em;
   opacity: 0.85;
 }
 
 .project-action[data-kind="live"] {
-  background: var(--color-accent);
+  background: var(--color-accent-soft);
   border-color: var(--color-accent);
-  color: #fff;
 }
 
 .project-action[data-kind="live"]::before {
@@ -948,9 +839,8 @@ a.tag:hover {
 }
 
 .project-action:hover {
-  background: var(--color-ink);
+  background: var(--color-tag-background);
   border-color: var(--color-ink);
-  color: var(--color-background);
 }
 
 .project-media {
@@ -1006,7 +896,6 @@ a.tag:hover {
 
 .embed-frame .embed-cover span {
   position: relative;
-  font-size: var(--text-body);
   padding: 10px 18px;
   border: 1px solid #fff;
   border-radius: 999px;
@@ -1014,8 +903,6 @@ a.tag:hover {
 }
 
 .embed-note {
-  font-size: var(--text-small);
-  color: var(--color-ink-muted);
   margin-top: 8px;
 }
 
@@ -1025,19 +912,11 @@ a.tag:hover {
 }
 
 .project-body h2,
-.project-body h3 {
+.project-body h2 {
   margin-top: 1.4em;
 }
 
-.project-body h2 {
-  font-size: var(--text-heading);
-}
-
-.project-body h3 {
-}
-
 .project-body a {
-  color: var(--color-accent);
   text-decoration: underline;
   text-underline-offset: 3px;
   text-decoration-color: color-mix(in srgb, var(--color-accent) 50%, transparent);
@@ -1071,8 +950,6 @@ a.tag:hover {
   background: var(--color-tag-background);
   padding: 12px;
   border-radius: 8px;
-  font-size: var(--text-body);
-  font-family: var(--font-body);
 }
 
 .project-gallery {
@@ -1102,8 +979,6 @@ a.tag:hover {
 }
 
 .project-gallery figcaption {
-  font-size: var(--text-small);
-  color: var(--color-ink-muted);
   padding: 6px 2px;
 }
 
@@ -1113,7 +988,6 @@ a.tag:hover {
   gap: 16px;
   padding: 24px 0 8px;
   border-top: 1px solid var(--color-line);
-  font-size: var(--text-body);
 }
 
 /* ---------- sketch gallery (p5) ---------- */
@@ -1177,13 +1051,8 @@ a.tag:hover {
   padding: 10px 12px 12px;
 }
 
-.sketch-card h3 {
+.sketch-card p {
   margin: 0 0 2px;
-}
-
-.sketch-card .card-meta {
-  font-size: var(--text-small);
-  color: var(--color-ink-muted);
 }
 
 .sketch-viewer {
@@ -1205,12 +1074,10 @@ a.tag:hover {
   gap: 12px;
   padding: 10px var(--gutter);
   color: #fff;
-  font-size: var(--text-body);
 }
 
 .sketch-viewer .viewer-bar .viewer-title {
   margin-right: auto;
-  font-weight: 600;
 }
 
 .sketch-viewer .viewer-bar a,
@@ -1278,10 +1145,6 @@ a.tag:hover {
 }
 
 .cv-block h2 {
-  font-size: var(--text-small);
-  font-family: var(--font-body);
-  font-weight: 600;
-  color: var(--color-ink-muted);
   border-bottom: 1px solid var(--color-line);
   padding-bottom: 8px;
   margin-bottom: 16px;
@@ -1301,24 +1164,17 @@ a.tag:hover {
 }
 
 .cv-entry .cv-when {
-  font-size: var(--text-small);
-  color: var(--color-ink-muted);
   padding-top: 4px;
-}
-
-.cv-entry h3 {
-  margin: 0;
-}
-
-.cv-entry .cv-where {
-  color: var(--color-ink-muted);
-  font-size: var(--text-body);
 }
 
 .cv-entry p,
 .cv-entry ul {
-  font-size: var(--text-body);
   margin: 6px 0 0;
+}
+
+/* The first paragraph of an entry is its title. */
+.cv-entry p:first-of-type {
+  margin: 0;
 }
 
 .cv-entry ul {
@@ -1329,10 +1185,6 @@ a.tag:hover {
   margin-bottom: 3px;
 }
 
-.cv-entry a {
-  color: var(--color-accent);
-}
-
 .skill-list {
   list-style: none;
   padding: 0;
@@ -1341,18 +1193,13 @@ a.tag:hover {
 
 .skill-list li {
   margin-bottom: 10px;
-  font-size: var(--text-body);
 }
 
 .skill-list strong {
   display: block;
-  font-weight: 600;
-  font-size: var(--text-small);
-  color: var(--color-ink-muted);
 }
 
 .cv-summary {
-  font-size: var(--text-body);
   max-width: 38em;
 }
 
@@ -1372,12 +1219,9 @@ a.tag:hover {
   grid-template-columns: 34px 1fr;
   gap: 10px;
   padding: 10px 0;
-  font-size: var(--text-body);
 }
 
 .chapter-list a span:first-child {
-  font-size: var(--text-small);
-  color: var(--color-ink-muted);
   padding-top: 3px;
 }
 
@@ -1402,14 +1246,12 @@ a.tag:hover {
   background: var(--color-surface);
 }
 
-.aside-card h3 {
-  margin-bottom: 6px;
+.aside-card p {
+  margin-bottom: 10px;
 }
 
-.aside-card p {
-  color: var(--color-ink-muted);
-  font-size: var(--text-body);
-  margin-bottom: 10px;
+.aside-card p:first-of-type {
+  margin-bottom: 6px;
 }
 
 /* ---------- footer ---------- */
@@ -1417,8 +1259,6 @@ a.tag:hover {
   border-top: 1px solid var(--color-line);
   padding: 32px 0 48px;
   margin-top: 40px;
-  color: var(--color-ink-muted);
-  font-size: var(--text-small);
 }
 
 .site-footer .container {
@@ -1432,7 +1272,6 @@ a.tag:hover {
   display: flex;
   flex-wrap: wrap;
   gap: 4px 18px;
-  font-size: var(--text-small);
 }
 
 .site-footer .footer-copy {
@@ -1454,7 +1293,6 @@ a.tag:hover {
 }
 
 .prose a {
-  color: var(--color-accent);
   text-decoration: underline;
   text-underline-offset: 3px;
 }

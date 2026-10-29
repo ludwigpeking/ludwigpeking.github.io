@@ -301,9 +301,9 @@
       '<div class="card-meta">' +
       escapeHtml(metaParts.join(" · ")) +
       "</div>" +
-      "<h3>" +
+      "<p>" +
       escapeHtml(project.title) +
-      "</h3>" +
+      "</p>" +
       "<p>" +
       escapeHtml(project.summary) +
       "</p>" +
@@ -407,11 +407,11 @@
         return (
           '<div class="reel">' +
           '<div class="container reel-header">' +
-          '<a class="reel-label" href="work.html?category=' +
+          '<h2><a class="reel-label" href="work.html?category=' +
           category.id +
           '">' +
           escapeHtml(category.label) +
-          "</a>" +
+          "</a></h2>" +
           '<span class="reel-count">' +
           categoryProjects.length +
           (categoryProjects.length === 1 ? " project" : " projects") +
@@ -1260,9 +1260,9 @@
         Array.prototype.forEach.call(scriptElements, function (scriptElement) {
           scriptElement.remove();
         });
-        var headingElements = wrapperElement.querySelectorAll("h1, h2");
+        var headingElements = wrapperElement.querySelectorAll("h1");
         Array.prototype.forEach.call(headingElements, function (headingElement) {
-          var replacement = document.createElement("h3");
+          var replacement = document.createElement("h2");
           replacement.innerHTML = headingElement.innerHTML;
           headingElement.parentNode.replaceChild(replacement, headingElement);
         });
@@ -1311,9 +1311,9 @@
             : "") +
           "></div>" +
           '<div class="card-body">' +
-          "<h3>" +
+          "<p>" +
           escapeHtml(sketch.title) +
-          "</h3>" +
+          "</p>" +
           '<div class="card-meta">' +
           escapeHtml(sketch.year || "") +
           (sketch.note ? " · " + escapeHtml(sketch.note) : "") +
