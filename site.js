@@ -301,9 +301,9 @@
       '<div class="card-meta">' +
       escapeHtml(metaParts.join(" · ")) +
       "</div>" +
-      "<p>" +
+      "<p><strong>" +
       escapeHtml(project.title) +
-      "</p>" +
+      "</strong></p>" +
       "<p>" +
       escapeHtml(project.summary) +
       "</p>" +
@@ -1311,9 +1311,9 @@
             : "") +
           "></div>" +
           '<div class="card-body">' +
-          "<p>" +
+          "<p><strong>" +
           escapeHtml(sketch.title) +
-          "</p>" +
+          "</strong></p>" +
           '<div class="card-meta">' +
           escapeHtml(sketch.year || "") +
           (sketch.note ? " · " + escapeHtml(sketch.note) : "") +
