@@ -14,7 +14,6 @@
   --color-accent-soft: #f6d9cf;
   --color-tag-background: #f1f1f1;
 
-  --font-display: "Fraunces", Georgia, "Times New Roman", serif;
   --font-body: "IBM Plex Sans", "Helvetica Neue", Arial, sans-serif;
 
   --gutter: 16px;
@@ -49,7 +48,7 @@ html {
 }
 
 /* Type: three styles for the whole site, each a fixed size.
-   h1 and h2 are Fraunces; everything else is the paragraph style. */
+   h1 and h2 differ only by size and weight. */
 body {
   margin: 0;
   background: var(--color-background);
@@ -81,10 +80,9 @@ li a {
   color: var(--color-accent);
 }
 
-/* Type: three styles for the whole site, each a fixed size. h1 and h2 are
-   Fraunces; everything else inherits the paragraph style set on body. */
+/* Type: three styles for the whole site, each a fixed size, all in one
+   sans family. h1 and h2 differ from the paragraph only by size and weight. */
 h1 {
-  font-family: var(--font-display);
   font-size: 36px;
   font-weight: 600;
   line-height: 1.1;
@@ -92,7 +90,6 @@ h1 {
 }
 
 h2 {
-  font-family: var(--font-display);
   font-size: 18px;
   font-weight: 600;
   line-height: 1.2;
