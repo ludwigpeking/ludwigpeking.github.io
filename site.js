@@ -995,6 +995,57 @@
     );
   }
 
+  /* The prominent row under a project's summary: its live page first, then
+     its videos on YouTube, then the source code. Links to github.com count
+     as code; an embed's URL counts as a live page when no link has it. */
+  function projectActions(project) {
+    var liveActions = [];
+    var codeActions = [];
+    (project.links || []).forEach(function (link) {
+      if (/github\.com/.test(link.url)) {
+        codeActions.push({ kind: "code", url: link.url, label: link.label === "Code" ? "Source code" : link.label });
+      } else {
+        liveActions.push({ kind: "live", url: link.url, label: link.label === "Live" ? "Live site" : link.label });
+      }
+    });
+    if (
+      project.embed &&
+      !liveActions.some(function (action) {
+        return action.url === project.embed.url;
+      })
+    ) {
+      liveActions.push({ kind: "live", url: project.embed.url, label: project.embed.label || "Run it" });
+    }
+    var videoActions = (project.youtube || []).map(function (video) {
+      return {
+        kind: "video",
+        url: "https://www.youtube.com/watch?v=" + encodeURIComponent(video.id),
+        label: video.label || "Video"
+      };
+    });
+    return liveActions.concat(videoActions, codeActions);
+  }
+
+  function projectActionMarkup(action) {
+    return (
+      '<a class="project-action" data-kind="' +
+      action.kind +
+      '" href="' +
+      escapeHtml(action.url) +
+      '" target="_blank" rel="noopener">' +
+      escapeHtml(action.label) +
+      "</a>"
+    );
+  }
+
+  function projectActionsMarkup(project) {
+    var actions = projectActions(project);
+    if (actions.length === 0) {
+      return "";
+    }
+    return '<div class="project-actions">' + actions.map(projectActionMarkup).join("") + "</div>";
+  }
+
   function galleryMarkup(galleryItems) {
     if (!galleryItems || galleryItems.length === 0) {
       return "";
@@ -1132,29 +1183,17 @@
       '<p class="lede">' +
       escapeHtml(project.summary) +
       "</p>" +
+      projectActionsMarkup(project) +
       '<div class="tag-row">' +
       (project.tags || []).map(tagLinkMarkup).join("") +
       "</div>" +
-      (project.links && project.links.length
-        ? '<div class="project-links">' +
-          project.links.map(linkButtonMarkup).join("") +
-          "</div>"
-        : "") +
       "</header>";
 
+    // Every video, embed and hero image is one cell of the same two-column
+    // grid as the gallery, so the frames line up and none is oversized.
     var mediaParts = [];
     var hasYoutube = project.youtube && project.youtube.length > 0;
-    var youtubeParts = [];
-    if (hasYoutube) {
-      youtubeParts.push(youtubeMarkup(project.youtube[0]));
-      if (project.youtube.length > 1) {
-        youtubeParts.push(
-          '<div class="video-row">' +
-            project.youtube.slice(1).map(youtubeMarkup).join("") +
-            "</div>"
-        );
-      }
-    }
+    var youtubeParts = hasYoutube ? project.youtube.map(youtubeMarkup) : [];
     // Videos lead the page unless the project asks for them after the text.
     if (hasYoutube && !project.youtubeAtEnd) {
       mediaParts = mediaParts.concat(youtubeParts);
@@ -1176,7 +1215,7 @@
       mediaParts.push(heroImageMarkup);
     }
     var mediaMarkup =
-      '<div class="container project-media-stack">' + mediaParts.join("") + "</div>";
+      '<div class="container"><div class="project-media-grid">' + mediaParts.join("") + "</div></div>";
 
     var copyPendingMarkup = project.copyPending
       ? '<div class="copy-pending">Copy pending: the text below is placeholder.</div>'
@@ -1190,7 +1229,7 @@
       galleryMarkup(project.gallery) +
       "</div>" +
       (project.youtubeAtEnd && hasYoutube
-        ? '<div class="container project-media-stack">' + youtubeParts.join("") + "</div>"
+        ? '<div class="container"><div class="project-media-grid">' + youtubeParts.join("") + "</div></div>"
         : "");
 
     rootElement.innerHTML =

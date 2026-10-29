@@ -875,29 +875,27 @@ a.tag:hover {
   color: var(--color-ink);
 }
 
-.project-media-stack > * + * {
-  margin-top: 14px;
-}
-
-.youtube-frame {
-  aspect-ratio: 16 / 9;
-}
-
-.video-row {
+/* Videos, embeds and the hero image share one grid with the gallery below:
+   two columns of 16:9 frames, so everything on the page lines up. */
+.project-media-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 10px;
+  grid-template-columns: 1fr;
+  gap: 12px;
 }
 
-.video-row .embed-cover span {
+@media (min-width: 720px) {
+  .project-media-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.project-media-grid .embed-cover span {
   font-size: 0.62rem;
   padding: 7px 12px;
 }
 
-@media (max-width: 560px) {
-  .video-row {
-    grid-template-columns: 1fr;
-  }
+.youtube-frame {
+  aspect-ratio: 16 / 9;
 }
 
 .related-projects {
@@ -925,11 +923,55 @@ a.tag:hover {
   max-width: 40em;
 }
 
-.project-links {
+/* The live page, the videos and the source code, right under the summary. */
+.project-actions {
   display: flex;
   flex-wrap: wrap;
-  gap: 10px;
-  margin: 16px 0 8px;
+  gap: 8px;
+  margin: 14px 0 12px;
+}
+
+.project-action {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 9px 16px;
+  border: 1px solid var(--color-ink);
+  border-radius: 999px;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: var(--color-ink);
+  text-decoration: none;
+  transition: background 0.15s ease, color 0.15s ease;
+}
+
+.project-action::before {
+  font-size: 0.8em;
+  opacity: 0.85;
+}
+
+.project-action[data-kind="live"] {
+  background: var(--color-accent);
+  border-color: var(--color-accent);
+  color: #fff;
+}
+
+.project-action[data-kind="live"]::before {
+  content: "↗";
+}
+
+.project-action[data-kind="video"]::before {
+  content: "▶";
+}
+
+.project-action[data-kind="code"]::before {
+  content: "</>";
+}
+
+.project-action:hover {
+  background: var(--color-ink);
+  border-color: var(--color-ink);
+  color: var(--color-background);
 }
 
 .project-media {
@@ -940,13 +982,16 @@ a.tag:hover {
 }
 
 .project-media img {
+  display: block;
   width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
 }
 
 .embed-frame {
   position: relative;
   width: 100%;
-  aspect-ratio: 16 / 10;
+  aspect-ratio: 16 / 9;
   background: #000;
   border-radius: var(--radius);
   overflow: hidden;
@@ -1067,7 +1112,10 @@ a.tag:hover {
 }
 
 .project-gallery img {
+  display: block;
   width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
   border-radius: 8px;
   border: 1px solid var(--color-line);
 }

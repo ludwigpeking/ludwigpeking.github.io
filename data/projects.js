@@ -115,7 +115,7 @@ window.PROJECTS = [
       { id: "xrFgm3PKJoA", label: "Algorithms of the City" },
       { id: "BnPAcg75PMg", label: "Intelligent simulations: the three iterations" }
     ],
-    links: [{ label: "Code", url: "https://github.com/ludwigpeking/2603_theAlgorithmsOfTheCity" }],
+    links: [{ label: "Live", url: "https://2603-the-algorithms-of-the-city.vercel.app/" }, { label: "Code", url: "https://github.com/ludwigpeking/2603_theAlgorithmsOfTheCity" }],
     body:
       "<p>Where my written book argues in prose, this one argues in code. Each chapter states a mechanism, such as how hunters and farmers choose where to settle, how routes wear into roads, how a shopping street finds its length, and then lets the reader run it. Terrain viewers for Rome and New York bring real ground into the models, and a shopping-street optimiser built in Godot demonstrates spatial optimisation with agents.</p>" +
       "<p>A ten-minute lecture, in English and Chinese with slides and voice-over, introduces the project, and a video essay presents the drawings.</p>",
@@ -199,6 +199,7 @@ window.PROJECTS = [
     summary:
       "An online memorial to remember the lost, and maintain the community and bond could be lost with them too.",
     tags: ["Gaussian splatting", "webGL + three.js", "architecture + urbanism", "product", "web app"],
+    links: [{ label: "Live", url: "https://www.rattenstadt.com/2604_thePantheonTemplePrecinct/" }, { label: "Code", url: "https://github.com/ludwigpeking/2604_thePantheonTemplePrecinct" }],
     thumb: "img/projects/the-pantheon.jpg",
     thumbMotion: "img/projects/motion/the-pantheon.mp4",
     hero: "img/projects/the-pantheon-hero.jpg",
@@ -297,6 +298,7 @@ window.PROJECTS = [
     summary:
       "A 2D life simulation on a to-scale map of China built from real elevation and river data. Rise from gig worker to tycoon or politician, with karma keeping score.",
     tags: ["game", "GIS", "generative art", "simulation", "procedural", "systems modelling"],
+    links: [{ label: "Live", url: "https://cathay-heroes.vercel.app/" }],
     thumb: "img/projects/cathay-heroes.jpg",
     thumbMotion: "img/projects/motion/cathay-heroes.mp4",
     videoPending: "No gameplay video yet.",
@@ -322,7 +324,7 @@ window.PROJECTS = [
     thumbMotion: "img/projects/motion/last-day-of-ais.mp4",
     hero: "img/projects/last-day-of-ais-hero.jpg",
     videoPending: "No gameplay video yet.",
-    links: [{ label: "Code", url: "https://github.com/ludwigpeking/theLastDayOfAIs" }],
+    links: [{ label: "Live", url: "https://the-last-day-of-ais.vercel.app/" }, { label: "Code", url: "https://github.com/ludwigpeking/theLastDayOfAIs" }],
     body:
       "<p>The game state tracks economy, technology, soft power and ideology for thirty countries and a set of companies, with editors for each system and a tech tree that ends, one way or another, in artificial general intelligence. The three globes show the same world through different lenses. A long essay in the repository sets out the theory the game is testing: that the transition is a coordination problem before it is a technical one.</p>",
     gallery: [{ src: "img/projects/last-day-of-ais-g1.jpg", caption: "Opening screen" }]
