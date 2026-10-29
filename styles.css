@@ -98,7 +98,7 @@ a:hover {
 h1,
 h2 {
   font-family: var(--font-display);
-  font-weight: 500;
+  font-weight: 600;
   line-height: 1.15;
   margin: 0 0 0.4em;
   letter-spacing: -0.01em;
@@ -208,11 +208,10 @@ button {
   height: 46px;
 }
 
-/* Home link: serif and heavier than the mono section links, set off by a
+/* Home link: same type as the section links, only heavier, set off by a
    thin rule. Its text lines up with the page content. */
 .site-home {
-  font-family: var(--font-display);
-  font-size: var(--text-heading);
+  font-size: var(--text-body);
   font-weight: 600;
   white-space: nowrap;
   padding-right: 14px;
@@ -220,8 +219,7 @@ button {
   flex-shrink: 0;
 }
 
-.site-home:hover,
-.site-home[aria-current="page"] {
+.site-home:hover {
   color: var(--color-accent);
 }
 
@@ -339,7 +337,6 @@ button {
    so the hero and the three reels fit on one screen, phones included. */
 .home-hero h1 {
   font-size: var(--text-display);
-  font-weight: 600;
   letter-spacing: -0.02em;
   line-height: 1.05;
   margin-bottom: 6px;
@@ -349,20 +346,11 @@ button {
   margin-bottom: 12px;
 }
 
-/* Tagline under the name, clearly smaller than the name. */
+/* Tagline under the name: body type, heavier, so the hero reads as one
+   serif title over a sans paragraph. */
 .hero-tagline {
-  font-family: var(--font-display);
-  font-size: var(--text-heading);
-  font-weight: 500;
-  line-height: 1.15;
-  letter-spacing: -0.01em;
+  font-weight: 600;
   margin: 0 0 14px;
-}
-
-.hero-tagline em {
-  font-style: italic;
-  font-weight: 300;
-  color: var(--color-accent);
 }
 
 .hero .lede {
@@ -478,7 +466,6 @@ button {
 .reel-label {
   font-family: var(--font-display);
   font-size: var(--text-heading);
-  font-weight: 600;
 }
 
 .reel-label:hover {
@@ -486,7 +473,7 @@ button {
 }
 
 .reel-count {
-  font-size: var(--text-small);
+  font-size: var(--text-body);
   color: var(--color-ink-muted);
 }
 
