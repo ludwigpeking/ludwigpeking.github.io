@@ -79,6 +79,7 @@
   /* The three work categories come first (from CATEGORIES), then these pages. */
   var PAGE_NAVIGATION_ITEMS = [
     { href: "sketches.html", label: "Sketches" },
+    { href: "architecture.html", label: "Architecture" },
     { href: "writing.html", label: "Writing" },
     { href: "cv.html", label: "CV" }
   ];
@@ -121,7 +122,9 @@
       return {
         href: item.href,
         label: item.label,
-        isCurrent: item.href === pageFileName
+        isCurrent:
+          item.href === pageFileName ||
+          (item.href === "architecture.html" && pageFileName === "archproject.html")
       };
     });
     var navigationMarkup = categoryNavigationItems.concat(pageNavigationItems).map(function (item) {

@@ -216,12 +216,12 @@ window.PROJECTS = [
   /* ============================================================== games */
   {
     id: "clash-of-iron",
-    title: "Clash of Iron 大艦巨砲: naval battles in 3D",
+    title: "Clash of Iron 大艦巨砲: restoration of the historical naval battles",
     category: "games",
     year: "2026",
     context: "Independent project, film series and Godot scenes",
     summary:
-      "The battles of the Yalu, Tsushima, Jutland and Guadalcanal reconstructed ship by ship: hour-long 3D films in six languages, playable Godot scenes with ocean and light-shaft shaders, and a procedural ship foundry.",
+      "Uses historical records to reconstruct and reconciliate the tracks of the ships in the historical naval battles at the accuracy without precedence. using procedural generation of ships.",
     tags: ["history", "video", "shaders", "simulation", "procedural", "game", "VR + WebXR", "research", "published"],
     thumb: "img/projects/clash-of-iron.jpg",
     thumbMotion: "img/projects/motion/clash-of-iron.mp4",
@@ -247,7 +247,7 @@ window.PROJECTS = [
     year: "2026",
     context: "Published on itch.io",
     summary:
-      "A dry-landscape garden you tend at your own pace: rake the gravel, shape the sand, place four stones. No score, no timer. Four seasons, three lights, wind and cicadas.",
+      "A dry-landscape garden you tend at your own pace: rake the gravel, shape the sand, place four stones. No score, no timer. Four seasons, wind and cicadas.",
     tags: ["game", "webGL + three.js", "published", "procedural", "simulation", "architecture + urbanism", "generative art"],
     thumb: "img/projects/a-quiet-practice.jpg",
     thumbMotion: "img/projects/motion/a-quiet-practice.mp4",
@@ -271,12 +271,12 @@ window.PROJECTS = [
   {
     id: "rome-wfc",
     featured: true,
-    title: "Rome WFC: a Roman town that pays rent",
+    title: "A Town in a Simulation of Real Estate Market",
     category: "games",
     year: "2026",
     context: "Independent study",
     summary:
-      "A Townscaper-style Roman town grown from a 3D volume grid, with classical, vernacular and temporary building tiers and an economy that sets the rents.",
+      "It simulates the traffic, taxation and the real estate market, transaction and development in a growing town. The town takes form by the accumulated little decisions made by habitants.",
     tags: ["simulation", "webGL + three.js", "history", "procedural", "video", "architecture + urbanism", "real estate", "systems modelling", "generative art"],
     thumb: "img/projects/rome-wfc.jpg",
     thumbMotion: "img/projects/motion/rome-wfc.mp4",
@@ -296,7 +296,7 @@ window.PROJECTS = [
     year: "2026",
     context: "Independent project",
     summary:
-      "A 2D life simulation on a to-scale map of China built from real elevation and river data. Rise from gig worker to tycoon or politician, with karma keeping score.",
+      "Rise from gig worker to tycoon or warlord, in the vibrant land of China.",
     tags: ["game", "GIS", "generative art", "simulation", "procedural", "systems modelling"],
     links: [{ label: "Live", url: "https://cathay-heroes.vercel.app/" }],
     thumb: "img/projects/cathay-heroes.jpg",
@@ -452,7 +452,7 @@ window.PROJECTS = [
   },
   {
     id: "nyc-subway-cube",
-    title: "NYC Subway Cube",
+    title: "NYC Subway in Unkown Dimension",
     category: "interactive",
     year: "2026",
     context: "NYU ITP, projection mapping",
@@ -496,7 +496,7 @@ window.PROJECTS = [
   },
   {
     id: "brick-ghosts",
-    title: "Brick ghosts: relief projection on Jay Street",
+    title: "Projection on Pearl Street, Brooklyn",
     category: "interactive",
     year: "2026",
     context: "NYU ITP, projection mapping",
@@ -516,7 +516,7 @@ window.PROJECTS = [
   },
   {
     id: "ghost-corridor",
-    title: "Ghost corridor",
+    title: "Tracking",
     category: "interactive",
     year: "2025",
     context: "NYU ITP, physical computing",
@@ -538,7 +538,7 @@ window.PROJECTS = [
   },
   {
     id: "playful-nyc-xr",
-    title: "Playful NYC (team)",
+    title: "WebXR Playful NYC (team)",
     category: "interactive",
     year: "2026",
     context: "NYU ITP, team project",
@@ -590,6 +590,21 @@ window.PROJECTS = [
     links: [{ label: "Code", url: "https://github.com/ludwigpeking/2602_WebcamShader" }],
     body:
       "<p>ml5's hand model gives the position of the palm in the image; the apparent width of the palm and the camera's field of view give a distance estimate, so the hand becomes a 3D cursor. Its path is lofted into a tube in a vertex shader and shaded in a fragment shader, all inside p5.js WEBGL mode.</p>"
+  },
+  {
+    id: "p5-sketches",
+    title: "p5.js sketches",
+    category: "interactive",
+    year: "2024 – 2026",
+    context: "Ongoing practice",
+    summary:
+      "A running collection of small p5.js programs: shaders, physics, generative drawing, a Markov chain that composes like Beethoven, a class that draws floor plans. Each runs in the browser.",
+    tags: ["p5.js", "shaders", "procedural", "generative art", "music"],
+    thumb: "img/projects/p5-sketches.jpg",
+    thumbMotion: "img/projects/motion/p5-sketches.mp4",
+    links: [{ label: "Live", url: "sketches.html" }],
+    body:
+      "<p>Sketches are where ideas get tried before they become projects: a GPGPU particle system that spells letters, a superellipse shader, a solar system, a mesh you can pull, a Markov chain trained on Beethoven, a floor-plan class. The <a href='sketches.html'>sketches page</a> plays each one and opens it in the p5.js editor.</p>"
   },
   {
     id: "quadrangulation",
