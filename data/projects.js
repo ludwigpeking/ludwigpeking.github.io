@@ -93,7 +93,11 @@ window.PROJECTS = [
       { id: "BnPAcg75PMg", start: 242, label: "Intelligent simulations: the three iterations" },
       { id: "xrFgm3PKJoA", label: "Algorithms of the City" }
     ],
-    links: [{ label: "Live", url: "https://2603-the-algorithms-of-the-city.vercel.app/" }, { label: "Code", url: "https://github.com/ludwigpeking/2603_theAlgorithmsOfTheCity" }],
+    links: [
+      { label: "Live", url: "https://www.rattenstadt.com/Springshow2026/" },
+      { label: "Vercel version", url: "https://2603-the-algorithms-of-the-city.vercel.app/" },
+      { label: "Code", url: "https://github.com/ludwigpeking/2603_theAlgorithmsOfTheCity" }
+    ],
   },
   {
     id: "ariadne",
