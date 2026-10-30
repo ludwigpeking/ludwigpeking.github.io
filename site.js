@@ -1201,36 +1201,33 @@
     var mediaParts = [];
     var hasYoutube = project.youtube && project.youtube.length > 0;
     var youtubeParts = hasYoutube ? project.youtube.map(youtubeMarkup) : [];
-    // Videos lead the page unless the project asks for them after the text.
-    if (hasYoutube && !project.youtubeAtEnd) {
-      mediaParts = mediaParts.concat(youtubeParts);
-    }
-    if (project.embed) {
-      mediaParts.push(embedMarkup(project.embed, project.hero || project.thumb));
-    }
     if (project.videoPending && !hasYoutube) {
       mediaParts.push(videoPendingMarkup(project.videoPending));
     }
-    // The card image is the still; with motionInPage the card's motion clip
-    // plays in its place.
-    var heroImageMarkup = "";
-    if (project.motionInPage && project.thumbMotion) {
-      heroImageMarkup =
-        '<div class="project-media"><video src="' +
-        escapeHtml(project.thumbMotion) +
-        '" poster="' +
+    // The card's motion clip plays in the page when there is one; otherwise
+    // the card image is shown. thumbInPage adds the still as a further cell.
+    var stillImageMarkup = project.thumb
+      ? '<div class="project-media"><img src="' +
         escapeHtml(project.thumb) +
-        '" autoplay muted loop playsinline></video></div>';
-    } else if (project.hero || project.thumb) {
-      heroImageMarkup =
-        '<div class="project-media"><img src="' +
-        escapeHtml(project.hero || project.thumb) +
         '" alt="' +
         escapeHtml(project.title) +
-        '"></div>';
+        '"></div>'
+      : "";
+    var heroImageMarkup = project.thumbMotion
+      ? '<div class="project-media"><video src="' +
+        escapeHtml(project.thumbMotion) +
+        '" poster="' +
+        escapeHtml(project.thumb || "") +
+        '" autoplay muted loop playsinline></video></div>'
+      : stillImageMarkup;
+    // The thumbnail always opens the grid; the videos follow it, unless the
+    // project asks for them after the text.
+    mediaParts.push(heroImageMarkup);
+    if (project.thumbInPage && project.thumbMotion) {
+      mediaParts.push(stillImageMarkup);
     }
-    if (mediaParts.length === 0 || (project.hero && !project.embed) || project.thumbInPage) {
-      mediaParts.push(heroImageMarkup);
+    if (hasYoutube && !project.youtubeAtEnd) {
+      mediaParts = mediaParts.concat(youtubeParts);
     }
     var mediaMarkup =
       '<div class="container"><div class="project-media-grid">' + mediaParts.join("") + "</div></div>";
@@ -1274,9 +1271,10 @@
       .then(function (fragmentHtml) {
         var wrapperElement = document.createElement("div");
         wrapperElement.innerHTML = fragmentHtml;
-        var scriptElements = wrapperElement.querySelectorAll("script");
-        Array.prototype.forEach.call(scriptElements, function (scriptElement) {
-          scriptElement.remove();
+        // Scripts never run here, and framed pages never fit the column.
+        var droppedElements = wrapperElement.querySelectorAll("script, iframe");
+        Array.prototype.forEach.call(droppedElements, function (droppedElement) {
+          droppedElement.remove();
         });
         var headingElements = wrapperElement.querySelectorAll("h1");
         Array.prototype.forEach.call(headingElements, function (headingElement) {

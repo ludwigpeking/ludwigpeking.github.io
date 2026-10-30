@@ -3,8 +3,7 @@
 
    Each project:
      id, title, category, year, context, summary, tags, thumb
-     optional: featured, thumbInPage (true = show the thumbnail in the media grid as well), motionInPage (true = play the motion clip there instead of the still), thumbMotion (silent H.264 video, 800 x 450, shown on hover), youtube [{id, label, start (seconds, optional)}], videoPending (string),
-               embed {url, label, note}, links [{label, url}], body (HTML),
+     optional: featured, thumbInPage (true = add the still beside the motion clip), thumbMotion (silent H.264 video, 800 x 450, shown on hover), youtube [{id, label, start (seconds, optional)}], videoPending (string), links [{label, url}], body (HTML),
                fragment (HTML file loaded into the body), gallery [{src, caption}],
                copyPending (true = body is placeholder text, still to be written)
 
@@ -189,7 +188,6 @@ window.PROJECTS = [
       { label: "itch.io", url: "https://ludwigpeking.itch.io/the-pantheon" },
       { label: "Code", url: "https://github.com/ludwigpeking/2604_thePantheonTemplePrecinct" }
     ],
-    embed: { url: "https://www.rattenstadt.com/2604_thePantheonTemplePrecinct/", label: "Enter the precinct" },
     thumb: "img/projects/the-pantheon.jpg",
     thumbInPage: true,
     thumbMotion: "img/projects/motion/the-pantheon.mp4",
@@ -207,10 +205,6 @@ window.PROJECTS = [
     tags: ["history", "video", "shaders", "simulation", "procedural", "game", "VR + WebXR", "research", "published"],
     thumb: "img/projects/clash-of-iron.jpg",
     thumbMotion: "img/projects/motion/clash-of-iron.mp4",
-    embed: {
-      url: "https://www.rattenstadt.com/ClashOfIronMaps/?lang=en",
-      label: "Open the battle maps"
-    },
     links: [
       { label: "Battle maps", url: "https://www.rattenstadt.com/ClashOfIronMaps/?lang=en" },
       { label: "Code", url: "https://github.com/ludwigpeking/NavalBattles" }
@@ -267,7 +261,6 @@ window.PROJECTS = [
     links: [{ label: "Live", url: "https://cathay-heroes.vercel.app/" }],
     thumb: "img/projects/cathay-heroes.jpg",
     thumbMotion: "img/projects/motion/cathay-heroes.mp4",
-    motionInPage: true,
   },
   {
     id: "last-day-of-ais",
@@ -293,10 +286,6 @@ window.PROJECTS = [
     tags: ["p5.js", "music", "simulation", "history", "systems modelling"],
     thumb: "img/projects/malthusian-world.jpg",
     thumbMotion: "img/projects/motion/malthusian-world.mp4",
-    embed: {
-      url: "https://malthusian-world.vercel.app/",
-      label: "Run the world"
-    },
     links: [
       { label: "Code", url: "https://github.com/ludwigpeking/MalthusianWorld" },
       { label: "Live", url: "https://malthusian-world.vercel.app/" }
@@ -314,10 +303,6 @@ window.PROJECTS = [
     tags: ["architecture + urbanism", "p5.js", "simulation", "procedural", "history", "systems modelling"],
     thumb: "img/projects/becoming-city.jpg",
     thumbMotion: "img/projects/motion/becoming-city.mp4",
-    embed: {
-      url: "https://becoming-city.vercel.app/",
-      label: "Grow a town"
-    },
     links: [
       { label: "Code", url: "https://github.com/ludwigpeking/becomingCity" },
       { label: "Live", url: "https://becoming-city.vercel.app/" }
@@ -335,10 +320,6 @@ window.PROJECTS = [
     tags: ["architecture + urbanism", "simulation", "p5.js", "history", "systems modelling"],
     thumb: "img/projects/grid-erosion.jpg",
     thumbMotion: "img/projects/motion/grid-erosion.mp4",
-    embed: {
-      url: "https://grid-erosion.vercel.app/",
-      label: "Run the grid"
-    },
     links: [
       { label: "Code", url: "https://github.com/ludwigpeking/grid-erosion" },
       { label: "Live", url: "https://grid-erosion.vercel.app/" }
@@ -478,11 +459,10 @@ window.PROJECTS = [
     tags: ["p5.js", "computer vision", "webGL + three.js", "ML+AI", "shaders"],
     thumb: "img/projects/tube-shader.jpg",
     thumbMotion: "img/projects/motion/tube-shader.mp4",
-    embed: {
-      url: "https://editor.p5js.org/ludwig.peking/full/NqolOlefE",
-      label: "Run it (needs a webcam)"
-    },
-    links: [{ label: "Code", url: "https://github.com/ludwigpeking/2602_WebcamShader" }],
+    links: [
+      { label: "Run it (needs a webcam)", url: "https://editor.p5js.org/ludwig.peking/full/NqolOlefE" },
+      { label: "Code", url: "https://github.com/ludwigpeking/2602_WebcamShader" }
+    ],
   },
   {
     id: "p5-sketches",
@@ -528,11 +508,6 @@ window.PROJECTS = [
       { id: "cQL4t5zoCNk", start: 429, label: "A walkthrough of Shoin-zukuri WFC" },
       { id: "Lgg20hnOQvI", label: "Architecture in 24 blocks: wave function collapse (5:40)" }
     ],
-    embed: {
-      url: "https://shoin-zukuri-wfc.vercel.app/",
-      label: "Generate a building",
-      note: "Runs in the page. Drag to orbit, scroll to zoom, change the seed to get a new complex."
-    },
     links: [
       { label: "Code", url: "https://github.com/ludwigpeking/Shoin_zukuri_WFC" },
       { label: "Live", url: "https://shoin-zukuri-wfc.vercel.app/" }
@@ -566,10 +541,6 @@ window.PROJECTS = [
     tags: ["webGL + three.js", "simulation", "procedural", "shaders"],
     thumb: "img/projects/erosion-terrain.jpg",
     thumbMotion: "img/projects/motion/erosion-terrain.mp4",
-    embed: {
-      url: "https://www.rattenstadt.com/2606_Erosion/",
-      label: "Erode the terrain"
-    },
     links: [
       { label: "Live", url: "https://www.rattenstadt.com/2606_Erosion/" },
       { label: "Code", url: "https://github.com/ludwigpeking/2606_Erosion" }

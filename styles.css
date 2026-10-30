@@ -922,14 +922,10 @@ button {
   margin-bottom: 0.35em;
 }
 
-.project-body img,
-.project-body iframe {
-  width: 100% !important;
-  height: auto;
-  margin: 18px 0 !important;
-  padding: 0 !important;
-  border-radius: 8px;
-  border: 1px solid var(--color-line);
+/* Images in the original project pages keep their own sizes; they only
+   must not overflow the column. */
+.project-body img {
+  max-width: 100%;
 }
 
 .project-body iframe {
