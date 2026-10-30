@@ -1218,7 +1218,7 @@
         escapeHtml(project.title) +
         '"></div>'
       : "";
-    if (mediaParts.length === 0 || (project.hero && !project.embed)) {
+    if (mediaParts.length === 0 || (project.hero && !project.embed) || project.thumbInPage) {
       mediaParts.push(heroImageMarkup);
     }
     var mediaMarkup =

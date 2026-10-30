@@ -3,7 +3,7 @@
 
    Each project:
      id, title, category, year, context, summary, tags, thumb
-     optional: featured, thumbMotion (silent H.264 video, 800 x 450, shown on hover), youtube [{id, label, start (seconds, optional)}], videoPending (string),
+     optional: featured, thumbInPage (true = show the thumbnail in the media grid as well), thumbMotion (silent H.264 video, 800 x 450, shown on hover), youtube [{id, label, start (seconds, optional)}], videoPending (string),
                embed {url, label, note}, links [{label, url}], body (HTML),
                fragment (HTML file loaded into the body), gallery [{src, caption}],
                copyPending (true = body is placeholder text, still to be written)
@@ -184,8 +184,14 @@ window.PROJECTS = [
     summary:
       "An online memorial to remember the lost, and maintain the community and bond could be lost with them too.",
     tags: ["Gaussian splatting", "webGL + three.js", "architecture + urbanism", "product", "web app"],
-    links: [{ label: "Live", url: "https://www.rattenstadt.com/2604_thePantheonTemplePrecinct/" }, { label: "Code", url: "https://github.com/ludwigpeking/2604_thePantheonTemplePrecinct" }],
+    links: [
+      { label: "Live", url: "https://www.rattenstadt.com/2604_thePantheonTemplePrecinct/" },
+      { label: "itch.io", url: "https://ludwigpeking.itch.io/the-pantheon" },
+      { label: "Code", url: "https://github.com/ludwigpeking/2604_thePantheonTemplePrecinct" }
+    ],
+    embed: { url: "https://www.rattenstadt.com/2604_thePantheonTemplePrecinct/", label: "Enter the precinct" },
     thumb: "img/projects/the-pantheon.jpg",
+    thumbInPage: true,
     thumbMotion: "img/projects/motion/the-pantheon.mp4",
   },
 
