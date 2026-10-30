@@ -231,8 +231,7 @@ window.PROJECTS = [
     youtube: [{ id: "hMuYt7BOra8", label: "A Quiet Practice (film)" }],
     links: [
       { label: "Live", url: "https://www.rattenstadt.com/a-quiet-practice-ryoanji/" },
-      { label: "itch.io", url: "https://ludwigpeking.itch.io/a-quiet-practice" },
-      { label: "Play online", url: "https://ryoanji-still-garden.ludwig-peking.chatgpt.site/" }
+      { label: "itch.io", url: "https://ludwigpeking.itch.io/a-quiet-practice" }
     ],
   },
   {
