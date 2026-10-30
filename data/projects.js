@@ -95,7 +95,7 @@ window.PROJECTS = [
     ],
     links: [
       { label: "Live", url: "https://www.rattenstadt.com/Springshow2026/" },
-      { label: "Vercel version", url: "https://2603-the-algorithms-of-the-city.vercel.app/" },
+      { label: "The book", url: "https://2603-the-algorithms-of-the-city.vercel.app/" },
       { label: "Code", url: "https://github.com/ludwigpeking/2603_theAlgorithmsOfTheCity" }
     ],
   },
