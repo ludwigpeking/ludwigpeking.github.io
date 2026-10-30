@@ -90,8 +90,8 @@ window.PROJECTS = [
     thumb: "img/projects/algorithms-of-the-city.jpg",
     thumbMotion: "img/projects/motion/algorithms-of-the-city.mp4",
     youtube: [
-      { id: "xrFgm3PKJoA", label: "Algorithms of the City" },
-      { id: "BnPAcg75PMg", start: 242, label: "Intelligent simulations: the three iterations" }
+      { id: "BnPAcg75PMg", start: 242, label: "Intelligent simulations: the three iterations" },
+      { id: "xrFgm3PKJoA", label: "Algorithms of the City" }
     ],
     links: [{ label: "Live", url: "https://2603-the-algorithms-of-the-city.vercel.app/" }, { label: "Code", url: "https://github.com/ludwigpeking/2603_theAlgorithmsOfTheCity" }],
   },
