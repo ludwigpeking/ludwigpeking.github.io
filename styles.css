@@ -840,7 +840,8 @@ button {
   border: 1px solid var(--color-line);
 }
 
-.project-media img {
+.project-media img,
+.project-media video {
   display: block;
   width: 100%;
   aspect-ratio: 16 / 9;

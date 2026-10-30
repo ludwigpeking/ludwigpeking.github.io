@@ -1211,13 +1211,24 @@
     if (project.videoPending && !hasYoutube) {
       mediaParts.push(videoPendingMarkup(project.videoPending));
     }
-    var heroImageMarkup = project.hero || project.thumb
-      ? '<div class="project-media"><img src="' +
+    // The card image is the still; with motionInPage the card's motion clip
+    // plays in its place.
+    var heroImageMarkup = "";
+    if (project.motionInPage && project.thumbMotion) {
+      heroImageMarkup =
+        '<div class="project-media"><video src="' +
+        escapeHtml(project.thumbMotion) +
+        '" poster="' +
+        escapeHtml(project.thumb) +
+        '" autoplay muted loop playsinline></video></div>';
+    } else if (project.hero || project.thumb) {
+      heroImageMarkup =
+        '<div class="project-media"><img src="' +
         escapeHtml(project.hero || project.thumb) +
         '" alt="' +
         escapeHtml(project.title) +
-        '"></div>'
-      : "";
+        '"></div>';
+    }
     if (mediaParts.length === 0 || (project.hero && !project.embed) || project.thumbInPage) {
       mediaParts.push(heroImageMarkup);
     }

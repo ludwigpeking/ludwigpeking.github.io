@@ -3,7 +3,7 @@
 
    Each project:
      id, title, category, year, context, summary, tags, thumb
-     optional: featured, thumbInPage (true = show the thumbnail in the media grid as well), thumbMotion (silent H.264 video, 800 x 450, shown on hover), youtube [{id, label, start (seconds, optional)}], videoPending (string),
+     optional: featured, thumbInPage (true = show the thumbnail in the media grid as well), motionInPage (true = play the motion clip there instead of the still), thumbMotion (silent H.264 video, 800 x 450, shown on hover), youtube [{id, label, start (seconds, optional)}], videoPending (string),
                embed {url, label, note}, links [{label, url}], body (HTML),
                fragment (HTML file loaded into the body), gallery [{src, caption}],
                copyPending (true = body is placeholder text, still to be written)
@@ -267,6 +267,7 @@ window.PROJECTS = [
     links: [{ label: "Live", url: "https://cathay-heroes.vercel.app/" }],
     thumb: "img/projects/cathay-heroes.jpg",
     thumbMotion: "img/projects/motion/cathay-heroes.mp4",
+    motionInPage: true,
   },
   {
     id: "last-day-of-ais",
