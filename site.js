@@ -852,6 +852,18 @@
     );
   }
 
+  function localVideoMarkup(video, project) {
+    return (
+      '<div class="project-media"><video src="' +
+      escapeHtml(video.src) +
+      '" poster="' +
+      escapeHtml(video.poster || project.thumb || "") +
+      '" controls preload="metadata" playsinline aria-label="' +
+      escapeHtml(video.label || project.title) +
+      '"></video></div>'
+    );
+  }
+
   function youtubeMarkup(video) {
     var embedUrl =
       "https://www.youtube-nocookie.com/embed/" +
@@ -1201,6 +1213,11 @@
     var mediaParts = [];
     var hasYoutube = project.youtube && project.youtube.length > 0;
     var youtubeParts = hasYoutube ? project.youtube.map(youtubeMarkup) : [];
+    // Local video files (project.videos) sit between the thumbnail and the
+    // YouTube frames, with the browser's own controls.
+    var localVideoParts = (project.videos || []).map(function (video) {
+      return localVideoMarkup(video, project);
+    });
     if (project.videoPending && !hasYoutube) {
       mediaParts.push(videoPendingMarkup(project.videoPending));
     }
@@ -1226,6 +1243,7 @@
     if (project.thumbInPage && project.thumbMotion) {
       mediaParts.push(stillImageMarkup);
     }
+    mediaParts = mediaParts.concat(localVideoParts);
     if (hasYoutube && !project.youtubeAtEnd) {
       mediaParts = mediaParts.concat(youtubeParts);
     }

@@ -394,7 +394,7 @@ window.PROJECTS = [
     year: "2026",
     context: "NYU ITP, projection mapping",
     summary:
-      "Ghost faces, a flock and a line of dancers rendered as per-brick displacement relief for an 8 by 12 metre brick wall in downtown Brooklyn, with three synthesised soundtracks.",
+      "A halloween installation at Pearl St. Brooklyn",
     tags: ["projection mapping", "installation", "video", "procedural", "computer vision"],
     thumb: "img/projects/brick-ghosts.jpg",
     thumbMotion: "img/projects/motion/brick-ghosts.mp4",
@@ -427,10 +427,16 @@ window.PROJECTS = [
     year: "2026",
     context: "NYU ITP, team project",
     summary:
-      "Won Parsons New School Creative Center Award. A multiplayer WebXR scene of a New York fire escape at night, shared over a local network, with AR occlusion tests and a day-night cycle. Teammates: Aditya De, Elisabeth Kezia, Eros",
+      "Won Parsons New School Creative Center Award. \nHere's NYC room of 50 sqft, but with brilliant manouvers, you can share it with a roommate, even cook, study and shower.\nA multiplayer WebXR scene. Teammates: Aditya De, Elisabeth Kezia, Eros",
     tags: ["VR + WebXR", "webGL + three.js", "simulation", "procedural", "game", "exhibited + award", "installation"],
     thumb: "img/projects/playful-nyc-xr.jpg",
     thumbMotion: "img/projects/motion/playful-nyc-xr.mp4",
+    videos: [
+      { src: "img/projects/video/playful-nyc-xr.mp4", label: "Two roommates in 50 square feet: a play-through" }
+    ],
+    links: [
+      { label: "Code", url: "https://github.com/adityade8k/PlayfulNYC_Team3" }
+    ],
   },
   {
     id: "beethoven-motif-lab",
@@ -439,7 +445,7 @@ window.PROJECTS = [
     year: "2025 – 2026",
     context: "Independent research and documentary",
     summary:
-      "A custom PyTorch transformer trained on the 32 piano sonatas, with pitch-aware rotary attention, chord and cadence models, fitness critics and a blind listening test. And a nineteen-minute film on how AI learned music.",
+      "A custom PyTorch transformer trained on the 32 piano sonatas from Beethoven. It is expected to make 'Beethoven style' scores from any notes the user gives at the starting motif.",
     tags: ["ML+AI", "music", "research"],
     thumb: "img/projects/beethoven-motif-lab.jpg",
     youtube: [
