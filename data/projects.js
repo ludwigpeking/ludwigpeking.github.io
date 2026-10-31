@@ -268,7 +268,7 @@ window.PROJECTS = [
     year: "2026",
     context: "Independent project",
     summary:
-      "Test the future of humanity - where the attitude to AI may matter more than the ideologies. A geopolitical strategy game about the AGI transition. Play a head of state, a Big Tech CEO or a non-state actor.",
+      "Test the future of humanity - where the attitude to AI may matter more than the ideologies. A geopolitical strategy game about the AGI transition. Play a head of state, a Big Tech CEO or a non-state actor. Sponsors: Shawn Van Every, Jeremy Deutsch.",
     tags: ["game", "webGL + three.js", "systems modelling", "research", "simulation", "ML+AI"],
     thumb: "img/projects/last-day-of-ais.jpg",
     thumbMotion: "img/projects/motion/last-day-of-ais.mp4",
