@@ -298,8 +298,9 @@ button {
   margin-bottom: 6px;
 }
 
+/* One blank line (1.5em at 14px) between the name block and the lede. */
 .home-hero .eyebrow {
-  margin-bottom: 12px;
+  margin-bottom: calc(12px + 1.5em);
 }
 
 .hero .lede {
