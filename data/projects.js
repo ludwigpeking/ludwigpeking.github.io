@@ -428,7 +428,7 @@ window.PROJECTS = [
     year: "2026",
     context: "NYU ITP, team project",
     summary:
-      "Won Parsons New School Creative Center Award. \nHere's NYC room of 50 sqft, but with brilliant manouvers, you can share it with a roommate, even cook, study and shower.\nA multiplayer WebXR scene. Teammates: Aditya De, Elisabeth Kezia, Eros",
+      "Won Parsons New School Creative Center Award. \nHere's NYC room of 50 sqft, but with brilliant manouvers, you can share it with a roommate, even cook, study and shower.\nA multiplayer WebXR scene. Teammates: Eros Carrasco, Elizabeth Kezia Widjaja, Aditya De",
     tags: ["VR + WebXR", "webGL + three.js", "simulation", "procedural", "game", "exhibited + award", "installation"],
     thumb: "img/projects/playful-nyc-xr.jpg",
     thumbMotion: "img/projects/motion/playful-nyc-xr.mp4",
