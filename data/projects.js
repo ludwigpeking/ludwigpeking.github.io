@@ -400,7 +400,8 @@ window.PROJECTS = [
     thumbMotion: "img/projects/motion/brick-ghosts.mp4",
     links: [
       { label: "Live", url: "https://www.rattenstadt.com/projection-on-brick-wall/" },
-      { label: "Code", url: "https://github.com/ludwigpeking/projection-on-brick-wall" }
+      { label: "Content code", url: "https://github.com/ludwigpeking/projection-on-brick-wall" },
+      { label: "Mapper code", url: "https://github.com/ludwigpeking/HtmlProjectionMapper" }
     ],
   },
   {
