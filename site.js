@@ -143,7 +143,8 @@
         label: item.label,
         isCurrent:
           item.href === pageFileName ||
-          (item.href === "architecture.html" && pageFileName === "archproject.html")
+          (item.href === "architecture.html" && pageFileName === "archproject.html") ||
+          (item.href === "cv.html" && pageFileName === "cv-zh.html")
       };
     });
     var navigationMarkup = categoryNavigationItems.concat(pageNavigationItems).map(function (item) {
