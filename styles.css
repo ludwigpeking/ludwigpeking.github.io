@@ -76,8 +76,7 @@ a:hover {
 }
 
 p a,
-li a,
-.eyebrow a {
+li a {
   color: var(--color-accent);
 }
 
