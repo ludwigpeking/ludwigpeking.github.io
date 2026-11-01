@@ -92,16 +92,29 @@
 
   /* The category the visitor is looking at: the work page filter, or the
      category of the project being shown. Empty string elsewhere. */
-  function currentCategoryId(pageFileName) {
+  function currentCategoryIds(pageFileName) {
     var urlParameters = new URLSearchParams(window.location.search);
     if (pageFileName === "work.html") {
-      return urlParameters.get("category") || "";
+      return categoryIdsFromParameter(urlParameters.get("category"));
     }
     if (pageFileName === "project.html") {
       var project = findProject(urlParameters.get("id"));
-      return project ? project.category : "";
+      return project ? [project.category] : [];
     }
-    return "";
+    return [];
+  }
+
+  /* The work page filter accepts several categories at once, comma-separated
+     (work.html?category=web,games). Unknown ids are dropped. */
+  function categoryIdsFromParameter(parameterValue) {
+    return (parameterValue || "")
+      .split(",")
+      .map(function (categoryId) {
+        return categoryId.trim();
+      })
+      .filter(function (categoryId) {
+        return categoryId !== "" && findCategory(categoryId);
+      });
   }
 
   function renderHeader() {
@@ -110,12 +123,12 @@
       return;
     }
     var pageFileName = currentPageFileName();
-    var activeCategoryId = currentCategoryId(pageFileName);
+    var activeCategoryIds = currentCategoryIds(pageFileName);
     var categoryNavigationItems = (window.CATEGORIES || []).map(function (category) {
       return {
         href: "work.html?category=" + category.id,
         label: category.navigationLabel || category.label,
-        isCurrent: category.id === activeCategoryId
+        isCurrent: activeCategoryIds.indexOf(category.id) !== -1
       };
     });
     var pageNavigationItems = PAGE_NAVIGATION_ITEMS.map(function (item) {
@@ -737,10 +750,9 @@
       return;
     }
     var urlParameters = new URLSearchParams(window.location.search);
-    var activeCategoryId = urlParameters.get("category") || "all";
-    if (activeCategoryId !== "all" && !findCategory(activeCategoryId)) {
-      activeCategoryId = "all";
-    }
+    var activeCategoryIds = categoryIdsFromParameter(urlParameters.get("category"));
+    var activeCategoryId = activeCategoryIds.length === 1 ? activeCategoryIds[0] : "all";
+    var isCombinedView = activeCategoryIds.length > 1;
     var activeTag = urlParameters.get("tag") || "";
     if (activeTag && projectsWithTag(activeTag).length === 0) {
       activeTag = "";
@@ -757,7 +769,9 @@
             '<a href="work.html' +
             (tabItem.id === "all" ? "" : "?category=" + tabItem.id) +
             '"' +
-            (tabItem.id === activeCategoryId ? ' aria-current="true"' : "") +
+            ((isCombinedView ? activeCategoryIds.indexOf(tabItem.id) !== -1 : tabItem.id === activeCategoryId)
+              ? ' aria-current="true"'
+              : "") +
             ">" +
             escapeHtml(tabItem.label) +
             "</a>"
@@ -792,12 +806,23 @@
     var headingElement = document.querySelector("[data-work-heading]");
     var blurbElement = document.querySelector("[data-work-blurb]");
     var activeCategory = findCategory(activeCategoryId);
+    var activeCategories = activeCategoryIds.map(findCategory);
     var visibleProjects = activeTag
       ? projectsWithTag(activeTag)
+      : isCombinedView
+      ? (window.PROJECTS || []).filter(function (project) {
+          return activeCategoryIds.indexOf(project.category) !== -1;
+        })
       : projectsInCategory(activeCategoryId);
     if (headingElement) {
       headingElement.textContent = activeTag
         ? "Tagged: " + activeTag
+        : isCombinedView
+        ? activeCategories
+            .map(function (category) {
+              return category.label;
+            })
+            .join(" · ")
         : activeCategory
         ? activeCategory.label
         : "All work";
@@ -807,6 +832,16 @@
         ? visibleProjects.length +
           (visibleProjects.length === 1 ? " project" : " projects") +
           " across all categories."
+        : isCombinedView
+        ? "Software I wrote and shipped: " +
+          activeCategories
+            .map(function (category) {
+              return category.blurb.toLowerCase();
+            })
+            .join("; ") +
+          ". " +
+          visibleProjects.length +
+          " projects."
         : activeCategory
         ? activeCategory.description || activeCategory.blurb
         : "Selected projects since 2022, across three threads of practice. Filter by category, or by tag to cut across them.";
