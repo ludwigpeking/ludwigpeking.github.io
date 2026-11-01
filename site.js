@@ -172,7 +172,7 @@
       '<a href="https://github.com/ludwigpeking" target="_blank" rel="noopener">GitHub</a>' +
       '<a href="https://editor.p5js.org/ludwig.peking/sketches" target="_blank" rel="noopener">p5.js</a>' +
       '<a href="https://www.linkedin.com/in/qian-li-944a0510/" target="_blank" rel="noopener">LinkedIn</a>' +
-      '<a href="https://www.youtube.com/channel/UC70EKdkg918fqyimJ5-fNMA" target="_blank" rel="noopener">YouTube</a>' +
+      '<a href="https://www.youtube.com/@RichardQianLi" target="_blank" rel="noopener">YouTube</a>' +
       '<a href="architecture.html">Architecture archive</a>' +
       "</div>" +
       '<div class="footer-copy">Richard Qian Li &middot; New York / Beijing</div>' +
