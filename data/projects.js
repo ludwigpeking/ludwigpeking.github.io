@@ -441,6 +441,7 @@ window.PROJECTS = [
   },
   {
     id: "beethoven-motif-lab",
+    hidden: true,
     title: "Beethoven Motif Lab",
     category: "interactive",
     year: "2025 – 2026",

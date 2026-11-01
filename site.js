@@ -9,6 +9,12 @@
 (function () {
   "use strict";
 
+  /* A project with hidden: true stays in data/projects.js, with its files,
+     but appears nowhere on the site until the flag is removed. */
+  window.PROJECTS = (window.PROJECTS || []).filter(function (project) {
+    return !project.hidden;
+  });
+
   var THEME_STORAGE_KEY = "rql-theme";
 
   /* ---------------------------------------------------------------- theme */
