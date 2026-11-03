@@ -173,6 +173,10 @@ window.PROJECTS = [
       { label: "Code", url: "https://github.com/ludwigpeking/VorteGoWebsite" },
       { label: "HexGoban", url: "https://github.com/ludwigpeking/HexGoban" }
     ],
+    gallery: [
+      { src: "img/projects/vortego-sphere-goban-g01.jpg", caption: "Sphere goban: a 250 mm ball with a lit button at each of its 78 points, on its charging dock (render)" },
+      { src: "img/projects/vortego-sphere-goban-g02.jpg", caption: "Sphere goban, exploded: two printed halves, button modules, wiring chains, main board and battery (render)" }
+    ],
   },
   {
     id: "the-pantheon",
@@ -247,6 +251,7 @@ window.PROJECTS = [
     thumb: "img/projects/rome-wfc.jpg",
     thumbMotion: "img/projects/motion/rome-wfc.mp4",
     youtube: [{ id: "bvacpcuEwmA", label: "Rebuild Rome: algorithmic generation" }],
+    links: [{ label: "Live", url: "https://www.rattenstadt.com/RomeWFC/" }],
   },
   {
     id: "cathay-heroes",
@@ -386,6 +391,10 @@ window.PROJECTS = [
       "Four stacked free-form glass layers, trained with the adjoint method so that white light passing through them comes out as an image. Plus an optical bench app for designing printable lenses, and a nine-minute primer on optical computing.",
     tags: ["digital fabrication", "Python", "research", "video", "simulation", "installation"],
     thumb: "img/projects/optical-network.jpg",
+    gallery: [
+      { src: "img/projects/optical-network-g01.jpg" },
+      { src: "img/projects/optical-network-g02.jpg" }
+    ],
   },
   {
     id: "brick-ghosts",
